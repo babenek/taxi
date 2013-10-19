@@ -1,0 +1,24 @@
+AuthGroupFile /dev/null
+AuthName "Restricted area"
+AuthType Basic
+AuthUserFile /home/xlam/domains/xlam.net.ua/.htpasswd/public_html/.htpasswd
+require valid-user
+
+<Files .htpasswd> 
+   deny from all 
+</Files>
+
+<FilesMatch "\.php$">
+Order Deny,Allow
+Deny from all
+</FilesMatch>
+
+<Files index.php>
+Order Allow,Deny
+Allow from all
+</Files>
+
+<Files locations.php>
+Order Allow,Deny
+Allow from all
+</Files>

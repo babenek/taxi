@@ -1,0 +1,104 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.4
+-- http://www.phpmyadmin.net
+--
+-- Хост: localhost
+-- Время создания: Дек 07 2008 г., 15:45
+-- Версия сервера: 5.0.22
+-- Версия PHP: 4.4.8
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- База данных: `xlam_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `fortuna`
+--
+
+CREATE TABLE `fortuna` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(8) NOT NULL,
+  `id_location` tinyint(4) NOT NULL,
+  `cl` varchar(6) default '0a0a0a',
+  `bg` varchar(6) default 'f0f0f0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MEMORY DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1806 ;
+
+--
+-- Дамп данных таблицы `fortuna`
+--
+
+INSERT INTO `fortuna` VALUES(1792, '59', 8, 'FFFF33', '990000');
+INSERT INTO `fortuna` VALUES(1793, '49', 8, 'FFFFFF', '0000CC');
+INSERT INTO `fortuna` VALUES(1794, '33', 1, 'FFFF33', '990000');
+INSERT INTO `fortuna` VALUES(1795, '68-', 5, '000000', '00FF00');
+INSERT INTO `fortuna` VALUES(1796, '57', 10, '000000', '00FF00');
+INSERT INTO `fortuna` VALUES(1797, 's203', 10, '000000', '00FF00');
+INSERT INTO `fortuna` VALUES(1798, '81', 15, '00FF00', 'CC0000');
+INSERT INTO `fortuna` VALUES(1799, '74', 1, 'FFFFFF', '0000CC');
+INSERT INTO `fortuna` VALUES(1800, '302', 14, '000000', '00FF00');
+INSERT INTO `fortuna` VALUES(1801, '26-', 11, '000000', '00FF00');
+INSERT INTO `fortuna` VALUES(1802, '23+', 10, '000000', '00FF00');
+INSERT INTO `fortuna` VALUES(1803, '54', 8, 'FFFFFF', '0000CC');
+INSERT INTO `fortuna` VALUES(1804, '07.12.08', 99, '808080', 'FFFFFF');
+INSERT INTO `fortuna` VALUES(1805, '15:29:20', 99, '808080', 'FFFFFF');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `locations`
+--
+
+CREATE TABLE `locations` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(8) NOT NULL,
+  `id_location` tinyint(4) NOT NULL,
+  `cl` varchar(6) default '0a0a0a',
+  `bg` varchar(6) default 'f0f0f0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MEMORY DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1 ;
+
+--
+-- Дамп данных таблицы `locations`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `samara`
+--
+
+CREATE TABLE `samara` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(8) NOT NULL,
+  `id_location` tinyint(4) NOT NULL,
+  `cl` varchar(6) default '0a0a0a',
+  `bg` varchar(6) default 'f0f0f0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MEMORY DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1875 ;
+
+--
+-- Дамп данных таблицы `samara`
+--
+
+INSERT INTO `samara` VALUES(1859, '59', 8, 'FFFF33', '990000');
+INSERT INTO `samara` VALUES(1860, '49', 8, 'FFFFFF', '0000CC');
+INSERT INTO `samara` VALUES(1861, '33', 1, 'FFFF33', '990000');
+INSERT INTO `samara` VALUES(1862, '68-', 5, '000000', '00FF00');
+INSERT INTO `samara` VALUES(1863, '57', 10, '00FF00', 'CC0000');
+INSERT INTO `samara` VALUES(1864, '81', 15, '00FF00', 'CC0000');
+INSERT INTO `samara` VALUES(1865, '74', 1, 'FFFFFF', '0000CC');
+INSERT INTO `samara` VALUES(1866, '302', 14, '000000', '00FF00');
+INSERT INTO `samara` VALUES(1867, '26-', 11, '000000', '00FF00');
+INSERT INTO `samara` VALUES(1868, '23+', 10, '000000', '00FF00');
+INSERT INTO `samara` VALUES(1869, '54', 8, 'FFFFFF', '0000CC');
+INSERT INTO `samara` VALUES(1870, '53', 1, 'FFFFFF', '0000CC');
+INSERT INTO `samara` VALUES(1871, '44', 2, 'FFFFFF', '786E00');
+INSERT INTO `samara` VALUES(1872, '37', 15, '000000', '00FF00');
+INSERT INTO `samara` VALUES(1873, '07.12.08', 99, '808080', 'FFFFFF');
+INSERT INTO `samara` VALUES(1874, '15:42:32', 99, '808080', 'FFFFFF');

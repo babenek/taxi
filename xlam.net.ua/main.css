@@ -1,0 +1,176 @@
+a:visited{
+	color:#0066aa;
+	text-decoration:none;
+	}
+a{
+	color:#0066ff;
+	text-decoration:none;
+	}
+a:hover{
+	color:#3366ff;
+	text-decoration:underline;
+	}
+	
+body{
+	font-family:Verdana,Arial;
+	font-weight:normal;
+	font-size:12px;
+	}
+h1{
+	color:#0066aa;
+	margin-top:0px;
+	margin-bottom:0px;	
+	font-size:20px;	
+	}	
+h2{
+	color:#0066aa;
+	margin-top:0px;
+	margin-bottom:0px;	
+	font-size:18px;	
+	}	
+h3{
+	color:#0066aa;
+	margin-top:0px;
+	margin-bottom:0px;	
+	font-size:16px;	
+	}
+		
+table{
+	width:100%;
+	padding:0px;
+	cellspacing:0px;
+	border:0px;
+	}	
+
+
+	
+.title {	
+	display:block;
+	font-size:12px;	
+	background-color:#f0f0f0;
+	padding:3px;
+	border-width: 0px 0px;
+	} 	
+.title P{
+	font-size:12px;	
+	}
+.title A{
+	font-size:12px;	
+	}	
+
+.content  { 
+	display:block; 	
+	border-style:solid;
+	font-size:12px;
+	background-color:#ffffff;	
+	padding:3px;
+	border-width: 1px 1px;	
+	border-top-width:0px;
+	border-color:#f0f0f0;
+	text-align:left;
+	} 
+.content P{
+	font-size:12px;	
+	}
+.content A:visited{
+	}
+.content A{
+	font-size:12px;	
+	}
+.content A:hover{
+	}
+	
+.gray{
+	color:#a0a0a0;
+	}	
+
+.line  { 
+	display:block; 	
+	width:100%;
+	font-size:8px;	
+	background-color:#ffffff;	
+	}
+	
+.tabs  { 	
+	font-size:12px;	
+	background-color:#ffffff;	
+	}
+
+td.level_1 {	
+	font-size:14px;	
+	}
+.level_1 A:visited { 		
+	} 
+.level_1 A { 	
+	display:block; 	
+	font-weight:bold;
+	background-color: #f0f0f0; 	
+	text-decoration:none;
+	border-width: 0px 0px;
+	} 
+.level_1 A:hover { 
+	color:navy; 
+	background-color: #e0e0e0; 
+	} 
+
+
+td.level_2 {	
+	font-size:12px;	
+	}
+.level_2 A:visited { 		
+	} 
+.level_2 A { 		
+	display:block; 	
+	font-weight:bold;
+	background-color: #f0f0f0; 	
+	padding-left:10px; 
+	text-decoration:none;
+	border-width: 0px 0px;
+	} 
+.level_2 A:hover { 
+	color:navy; 
+	background-color: #e0e0e0; 
+	} 
+
+td.level_3 {			
+	font-size:12px;	
+	text-align:right;
+	font-weight:normal;
+	}
+.level_3 A:visited { 			
+	} 
+.level_3 A { 		
+	display:block; 	
+	background-color: #f0f0f0; 		
+	text-decoration:none;
+	border-width: 0px 0px;
+	} 
+.level_3 A:hover { 
+	display:block; 
+	border-color: #f0f0f0;
+	color:navy; 
+	background-color: #e0e0e0; 
+	}   
+
+.label  { 
+	display:block; 	
+	border-style:solid;
+	font-size:12px;
+	font-weight:bold;
+	background-color:#ffffff;	
+	padding:3px;
+	border-width: 1px 1px;	
+	border-top-width:0px;
+	border-color:#f0f0f0;
+	text-align:left;
+	} 
+.label P{
+	font-size:14px;	
+	}
+.label A:visited{
+	}
+.label A{
+	font-size:14px;	
+	}
+.label A:hover{
+	}
