@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008.06.17 20:35:31.061.bdsproj,C:\Documents and Settings\babene\Мои документы\Borland Studio Projects\Project1.bdsproj=D:\taxi\taxi\taxi.bdsproj</Transaction>
+    <Transaction>2010.05.17 21:55:49.923.cpp,D:\taxi\taxi\Unit1.cpp=D:\taxi\taxi\UnitMarker.cpp</Transaction>
+    <Transaction>2010.05.17 21:55:49.970.h,D:\taxi\taxi\Unit1.h=D:\taxi\taxi\UnitMarker.h</Transaction>
+    <Transaction>2010.05.17 21:55:49.970.dfm,D:\taxi\taxi\Unit1.dfm=D:\taxi\taxi\UnitMarker.dfm</Transaction>
+    <Transaction>2010.06.07 20:56:28.250.cpp,D:\taxi\taxi\UnitMarker.cpp=</Transaction>
+    <Transaction>2010.06.07 20:56:28.250.dfm,D:\taxi\taxi\UnitMarker.dfm=</Transaction>
+    <Transaction>2010.09.12 16:21:18.328.cpp,D:\ELIT\taxi\Unit1.cpp=D:\ELIT\taxi\UnitMarker.cpp</Transaction>
+    <Transaction>2010.09.12 16:21:18.328.h,D:\ELIT\taxi\Unit1.h=D:\ELIT\taxi\UnitMarker.h</Transaction>
+    <Transaction>2010.09.12 16:21:18.328.dfm,D:\ELIT\taxi\Unit1.dfm=D:\ELIT\taxi\UnitMarker.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
