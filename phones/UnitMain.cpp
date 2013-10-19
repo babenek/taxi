@@ -66,7 +66,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 	gethostname(HostName.c_str(),64);
 
 
-	if(MessageDlg("Подключится к основному серверу?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
+	if(MessageDlg("РџРѕРґРєР»СЋС‡РёС‚СЃСЏ Рє РѕСЃРЅРѕРІРЅРѕРјСѓ СЃРµСЂРІРµСЂСѓ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
 		PrimaryHost=SecondaryHost;
 
 	if ( HostName.UpperCase().Pos(PrimaryHost) ){
@@ -81,7 +81,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 		}
 
 	VersionInfo->Enabled=true;
-	Caption="ТЕЛЕФОНЫ v.No "+VersionInfo->FileVersion +"   Сервер:"+DM->FIBDatabasePhones->DBName;
+	Caption="РўР•Р›Р•Р¤РћРќР« v.No "+VersionInfo->FileVersion +"   РЎРµСЂРІРµСЂ:"+DM->FIBDatabasePhones->DBName;
 	VersionInfo->Enabled=false;
 
 

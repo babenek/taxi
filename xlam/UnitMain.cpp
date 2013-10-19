@@ -36,7 +36,7 @@ __fastcall TFormMain::TFormMain(TComponent* Owner)	: TForm(Owner)
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::FormShow(TObject *Sender)
-{// ясный-красный, если в начале программы, значит функция для креейта всякой лабуды с чем дальше буду работать
+{// СЏСЃРЅС‹Р№-РєСЂР°СЃРЅС‹Р№, РµСЃР»Рё РІ РЅР°С‡Р°Р»Рµ РїСЂРѕРіСЂР°РјРјС‹, Р·РЅР°С‡РёС‚ С„СѓРЅРєС†РёСЏ РґР»СЏ РєСЂРµРµР№С‚Р° РІСЃСЏРєРѕР№ Р»Р°Р±СѓРґС‹ СЃ С‡РµРј РґР°Р»СЊС€Рµ Р±СѓРґСѓ СЂР°Р±РѕС‚Р°С‚СЊ
 //02.04.06 = 38809
 	if(!DM->FIBDatabase->Connected){
 
@@ -70,7 +70,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 		//int tmp=64;
 		gethostname(HostName.c_str(),64);
 
-		if(MessageDlg("Подключится к основному серверу?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
+		if(MessageDlg("РџРѕРґРєР»СЋС‡РёС‚СЃСЏ Рє РѕСЃРЅРѕРІРЅРѕРјСѓ СЃРµСЂРІРµСЂСѓ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
 			PrimaryHost=SecondaryHost;
 
 		if (HostName.UpperCase().Pos(PrimaryHost) ){
@@ -151,13 +151,13 @@ Content-Disposition: form-data; name=\"locations\"\r\n\r\n"+loc+"--?????????????
 			ClientSocket->Socket->Close();
 			}
 		catch(...){
-//			TrayIcon->BalloonTitle="ХЛАМ";
-//			TrayIcon->BalloonHint="ошибка передачи";
+//			TrayIcon->BalloonTitle="РҐР›РђРњ";
+//			TrayIcon->BalloonHint="РѕС€РёР±РєР° РїРµСЂРµРґР°С‡Рё";
 //
 //			NOTIFYICONDATA tnd;
 //			PSTR pszTip;
 //
-//			pszTip = "ошибка передачи";
+//			pszTip = "РѕС€РёР±РєР° РїРµСЂРµРґР°С‡Рё";
 //
 //			tnd.cbSize          = sizeof(NOTIFYICONDATA);
 //			tnd.hWnd            = Handle;

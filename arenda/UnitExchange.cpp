@@ -23,7 +23,7 @@ void __fastcall TFormExchange::ButtonExchangeSetClick(TObject *Sender)
 		DM->FIBStoredProcExchangeSet->ParamByName("VI_RATE")->AsDouble=EditExchange->Text.ToDouble();
 		}
 	catch(...){
-		MessageDlg("Курс валюты?\nНепонятно...", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РљСѓСЂСЃ РІР°Р»СЋС‚С‹?\nРќРµРїРѕРЅСЏС‚РЅРѕ...", mtError, TMsgDlgButtons() << mbOK, 0);
 		DM->FIBTransactionUpdate->Rollback();
 		return;
 		}
@@ -34,7 +34,7 @@ void __fastcall TFormExchange::ButtonExchangeSetClick(TObject *Sender)
 		}
 	catch(...){
 		DM->FIBTransactionUpdate->Rollback();
-		MessageDlg("Невозможно \nПопробуйте еще раз", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ \nРџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·", mtError, TMsgDlgButtons() << mbOK, 0);
 		return;
 		}
 	Close();
@@ -44,7 +44,7 @@ void __fastcall TFormExchange::FormShow(TObject *Sender)
 {
 	DM->FIBStoredProcExchangeGet->ExecProc();
 	EditExchange->Text = DM->FIBStoredProcExchangeGet->ParamByName("VO_RATE")->AsString;
-	Caption = "Курс № "+ DM->FIBStoredProcExchangeGet->ParamByName("VO_UNIQE")->AsString;
+	Caption = "РљСѓСЂСЃ в„– "+ DM->FIBStoredProcExchangeGet->ParamByName("VO_UNIQE")->AsString;
 
 }
 //---------------------------------------------------------------------------

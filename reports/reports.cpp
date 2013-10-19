@@ -14,7 +14,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	try
 	{
 		Application->Initialize();
-		Application->Title = "Îò÷åòû";
+		Application->Title = "ÐžÑ‚Ñ‡ÐµÑ‚Ñ‹";
 		Application->CreateForm(__classid(TFormMain), &FormMain);
 		Application->CreateForm(__classid(TFormOrder), &FormOrder);
 		Application->CreateForm(__classid(TFormPassword), &FormPassword);

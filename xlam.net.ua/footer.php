@@ -1,4 +1,4 @@
-<!-- Ukrainian Banner Network 468х60 elite START -->
+<!-- Ukrainian Banner Network 468С…60 elite START -->
 <center><script>
 //<!--
 ubn_user = "63975";
@@ -15,7 +15,7 @@ document.write("<img border=0 src='http://banner.kiev.ua/" +
 document.write("</iframe>");
 //-->
 </script><br>
-<small><a href=http://banner.kiev.ua/ target=_top>Украинская Баннерная Сеть</a></small>
+<small><a href=http://banner.kiev.ua/ target=_top>РЈРєСЂР°РёРЅСЃРєР°СЏ Р‘Р°РЅРЅРµСЂРЅР°СЏ РЎРµС‚СЊ</a></small>
 </center>
-<!-- Ukrainian Banner Network 468х60 elite END -->
+<!-- Ukrainian Banner Network 468С…60 elite END -->
 

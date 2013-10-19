@@ -59,7 +59,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 	gethostname(HostName.c_str(),64);
 
 
-	if(MessageDlg("Подключится к основному серверу?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
+	if(MessageDlg("РџРѕРґРєР»СЋС‡РёС‚СЃСЏ Рє РѕСЃРЅРѕРІРЅРѕРјСѓ СЃРµСЂРІРµСЂСѓ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
 		PrimaryHost=SecondaryHost;
 
 	MainHost=true;
@@ -81,17 +81,17 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 //_______________________________________________________________________________________________________
 
 
-	if(StrToInt(Now().FormatString("hh"))<8){	// это еще ночная смена за вчера
+	if(StrToInt(Now().FormatString("hh"))<8){	// СЌС‚Рѕ РµС‰Рµ РЅРѕС‡РЅР°СЏ СЃРјРµРЅР° Р·Р° РІС‡РµСЂР°
 		Calendar->Date=Now()-1;
 		StaticTextDayNight->Tag=0;
 		StaticTextDayNightClick(this);
 		}
-	else if(StrToInt(Now().FormatString("hh"))>20){// это уже ночная смена за сегодня
+	else if(StrToInt(Now().FormatString("hh"))>20){// СЌС‚Рѕ СѓР¶Рµ РЅРѕС‡РЅР°СЏ СЃРјРµРЅР° Р·Р° СЃРµРіРѕРґРЅСЏ
 		Calendar->Date=Now();
 		StaticTextDayNight->Tag=0;
 		StaticTextDayNightClick(this);
 		}
-	else{// ну остается дневная смена за сегодня
+	else{// РЅСѓ РѕСЃС‚Р°РµС‚СЃСЏ РґРЅРµРІРЅР°СЏ СЃРјРµРЅР° Р·Р° СЃРµРіРѕРґРЅСЏ
 		Calendar->Date=Now();
 		StaticTextDayNight->Tag=1;
 		StaticTextDayNightClick(this);
@@ -124,15 +124,15 @@ void __fastcall TFormMain::SpeedButtonOkClick(TObject *Sender)
 				CurrentSmena=FIBDataSetSmena->FieldValues["UNIQS"];
 				SmenaWeekend=FIBDataSetSmena->FieldValues["SMN_WEEKEND"];  				
 				if (FIBDataSetSmena->FieldValues["SMN_DAY_NIGHT"]==0)
-					Caption="САМАРА v."+VersionInfo->FileVersion
-										+"   Смена № "+IntToStr(CurrentSmena)
-										+" ДЕНЬ"+tmp.FormatString("  dddd dd mmmm yyyy   ")
+					Caption="РЎРђРњРђР Рђ v."+VersionInfo->FileVersion
+										+"   РЎРјРµРЅР° в„– "+IntToStr(CurrentSmena)
+										+" Р”Р•РќР¬"+tmp.FormatString("  dddd dd mmmm yyyy   ")
 										+FIBDataSetSmena->FieldValues["USR_LIST"]+"  >> "+HostName
 										+" Server:"+PrimaryHost;
 				else
 					Caption="CAMAPA v."+VersionInfo->FileVersion+
-										+"   Смена № "+IntToStr(CurrentSmena)
-										+" НОЧЬ"+tmp.FormatString("  dddd dd mmmm yyyy   ")+
+										+"   РЎРјРµРЅР° в„– "+IntToStr(CurrentSmena)
+										+" РќРћР§Р¬"+tmp.FormatString("  dddd dd mmmm yyyy   ")+
 										FIBDataSetSmena->FieldValues["USR_LIST"]+"  >> "+HostName
 										+" Server:"+PrimaryHost;
 				LoginOk=true;
@@ -140,11 +140,11 @@ void __fastcall TFormMain::SpeedButtonOkClick(TObject *Sender)
 				}
 			else if (FIBDataSetSmena->RecordCount==0){
 				ButtonOK->Enabled=false;
-				MessageDlg("Нет активных смен!\nТребуется вход: \"Старший диспетчер\"", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµС‚ Р°РєС‚РёРІРЅС‹С… СЃРјРµРЅ!\nРўСЂРµР±СѓРµС‚СЃСЏ РІС…РѕРґ: \"РЎС‚Р°СЂС€РёР№ РґРёСЃРїРµС‚С‡РµСЂ\"", mtError, TMsgDlgButtons() << mbOK, 0);
 				}
 			else{
 				ButtonOK->Enabled=false;
-				MessageDlg("Ошибочное количество активных смен (>1)!\nТребуется вмешательство Старшего диспетчера\"", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РћС€РёР±РѕС‡РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р°РєС‚РёРІРЅС‹С… СЃРјРµРЅ (>1)!\nРўСЂРµР±СѓРµС‚СЃСЏ РІРјРµС€Р°С‚РµР»СЊСЃС‚РІРѕ РЎС‚Р°СЂС€РµРіРѕ РґРёСЃРїРµС‚С‡РµСЂР°\"", mtError, TMsgDlgButtons() << mbOK, 0);
 				}
 			FIBDataSetSmena->Close();
 	Timer->Enabled=false;		
@@ -185,13 +185,13 @@ void __fastcall TFormMain::ButtonClearClick(TObject *Sender)
 void __fastcall TFormMain::ButtonSmenaStopClick(TObject *Sender)
 {   
 	if(!MainHost){
-		MessageDlg("Допускается только с главного компьютера", mtInformation, TMsgDlgButtons()<<mbOK, 0);
+		MessageDlg("Р”РѕРїСѓСЃРєР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ СЃ РіР»Р°РІРЅРѕРіРѕ РєРѕРјРїСЊСЋС‚РµСЂР°", mtInformation, TMsgDlgButtons()<<mbOK, 0);
 		FIBDataSetSmena->CloseOpen(true);      
 		return;
 		}
 																				
-	if(StrToInt((Now()-TDateTime(FIBDataSetSmena->FieldValues["SMN_TIME_START"])).FormatString("hh")) < 11){ // Смена не отработала 11 часов!
-		if(MessageDlg("Смена отработала не достаточно времени!\nЗакрыть ее в любом случае?", mtConfirmation, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes){
+	if(StrToInt((Now()-TDateTime(FIBDataSetSmena->FieldValues["SMN_TIME_START"])).FormatString("hh")) < 11){ // РЎРјРµРЅР° РЅРµ РѕС‚СЂР°Р±РѕС‚Р°Р»Р° 11 С‡Р°СЃРѕРІ!
+		if(MessageDlg("РЎРјРµРЅР° РѕС‚СЂР°Р±РѕС‚Р°Р»Р° РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РІСЂРµРјРµРЅРё!\nР—Р°РєСЂС‹С‚СЊ РµРµ РІ Р»СЋР±РѕРј СЃР»СѓС‡Р°Рµ?", mtConfirmation, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes){
 			FIBDataSetSmena->CloseOpen(true);      			
 			return;
 			}
@@ -205,7 +205,7 @@ void __fastcall TFormMain::ButtonSmenaStopClick(TObject *Sender)
 		catch(...){ DM->FIBTransactionUpdate->Rollback(); }
 		}
 	else{
-		MessageDlg("Ошибка при завершении смены! \nПроверить системный код смены.", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РћС€РёР±РєР° РїСЂРё Р·Р°РІРµСЂС€РµРЅРёРё СЃРјРµРЅС‹! \nРџСЂРѕРІРµСЂРёС‚СЊ СЃРёСЃС‚РµРјРЅС‹Р№ РєРѕРґ СЃРјРµРЅС‹.", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 	FIBDataSetSmena->CloseOpen(true);      
 }
@@ -213,24 +213,24 @@ void __fastcall TFormMain::ButtonSmenaStopClick(TObject *Sender)
 
 void __fastcall TFormMain::StaticTextDayNightClick(TObject *Sender)
 {
-	if (StaticTextDayNight->Tag == 0){// 0 - начало, то-есть день
-		StaticTextDayNight->Tag = 1; // переключаем на НОЧЬ
+	if (StaticTextDayNight->Tag == 0){// 0 - РЅР°С‡Р°Р»Рѕ, С‚Рѕ-РµСЃС‚СЊ РґРµРЅСЊ
+		StaticTextDayNight->Tag = 1; // РїРµСЂРµРєР»СЋС‡Р°РµРј РЅР° РќРћР§Р¬
 		StaticTextDayNight->Color = clBlack;
 		StaticTextDayNight->Font->Color = clWhite;
-		StaticTextDayNight->Caption="НОЧЬ";
+		StaticTextDayNight->Caption="РќРћР§Р¬";
 		}
 	else{
-		StaticTextDayNight->Tag = 0; // переключаем на ДЕНЬ
+		StaticTextDayNight->Tag = 0; // РїРµСЂРµРєР»СЋС‡Р°РµРј РЅР° Р”Р•РќР¬
 		StaticTextDayNight->Color = clWhite;
       StaticTextDayNight->Font->Color = clBlack;
-      StaticTextDayNight->Caption="ДЕНЬ";
+      StaticTextDayNight->Caption="Р”Р•РќР¬";
    	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::ButtonSmenaStartClick(TObject *Sender)
 {
 	if(!MainHost){
-		MessageDlg("Допускается только с главного компьютера", mtInformation, TMsgDlgButtons()<<mbOK, 0);
+		MessageDlg("Р”РѕРїСѓСЃРєР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ СЃ РіР»Р°РІРЅРѕРіРѕ РєРѕРјРїСЊСЋС‚РµСЂР°", mtInformation, TMsgDlgButtons()<<mbOK, 0);
 		FIBDataSetSmena->CloseOpen(true);      
 		return;
 		}
@@ -249,7 +249,7 @@ void __fastcall TFormMain::ButtonSmenaStartClick(TObject *Sender)
 		}
 	catch(...){
 		DM->FIBTransactionUpdate->Rollback();		
-		MessageDlg("Не добавляется смена !", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РќРµ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ СЃРјРµРЅР° !", mtError, TMsgDlgButtons() << mbOK, 0);
 		}		
 
 //	if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
@@ -263,7 +263,7 @@ void __fastcall TFormMain::ButtonSmenaStartClick(TObject *Sender)
 //		}
 //	catch(...){
 //		DM->FIBTransactionUpdate->Rollback();
-//		MessageDlg("Не добавляется список пользователей!", mtError, TMsgDlgButtons() << mbOK, 0);
+//		MessageDlg("РќРµ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№!", mtError, TMsgDlgButtons() << mbOK, 0);
 //		}
 	FIBDataSetSmena->CloseOpen(true);
 }
@@ -315,8 +315,8 @@ void __fastcall TFormMain::FIBDataSetSmenaSMN_WEEKENDGetText(
       TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="будни";
-		else if(Sender->Value == 1) Text="праздник";
+		if(Sender->Value == 0) Text="Р±СѓРґРЅРё";
+		else if(Sender->Value == 1) Text="РїСЂР°Р·РґРЅРёРє";
 		else Text="";
 		}
 }
@@ -326,8 +326,8 @@ void __fastcall TFormMain::FIBDataSetSmenaSMN_DAY_NIGHTGetText(
       TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="день";
-   	else if(Sender->Value == 1) Text="ночь";
+		if(Sender->Value == 0) Text="РґРµРЅСЊ";
+   	else if(Sender->Value == 1) Text="РЅРѕС‡СЊ";
       else Text="";
       }	
 }

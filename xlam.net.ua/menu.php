@@ -1,6 +1,6 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f0f0f0">
 <?php	
-// первій уровень НАЧАЛО
+// РїРµСЂРІС–Р№ СѓСЂРѕРІРµРЅСЊ РќРђР§РђР›Рћ
 		$query = '
 			SELECT 
 				id ,
@@ -31,7 +31,7 @@
 			FROM 
 				sections s2 
 			WHERE 
-				(select sections.id_parent from sections where id=s2.id_parent and state = 1 )=0 -- определяем, что уровень выше - первый, то есть имеет родителя=0
+				(select sections.id_parent from sections where id=s2.id_parent and state = 1 )=0 -- РѕРїСЂРµРґРµР»СЏРµРј, С‡С‚Рѕ СѓСЂРѕРІРµРЅСЊ РІС‹С€Рµ - РїРµСЂРІС‹Р№, С‚Рѕ РµСЃС‚СЊ РёРјРµРµС‚ СЂРѕРґРёС‚РµР»СЏ=0
 				and ((id_parent='.$parent.') or (id_parent='.$section.' and '.$parent.'=0) or (id_parent in (select id_parent from sections where id = '.$parent.' and state = 1 )) )
 				and state = 1 
 						
@@ -49,24 +49,24 @@
 			FROM 
 				sections s3 
 			WHERE 
-				(select sections.id_parent from sections where id=s3.id_parent and state = 1)>0 -- определяем, что у родителя точно уровень 2
+				(select sections.id_parent from sections where id=s3.id_parent and state = 1)>0 -- РѕРїСЂРµРґРµР»СЏРµРј, С‡С‚Рѕ Сѓ СЂРѕРґРёС‚РµР»СЏ С‚РѕС‡РЅРѕ СѓСЂРѕРІРµРЅСЊ 2
 				and (id_parent = '.$parent.' or id_parent = '.$section.')
 				and state = 1 
 			order by 1,2,3
 			';
-		$result=mysql_query($query) or die ('Invalid query:первій уровень НАЧАЛО');;
+		$result=mysql_query($query) or die ('Invalid query:РїРµСЂРІС–Р№ СѓСЂРѕРІРµРЅСЊ РќРђР§РђР›Рћ');;
 		$number = mysql_num_rows($result);
 		if($number>0){
 			while($data=mysql_fetch_assoc($result)){
 				if(!empty($data['id'])){ 
 					switch ($data['level']):
-					case 1:// первый уровень
+					case 1:// РїРµСЂРІС‹Р№ СѓСЂРѕРІРµРЅСЊ
 						print('<tr><td colspan=2 class="level_1">');
 						if($section==$data['id'])
 							print(																			
 								'<a class="level_1" href="?section='.$data['id'].'&parent='.$data['id_parent'].'">'.
 								$data['name'].
-								' • </a>'							
+								' вЂў </a>'							
 								);
 						else
 							print(																			
@@ -76,13 +76,13 @@
 								);								
 						print('</td></tr>');	
 						break;
-					case 2://второй уровень						
+					case 2://РІС‚РѕСЂРѕР№ СѓСЂРѕРІРµРЅСЊ						
 						print('<tr><td colspan=2 class="level_2">');
 						if($section==$data['id'])
 							print(							
 								'<a class="level_2" href="">'.
 								$data['name'].
-								' • </a>'														
+								' вЂў </a>'														
 								);						
 						else
 							print(													
@@ -92,11 +92,11 @@
 								);
 						print('</td></tr>');	
 						break;
-					case 3://третий уровень
+					case 3://С‚СЂРµС‚РёР№ СѓСЂРѕРІРµРЅСЊ
 						print('<tr><td width="80%" class="level_3">');					
 						if($section==$data['id'])
 							print(							
-								'<a class="level_3" style="font-weight:bold;" href=""> • '.
+								'<a class="level_3" style="font-weight:bold;" href=""> вЂў '.
 								$data['name'].
 								'</a>'
 								);
@@ -114,6 +114,6 @@
 				}			
 			}
 
-// первій уровень КОНЕЦ
+// РїРµСЂРІС–Р№ СѓСЂРѕРІРµРЅСЊ РљРћРќР•Р¦
 ?>		
 </table>

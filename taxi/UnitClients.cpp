@@ -111,12 +111,12 @@ void __fastcall TFormClients::ButtonClientInsertClick(TObject *Sender)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Ошибка при добавлении в базу клиентов!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РћС€РёР±РєР° РїСЂРё РґРѕР±Р°РІР»РµРЅРёРё РІ Р±Р°Р·Сѓ РєР»РёРµРЅС‚РѕРІ!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}	
 		FormShow(this);					
 		}			
 	else{	
-		MessageDlg("Введите пожалуйста НАИМЕНОВАНИЕ и ТЕЛЕФОН", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("Р’РІРµРґРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РќРђРРњР•РќРћР’РђРќРР• Рё РўР•Р›Р•Р¤РћРќ", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 
 }
@@ -135,7 +135,7 @@ void __fastcall TFormClients::EditKeyUp(TObject *Sender, WORD &Key,
 			Close();
 			}
 		else{
-			MessageDlg("Укажите точный код клиента!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РЈРєР°Р¶РёС‚Рµ С‚РѕС‡РЅС‹Р№ РєРѕРґ РєР»РёРµРЅС‚Р°!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 	else if(Key == VK_INSERT){
@@ -223,10 +223,10 @@ void __fastcall TFormClients::DBGridEhClientsDblClick(TObject *Sender)
 
 	double n,m,l,k;
 	if(FIBDataSetClients->FieldValues["CLT_COUNTER"].Type() == varInteger)
-		n = FIBDataSetClients->FieldValues["CLT_COUNTER"]; // счетчик какая поездка халявная
+		n = FIBDataSetClients->FieldValues["CLT_COUNTER"]; // СЃС‡РµС‚С‡РёРє РєР°РєР°СЏ РїРѕРµР·РґРєР° С…Р°Р»СЏРІРЅР°СЏ
 	else n=0;
 	if(FIBDataSetClients->FieldValues["CLT_DISCOUNT"].Type() == varInteger)
-		k = FIBDataSetClients->FieldValues["CLT_DISCOUNT"]; // сколько халявных поездок
+		k = FIBDataSetClients->FieldValues["CLT_DISCOUNT"]; // СЃРєРѕР»СЊРєРѕ С…Р°Р»СЏРІРЅС‹С… РїРѕРµР·РґРѕРє
 	else k=0;
 
 	ListBoxClientsInfo->Items->Clear();
@@ -236,31 +236,31 @@ void __fastcall TFormClients::DBGridEhClientsDblClick(TObject *Sender)
 	DM->FIBDataSetCliensOrders->SQLs->SelectSQL->Add("where key_ord_type=cod_ord_type and key_client="+FIBDataSetClients->FieldValues["UNIQC"]);
 	DM->FIBDataSetCliensOrders->SQLs->SelectSQL->Add("and ord_state in (1,3) and ord_type in (1,3)");
 	DM->FIBDataSetCliensOrders->Open();
-	m=DM->FIBDataSetCliensOrders->FieldValues["count_orders"]; //наезжано за баблосы
+	m=DM->FIBDataSetCliensOrders->FieldValues["count_orders"]; //РЅР°РµР·Р¶Р°РЅРѕ Р·Р° Р±Р°Р±Р»РѕСЃС‹
 	if(DM->FIBDataSetCliensOrders->Active)DM->FIBDataSetCliensOrders->Close();
 	DM->FIBDataSetCliensOrders->SQLs->SelectSQL->Clear();
 	DM->FIBDataSetCliensOrders->SQLs->SelectSQL->Add("Select count(uniqo) count_orders from orders");
 	DM->FIBDataSetCliensOrders->SQLs->SelectSQL->Add("where key_ord_type=20 and key_client="+FIBDataSetClients->FieldValues["UNIQC"]);
 	DM->FIBDataSetCliensOrders->SQLs->SelectSQL->Add("and ord_state in (1,3) ");
 	DM->FIBDataSetCliensOrders->Open();
-	l=DM->FIBDataSetCliensOrders->FieldValues["count_orders"]; // использовано халявы
+	l=DM->FIBDataSetCliensOrders->FieldValues["count_orders"]; // РёСЃРїРѕР»СЊР·РѕРІР°РЅРѕ С…Р°Р»СЏРІС‹
 	if(DM->FIBDataSetCliensOrders->Active)DM->FIBDataSetCliensOrders->Close();
-	ListBoxClientsInfo->Items->Add("Заказов всего: "+IntToStr((int)m)+" / "+IntToStr((int)l));
+	ListBoxClientsInfo->Items->Add("Р—Р°РєР°Р·РѕРІ РІСЃРµРіРѕ: "+IntToStr((int)m)+" / "+IntToStr((int)l));
 		if (n>0){
 			if ((m/(n-1)-l+k)>0)
-				ListBoxClientsInfo->Items->Add("Накоплено: "+IntToStr((int)(m/(n-1)-l+k)));
+				ListBoxClientsInfo->Items->Add("РќР°РєРѕРїР»РµРЅРѕ: "+IntToStr((int)(m/(n-1)-l+k)));
 			else
-				ListBoxClientsInfo->Items->Add("Накопленых нет");
+				ListBoxClientsInfo->Items->Add("РќР°РєРѕРїР»РµРЅС‹С… РЅРµС‚");
 			if(m>=(n-1)*(1+l-k))
-				ListBoxClientsInfo->Items->Add("Есть халява");
+				ListBoxClientsInfo->Items->Add("Р•СЃС‚СЊ С…Р°Р»СЏРІР°");
 			else
-				ListBoxClientsInfo->Items->Add("До администрации: "+IntToStr((int)( (n-1)*(1+l-k)-m )));
+				ListBoxClientsInfo->Items->Add("Р”Рѕ Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё: "+IntToStr((int)( (n-1)*(1+l-k)-m )));
 			}
 		else{
 			if ((k-l)>0)
-				ListBoxClientsInfo->Items->Add("Халявных: "+IntToStr((int)(k-l)));
+				ListBoxClientsInfo->Items->Add("РҐР°Р»СЏРІРЅС‹С…: "+IntToStr((int)(k-l)));
 			else
-				ListBoxClientsInfo->Items->Add("Халявы нет");
+				ListBoxClientsInfo->Items->Add("РҐР°Р»СЏРІС‹ РЅРµС‚");
 			}
 
 

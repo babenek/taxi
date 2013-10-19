@@ -23,7 +23,7 @@ void __fastcall TFormOrder::BitBtnOKClick(TObject *Sender)
 	   FIBQuerySetRep->SQL->Clear();
 		FIBQuerySetRep->SQL->Add("update reports set "+LabelField->Caption+"="+EditCost->Text+" where key_week="+IntToStr(Tag));
 
-      if(MessageDlg("Выполнить: \"update reports set "+LabelField->Caption+"="+EditCost->Text+" where key_week="+IntToStr(Tag)+"\" ?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
+      if(MessageDlg("Р’С‹РїРѕР»РЅРёС‚СЊ: \"update reports set "+LabelField->Caption+"="+EditCost->Text+" where key_week="+IntToStr(Tag)+"\" ?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
 			if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 		   try{
 	   		FIBQuerySetRep->ExecQuery();
@@ -31,7 +31,7 @@ void __fastcall TFormOrder::BitBtnOKClick(TObject *Sender)
 		   	}
 		   catch(...){
 				DM->FIBTransactionUpdate->Rollback();
-				MessageDlg("Ошибка?!", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РћС€РёР±РєР°?!", mtError, TMsgDlgButtons() << mbOK, 0);
 		   	}
          }
 

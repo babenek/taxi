@@ -68,7 +68,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 			//DM->FIBDatabasePhones->DBName="127.0.0.1:"+DBPhonePath;
 			}
 		else{
-			if(MessageDlg("Подключится к основному серверу?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
+			if(MessageDlg("РџРѕРґРєР»СЋС‡РёС‚СЃСЏ Рє РѕСЃРЅРѕРІРЅРѕРјСѓ СЃРµСЂРІРµСЂСѓ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
 				PrimaryHost=SecondaryHost;
 			if ( HostName.UpperCase().Pos(PrimaryHost) ){
 				MainHost=true;
@@ -81,7 +81,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 			}
 		}
 	else{
-		if(MessageDlg("Подключится к основному серверу?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
+		if(MessageDlg("РџРѕРґРєР»СЋС‡РёС‚СЃСЏ Рє РѕСЃРЅРѕРІРЅРѕРјСѓ СЃРµСЂРІРµСЂСѓ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
 			PrimaryHost=SecondaryHost;
 
 		if ( HostName.UpperCase().Pos(PrimaryHost) ){
@@ -135,7 +135,7 @@ void __fastcall TFormMain::SpeedButton2Click(TObject *Sender)
 	if(DM->FIBDataSetSmena->FieldValues["UNIQS"] == 0)
 		FormVehicles->Show();
 	else
-		MessageDlg("Доступно только для администрации!", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("Р”РѕСЃС‚СѓРїРЅРѕ С‚РѕР»СЊРєРѕ РґР»СЏ Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё!", mtError, TMsgDlgButtons() << mbOK, 0);
 }
 //---------------------------------------------------------------------------
 
@@ -157,7 +157,7 @@ void __fastcall TFormMain::ButtonAccountChargeClick(TObject *Sender)
 		}
 	catch(...){
 		DM->FIBTransactionUpdate->Rollback();
-		MessageDlg("Что-то не добавляется...", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("Р§С‚Рѕ-С‚Рѕ РЅРµ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ...", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 	DM->FIBDataSetArenda->CloseOpen(true);
 	DM->FIBDataSetVehicles->RecordModified(true);
@@ -187,7 +187,7 @@ void __fastcall TFormMain::ButtonPayClick(TObject *Sender)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Что-то не добавляется...", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("Р§С‚Рѕ-С‚Рѕ РЅРµ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ...", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		DM->FIBDataSetArenda->CloseOpen(true);
 		DM->FIBDataSetVehicles->RecordModified(true);
@@ -212,17 +212,17 @@ void __fastcall TFormMain::ButtonRollbackClick(TObject *Sender)
 					}
 				catch(...){
 					DM->FIBTransactionUpdate->Rollback();
-					MessageDlg("Откат не удался :(", mtError, TMsgDlgButtons() << mbOK, 0);
+					MessageDlg("РћС‚РєР°С‚ РЅРµ СѓРґР°Р»СЃСЏ :(", mtError, TMsgDlgButtons() << mbOK, 0);
 					}
 			}
 		else{
-			MessageDlg("Можно только текущее состояние", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РњРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ С‚РµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		DM->FIBDataSetArenda->CloseOpen(true);
 		//DM->FIBDataSetVehicles->CloseOpen(true);
 		}
 	else{
-		MessageDlg("Доступно только для администрации!", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("Р”РѕСЃС‚СѓРїРЅРѕ С‚РѕР»СЊРєРѕ РґР»СЏ Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё!", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 }
 //---------------------------------------------------------------------------

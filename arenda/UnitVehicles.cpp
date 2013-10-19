@@ -28,7 +28,7 @@ __fastcall TFormVehicles::TFormVehicles(TComponent* Owner)
 void __fastcall TFormVehicles::ExchangeSet(TObject *Sender)
 {
 	DM->FIBDataSetExchange->Close();
-	if(MessageDlg("Изменить действующий курс валюты?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) == mrYes)
+	if(MessageDlg("РР·РјРµРЅРёС‚СЊ РґРµР№СЃС‚РІСѓСЋС‰РёР№ РєСѓСЂСЃ РІР°Р»СЋС‚С‹?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) == mrYes)
 		FormExchange->ShowModal();
 	DM->FIBDataSetExchange->Open();
 	EditCostChange(this);
@@ -53,7 +53,7 @@ void __fastcall TFormVehicles::FormShow(TObject *Sender)
 void __fastcall TFormVehicles::FormCloseQuery(TObject *Sender, bool &CanClose)
 {
 	if(DM->FIBDataSetVehicles->State == dsEdit || DM->FIBDataSetVehicles->State == dsInsert){
-		switch( MessageDlg("Данные изменены.\nСохранить?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo<<mbCancel, 0) ){
+		switch( MessageDlg("Р”Р°РЅРЅС‹Рµ РёР·РјРµРЅРµРЅС‹.\nРЎРѕС…СЂР°РЅРёС‚СЊ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo<<mbCancel, 0) ){
 			case mrYes:
 				DM->FIBDataSetVehicles->Post();
 				DM->FIBTransactionUpdate->Commit();
@@ -89,7 +89,7 @@ void __fastcall TFormVehicles::ButtonPostClick(TObject *Sender)
 		}
 	catch(...){
 		DM->FIBTransactionUpdate->Rollback();
-		MessageDlg("Что-то не добавляется...", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("Р§С‚Рѕ-С‚Рѕ РЅРµ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ...", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 	DM->FIBDataSetVehicles->CloseOpen(true);
 }
@@ -114,7 +114,7 @@ void __fastcall TFormVehicles::EditCostChange(TObject *Sender)
 void __fastcall TFormVehicles::EditDurationChange(TObject *Sender)
 {
 	try{
-		LabelRent->Caption = "~ "+FormatFloat("#.##",double(EditCost->Text.ToDouble() / EditDuration->Text.ToDouble())) +" грн.";
+		LabelRent->Caption = "~ "+FormatFloat("#.##",double(EditCost->Text.ToDouble() / EditDuration->Text.ToDouble())) +" РіСЂРЅ.";
 		}
 	catch(...){
 		LabelRent->Caption = "";
@@ -138,7 +138,7 @@ void __fastcall TFormVehicles::SpeedButtonApplyClick(TObject *Sender)
 
 void __fastcall TFormVehicles::ButtonDeleteClick(TObject *Sender)
 {
-	if(MessageDlg("Машина будет удалена\nУверены?", mtConfirmation, TMsgDlgButtons()<<mbYes<<mbNo, 0)==mrYes){
+	if(MessageDlg("РњР°С€РёРЅР° Р±СѓРґРµС‚ СѓРґР°Р»РµРЅР°\nРЈРІРµСЂРµРЅС‹?", mtConfirmation, TMsgDlgButtons()<<mbYes<<mbNo, 0)==mrYes){
 		if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 		DM->FIBQuery->SQL->Clear();
 		DM->FIBQuery->SQL->Add("update vehicles set vhc_state=2 where uniqv="+IntToStr((int)DM->FIBDataSetVehicles->FieldValues["UNIQV"]));
@@ -148,7 +148,7 @@ void __fastcall TFormVehicles::ButtonDeleteClick(TObject *Sender)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Что-то не получается...", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("Р§С‚Рѕ-С‚Рѕ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ...", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 	DM->FIBDataSetVehicles->CloseOpen(true);

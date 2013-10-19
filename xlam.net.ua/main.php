@@ -1,16 +1,16 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
-		<td align="center"></br></br>сеть служб интернет-такси</td>
+		<td align="center"></br></br>СЃРµС‚СЊ СЃР»СѓР¶Р± РёРЅС‚РµСЂРЅРµС‚-С‚Р°РєСЃРё</td>
 		</tr>
 
 	<tr>
-		<td align="center"><a href="/samara/" >Карта такси САМАРА</a></td>
+		<td align="center"><a href="/samara/" >РљР°СЂС‚Р° С‚Р°РєСЃРё РЎРђРњРђР Рђ</a></td>
 		</tr>
 	<tr>
-		<td align="center"><a href="/fortuna/" >Карта такси ФОРТУНА</a></td>
+		<td align="center"><a href="/fortuna/" >РљР°СЂС‚Р° С‚Р°РєСЃРё Р¤РћР РўРЈРќРђ</a></td>
 		</tr>
 
 	<tr>
-		<td align="center"><a href="mailto:babene@mail.ru" >обратная связь</a></br></br></td>
+		<td align="center"><a href="mailto:babene@mail.ru" >РѕР±СЂР°С‚РЅР°СЏ СЃРІСЏР·СЊ</a></br></br></td>
 		</tr>
 	</table>

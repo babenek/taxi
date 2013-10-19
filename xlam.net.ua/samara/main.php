@@ -24,7 +24,7 @@
     <tr>
         <td width="33%" colspan=3>
         	<table>
-        		<tr><td class='title'>Двадцатый</td></tr>
+        		<tr><td class='title'>Р”РІР°РґС†Р°С‚С‹Р№</td></tr>
         		<tr><td class='label'>
 				<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==5) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -33,7 +33,7 @@
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
         <td width="33%" colspan=3><table>
-        		<tr><td class='title'>Украина</td></tr>
+        		<tr><td class='title'>РЈРєСЂР°РёРЅР°</td></tr>
 	        	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==4) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -41,7 +41,7 @@
 			</table></td>
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
-        <td width="33%" colspan=3><table><tr><td class='title'>Восточный</td></tr>
+        <td width="33%" colspan=3><table><tr><td class='title'>Р’РѕСЃС‚РѕС‡РЅС‹Р№</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==7) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -52,7 +52,7 @@
     </tr>
 
     <tr>
-        <td colspan=3><table><tr><td class='title'>Тысяча</td></tr>
+        <td colspan=3><table><tr><td class='title'>РўС‹СЃСЏС‡Р°</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==10) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -60,7 +60,7 @@
 			</table></td>
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
-        <td colspan=3><table><tr><td class='title'>Левченко</td></tr>
+        <td colspan=3><table><tr><td class='title'>Р›РµРІС‡РµРЅРєРѕ</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==3) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -68,7 +68,7 @@
 			</table></td>
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
-        <td colspan=3><table><tr><td class='title'>Ленинградский</td></tr>
+        <td colspan=3><table><tr><td class='title'>Р›РµРЅРёРЅРіСЂР°РґСЃРєРёР№</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==8) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -78,7 +78,7 @@
         <?php //<td> </td> ?>
     </tr>
     <tr>
-        <td colspan=3><table><tr><td class='title'>Коралл</td></tr>
+        <td colspan=3><table><tr><td class='title'>РљРѕСЂР°Р»Р»</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==16) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -86,7 +86,7 @@
 			</table></td>
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
-        <td colspan=3><table><tr><td class='title'>Нептун</td></tr>
+        <td colspan=3><table><tr><td class='title'>РќРµРїС‚СѓРЅ</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==15) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -94,7 +94,7 @@
 			</table></td>
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
-        <td colspan=3><table><tr><td class='title'>Площадь</td></tr>
+        <td colspan=3><table><tr><td class='title'>РџР»РѕС‰Р°РґСЊ</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==9) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -104,7 +104,7 @@
         <?php //<td> </td> ?>
     </tr>
     <tr>
-        <td colspan=3><table><tr><td class='title'>Порт</td></tr>
+        <td colspan=3><table><tr><td class='title'>РџРѕСЂС‚</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==6) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -112,7 +112,7 @@
 			</table></td>
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
-        <td colspan=3><table><tr><td class='title'>Кирова</td></tr>
+        <td colspan=3><table><tr><td class='title'>РљРёСЂРѕРІР°</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==1) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -120,7 +120,7 @@
 			</table></td>
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
-        <td colspan=3><table><tr><td class='title'>Где-то там...</td></tr>
+        <td colspan=3><table><tr><td class='title'>Р“РґРµ-С‚Рѕ С‚Р°Рј...</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==0) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -130,7 +130,7 @@
         <?php //<td> </td> ?>
     </tr>
     <tr>
-        <td colspan=3><table><tr><td class='title'>Черемушки</td></tr>
+        <td colspan=3><table><tr><td class='title'>Р§РµСЂРµРјСѓС€РєРё</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==11) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -138,7 +138,7 @@
 			</table></td>
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
-        <td colspan=3><table><tr><td class='title'>Центр</td></tr>
+        <td colspan=3><table><tr><td class='title'>Р¦РµРЅС‚СЂ</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==2) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
@@ -146,14 +146,14 @@
 			</table></td>
         <?php //<td> </td> ?>
         <?php //<td> </td> ?>
-        <td colspan=2><table><tr><td class='title'>Город грузовой</td></tr>
+        <td colspan=2><table><tr><td class='title'>Р“РѕСЂРѕРґ РіСЂСѓР·РѕРІРѕР№</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==14) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>
         			</td></tr>
 			</table></td>
         <?php //<td> </td> ?>
-        <td colspan=1><table><tr><td class='title'>Левый берег грузовой</td></tr>
+        <td colspan=1><table><tr><td class='title'>Р›РµРІС‹Р№ Р±РµСЂРµРі РіСЂСѓР·РѕРІРѕР№</td></tr>
         	<tr><td class='label'>
 	        		<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==13) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp;</a> ');} ?>
@@ -161,7 +161,7 @@
 			</table></td>
     </tr>
     <tr>
-        <td colspan=9><table><tr><td class='title'>время обновления</td></tr>
+        <td colspan=9><table><tr><td class='title'>РІСЂРµРјСЏ РѕР±РЅРѕРІР»РµРЅРёСЏ</td></tr>
         	<tr><td class='label'>
         			<?php for($n=0;$n<$number;$n++){if($data[$n]['id_location']==99) 
 					print ('&nbsp;<a href="." style=\'color:#'.$data[$n]['cl'].'; background:#'.$data[$n]['bg'].'\'>&nbsp;'.$data[$n]['name'].'&nbsp</a> ');} ?>

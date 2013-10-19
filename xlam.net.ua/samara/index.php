@@ -1,14 +1,14 @@
 <?php
-//подключение к БД						
-	require('../dbconf.php');//тут у нас парольчики :)
-	$connect=mysql_connect(hostname,username,password) or die ('Не могу создать соединение '. mysql_error());
-	mysql_select_db(database,$connect) or die ('Не могу выбрать базу данных '. mysql_error());
+//РїРѕРґРєР»СЋС‡РµРЅРёРµ Рє Р‘Р”						
+	require('../dbconf.php');//С‚СѓС‚ Сѓ РЅР°СЃ РїР°СЂРѕР»СЊС‡РёРєРё :)
+	$connect=mysql_connect(hostname,username,password) or die ('РќРµ РјРѕРіСѓ СЃРѕР·РґР°С‚СЊ СЃРѕРµРґРёРЅРµРЅРёРµ '. mysql_error());
+	mysql_select_db(database,$connect) or die ('РќРµ РјРѕРіСѓ РІС‹Р±СЂР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… '. mysql_error());
 ?>
 <html>
 <head>
 	<title>SAMARA</title>
-	<meta name="description" content="хлам">
-	<meta name="keywords" content="хлам">
+	<meta name="description" content="С…Р»Р°Рј">
+	<meta name="keywords" content="С…Р»Р°Рј">
 	<meta name="robots" content="all">
 	<meta content="no-cache" http-equiv="pragma">
 	<meta content="text/html; charset=windows-1251" http-equiv="content-type">

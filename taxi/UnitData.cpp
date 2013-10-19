@@ -36,7 +36,7 @@ void __fastcall TDM::SIBfibEventAlerterLocRefreshEventAlert(TObject *Sender,
 void __fastcall TDM::SIBfibEventAlerterOrdRefreshEventAlert(TObject *Sender,
       AnsiString EventName, int EventCount)
 {
-// обновление таблиц заказов
+// РѕР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС† Р·Р°РєР°Р·РѕРІ
 	if (EventName == "ORD_REFRESH_ONLINE" && FormMain->OrdRefreshOnline){
 		FIBDataSet_ORD_ONLINE->CloseOpen(true);
 		}

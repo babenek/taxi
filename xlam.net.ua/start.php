@@ -38,7 +38,7 @@
 			if(!empty($data_first['id'])){ 
 				print(
 					'<table width="100%" cellpadding="5"><tr><th bgcolor="#f0f0f0" colspan="3">'.
-					'Секция # '.
+					'РЎРµРєС†РёСЏ # '.
 					$data_first['id'].
 					' ['.					
 					$data_first['cnt'].
@@ -68,13 +68,13 @@
 				if($number_second>0){
 					while($data_second=mysql_fetch_assoc($result_second)){
 						if(!empty($data_second['id'])){ 
-							// проверяем какой столбец біл до єтого нарисован					
-							if($tmp==1 || $tmp==2){//если был левый
-								print('</td><td valign="top" width="33%" align="center">');	//тогда вставим начало ячейки							
+							// РїСЂРѕРІРµСЂСЏРµРј РєР°РєРѕР№ СЃС‚РѕР»Р±РµС† Р±С–Р» РґРѕ С”С‚РѕРіРѕ РЅР°СЂРёСЃРѕРІР°РЅ					
+							if($tmp==1 || $tmp==2){//РµСЃР»Рё Р±С‹Р» Р»РµРІС‹Р№
+								print('</td><td valign="top" width="33%" align="center">');	//С‚РѕРіРґР° РІСЃС‚Р°РІРёРј РЅР°С‡Р°Р»Рѕ СЏС‡РµР№РєРё							
 								$tmp++;
 								}
 							else{
-								print('</td></tr><tr><td valign="top" width="34%" align="center">');//был правый или с заголовка - вставляем строки
+								print('</td></tr><tr><td valign="top" width="34%" align="center">');//Р±С‹Р» РїСЂР°РІС‹Р№ РёР»Рё СЃ Р·Р°РіРѕР»РѕРІРєР° - РІСЃС‚Р°РІР»СЏРµРј СЃС‚СЂРѕРєРё
 								$tmp=1;								
 								}
 	
@@ -110,7 +110,7 @@
 							if($number_third>0){
 								while($data_third=mysql_fetch_assoc($result_third)){
 									if(!empty($data_third['id'])){ 
-										print(//втупую рисуем
+										print(//РІС‚СѓРїСѓСЋ СЂРёСЃСѓРµРј
 											'<tr><td style="font-size:12px; padding-left:10px;" >'.
 //											$data_third['id'].
 //											' name='.
@@ -128,7 +128,7 @@
 										}
 									}
 								}	
-							print('</table> </td>');// закрыли таблицу, запечатали ячейку	
+							print('</table> </td>');// Р·Р°РєСЂС‹Р»Рё С‚Р°Р±Р»РёС†Сѓ, Р·Р°РїРµС‡Р°С‚Р°Р»Рё СЏС‡РµР№РєСѓ	
 // END THIRD
 							}
 						}

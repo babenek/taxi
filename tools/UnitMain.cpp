@@ -72,7 +72,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 	gethostname(HostName.c_str(),64);
 
 
-	if(MessageDlg("Подключится к основному серверу?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
+	if(MessageDlg("РџРѕРґРєР»СЋС‡РёС‚СЃСЏ Рє РѕСЃРЅРѕРІРЅРѕРјСѓ СЃРµСЂРІРµСЂСѓ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
 		PrimaryHost=SecondaryHost;
 
 	if ( HostName.UpperCase().Pos(PrimaryHost) ){
@@ -94,7 +94,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 
 	DM->FIBDataSetWeeks->Open();
 
-	Caption="ИНСТРУМЕНТ v."+VersionInfo->FileVersion+"  Server:"+PrimaryHost;
+	Caption="РРќРЎРўР РЈРњР•РќРў v."+VersionInfo->FileVersion+"  Server:"+PrimaryHost;
 	CalendarReport->Date=Now();
 	CalendarReport->EndDate=Now();
 }
@@ -110,12 +110,12 @@ void __fastcall TFormMain::BitBtnRefreshClick(TObject *Sender)
 		protect = DM->FIBDataSetWeeks->FieldValues["wks_state"];
 
   	if(protect!=0){
-      MessageDlg("Отчетный период уже закрыт!", mtError, TMsgDlgButtons() << mbOK, 0);
+      MessageDlg("РћС‚С‡РµС‚РЅС‹Р№ РїРµСЂРёРѕРґ СѓР¶Рµ Р·Р°РєСЂС‹С‚!", mtError, TMsgDlgButtons() << mbOK, 0);
 		return;
       }
 
 	if(tmp>0){
-		if(MessageDlg("Перечитать данные с предыдущего отчета?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
+		if(MessageDlg("РџРµСЂРµС‡РёС‚Р°С‚СЊ РґР°РЅРЅС‹Рµ СЃ РїСЂРµРґС‹РґСѓС‰РµРіРѕ РѕС‚С‡РµС‚Р°?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
 
 			DM->FIBDataSetWeekReport->Close();
 			DM->FIBDataSetWeeks->Close();
@@ -129,7 +129,7 @@ void __fastcall TFormMain::BitBtnRefreshClick(TObject *Sender)
 					}
 				catch(...){
 					DM->FIBTransactionUpdate->Rollback();
-					MessageDlg("Невозможно UPDATE отчет!", mtError, TMsgDlgButtons() << mbOK, 0);
+					MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ UPDATE РѕС‚С‡РµС‚!", mtError, TMsgDlgButtons() << mbOK, 0);
 					}
 				}
 			}
@@ -138,7 +138,7 @@ void __fastcall TFormMain::BitBtnRefreshClick(TObject *Sender)
 		DM->FIBDataSetWeekReport->Open();
 		}
 	else{
-		MessageDlg("Нет выбранных отчетов для UPDATE!", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РќРµС‚ РІС‹Р±СЂР°РЅРЅС‹С… РѕС‚С‡РµС‚РѕРІ РґР»СЏ UPDATE!", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 }
 //---------------------------------------------------------------------------
@@ -163,12 +163,12 @@ void __fastcall TFormMain::BitBtnDeleteClick(TObject *Sender)
 		protect = DM->FIBDataSetWeeks->FieldValues["wks_state"];
 
   	if(protect!=0){
-      MessageDlg("Отчетный период уже закрыт!", mtError, TMsgDlgButtons() << mbOK, 0);
+      MessageDlg("РћС‚С‡РµС‚РЅС‹Р№ РїРµСЂРёРѕРґ СѓР¶Рµ Р·Р°РєСЂС‹С‚!", mtError, TMsgDlgButtons() << mbOK, 0);
 		return;
       }
 
 	if(tmp>0){
-		if(MessageDlg("Удалить данные отчета № "+IntToStr(tmp)+" ?\n" +
+		if(MessageDlg("РЈРґР°Р»РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚С‡РµС‚Р° в„– "+IntToStr(tmp)+" ?\n" +
 	  ((TDateTime)DM->FIBDataSetWeeks->FieldValues["DATE_START"]).FormatString("d mmmm yyyy") +" - "+ ((TDateTime)DM->FIBDataSetWeeks->FieldValues["DATE_STOP"]).FormatString("d mmmm yyyy"),
       mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
 
@@ -184,7 +184,7 @@ void __fastcall TFormMain::BitBtnDeleteClick(TObject *Sender)
 			   	}
 			   catch(...){
 				DM->FIBTransactionUpdate->Rollback();
-			   	MessageDlg("Невозможно удалить PREV_WEEKS!", mtError, TMsgDlgButtons() << mbOK, 0);
+			   	MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ СѓРґР°Р»РёС‚СЊ PREV_WEEKS!", mtError, TMsgDlgButtons() << mbOK, 0);
 			   	}
 
 			   if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
@@ -196,7 +196,7 @@ void __fastcall TFormMain::BitBtnDeleteClick(TObject *Sender)
 				}
 			   catch(...){
 				DM->FIBTransactionUpdate->Rollback();
-					MessageDlg("Невозможно удалить WEEKS!", mtError, TMsgDlgButtons() << mbOK, 0);
+					MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ СѓРґР°Р»РёС‚СЊ WEEKS!", mtError, TMsgDlgButtons() << mbOK, 0);
 			   	}
 			   DM->FIBDataSetWeeks->Open();
             }
@@ -204,7 +204,7 @@ void __fastcall TFormMain::BitBtnDeleteClick(TObject *Sender)
 
 		}
 	else{
-		MessageDlg("Нет выбранных отчетов для UPDATE!", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РќРµС‚ РІС‹Р±СЂР°РЅРЅС‹С… РѕС‚С‡РµС‚РѕРІ РґР»СЏ UPDATE!", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 }
 //---------------------------------------------------------------------------
@@ -213,8 +213,8 @@ void __fastcall TFormMain::FIBDataSetSMN_DAY_NIGHTGetText(
       TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="день";
-   	else if(Sender->Value == 1) Text="ночь";
+		if(Sender->Value == 0) Text="РґРµРЅСЊ";
+   	else if(Sender->Value == 1) Text="РЅРѕС‡СЊ";
       else Text="";
       }
 }
@@ -223,8 +223,8 @@ void __fastcall TFormMain::FIBDataSetSMN_WEEKENDGetText(
       TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="будни";
-   	else if(Sender->Value == 1) Text="праздник";
+		if(Sender->Value == 0) Text="Р±СѓРґРЅРё";
+   	else if(Sender->Value == 1) Text="РїСЂР°Р·РґРЅРёРє";
       else Text="";
       }
 }
@@ -234,8 +234,8 @@ void __fastcall TFormMain::FIBDataSetSMN_STATEGetText(
       TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="активна";
-   	else if(Sender->Value == 1) Text="закрыта";
+		if(Sender->Value == 0) Text="Р°РєС‚РёРІРЅР°";
+   	else if(Sender->Value == 1) Text="Р·Р°РєСЂС‹С‚Р°";
       else Text="???";
       }
 }
@@ -268,7 +268,7 @@ void __fastcall TFormMain::BitBtnSetRepClick(TObject *Sender)
 		protect = DM->FIBDataSetWeeks->FieldValues["wks_state"];
 
   	if(protect!=0){
-      MessageDlg("Отчетный период уже закрыт!", mtError, TMsgDlgButtons() << mbOK, 0);
+      MessageDlg("РћС‚С‡РµС‚РЅС‹Р№ РїРµСЂРёРѕРґ СѓР¶Рµ Р·Р°РєСЂС‹С‚!", mtError, TMsgDlgButtons() << mbOK, 0);
 		return;
       }
 
@@ -276,7 +276,7 @@ void __fastcall TFormMain::BitBtnSetRepClick(TObject *Sender)
    	FormOrder->Tag=tmp;
       FormOrder->Caption=((TBitBtn *)Sender)->Caption;
       FormOrder->LabelField->Caption=((TBitBtn *)Sender)->Hint;
-      FormOrder->LabelRepNo->Caption="Период отчета № "+IntToStr(tmp);
+      FormOrder->LabelRepNo->Caption="РџРµСЂРёРѕРґ РѕС‚С‡РµС‚Р° в„– "+IntToStr(tmp);
       FormOrder->Calendar->Enabled=true;
       FormOrder->Calendar->MultiSelect=false;
       FormOrder->Calendar->MaxSelectRange=7;
@@ -288,7 +288,7 @@ void __fastcall TFormMain::BitBtnSetRepClick(TObject *Sender)
       DM->FIBDataSetWeekReport->CloseOpen(true);
    	}
    else{
-      MessageDlg("Не указан отчет!", mtError, TMsgDlgButtons() << mbOK, 0);
+      MessageDlg("РќРµ СѓРєР°Р·Р°РЅ РѕС‚С‡РµС‚!", mtError, TMsgDlgButtons() << mbOK, 0);
    	}
 }
 //---------------------------------------------------------------------------
@@ -303,12 +303,12 @@ void __fastcall TFormMain::BitBtnRecalcClick(TObject *Sender)
 		protect = DM->FIBDataSetWeeks->FieldValues["wks_state"];
 
   	if(protect!=0){
-      MessageDlg("Отчетный период уже закрыт!", mtError, TMsgDlgButtons() << mbOK, 0);
+      MessageDlg("РћС‚С‡РµС‚РЅС‹Р№ РїРµСЂРёРѕРґ СѓР¶Рµ Р·Р°РєСЂС‹С‚!", mtError, TMsgDlgButtons() << mbOK, 0);
 		return;
       }
 
 	if(tmp>0){
-		if(MessageDlg("Произвести пересчет наработанных заказов по отчету:\n" +
+		if(MessageDlg("РџСЂРѕРёР·РІРµСЃС‚Рё РїРµСЂРµСЃС‡РµС‚ РЅР°СЂР°Р±РѕС‚Р°РЅРЅС‹С… Р·Р°РєР°Р·РѕРІ РїРѕ РѕС‚С‡РµС‚Сѓ:\n" +
    	   ((TDateTime)DM->FIBDataSetWeeks->FieldValues["DATE_START"]).FormatString("d mmmm yyyy") +" - "+ ((TDateTime)DM->FIBDataSetWeeks->FieldValues["DATE_STOP"]).FormatString("d mmmm yyyy"),
 	      mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
 			DM->FIBDataSetWeekReport->Close();
@@ -323,7 +323,7 @@ void __fastcall TFormMain::BitBtnRecalcClick(TObject *Sender)
 					}
 				catch(...){
 					DM->FIBTransactionUpdate->Rollback();
-					MessageDlg("Невозможно RECALC отчет!", mtError, TMsgDlgButtons() << mbOK, 0);
+					MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ RECALC РѕС‚С‡РµС‚!", mtError, TMsgDlgButtons() << mbOK, 0);
 					}
             }
 			}
@@ -332,7 +332,7 @@ void __fastcall TFormMain::BitBtnRecalcClick(TObject *Sender)
 		DM->FIBDataSetWeekReport->Open();
 		}
 	else{
-		MessageDlg("Нет выбранных отчетов для RECALC!", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РќРµС‚ РІС‹Р±СЂР°РЅРЅС‹С… РѕС‚С‡РµС‚РѕРІ РґР»СЏ RECALC!", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 }
 //---------------------------------------------------------------------------
@@ -356,12 +356,12 @@ void __fastcall TFormMain::BitBtnProtectClick(TObject *Sender)
 		protect = DM->FIBDataSetWeeks->FieldValues["wks_state"];
 
   	if(protect!=0){
-      MessageDlg("Отчетный период уже закрыт!", mtError, TMsgDlgButtons() << mbOK, 0);
+      MessageDlg("РћС‚С‡РµС‚РЅС‹Р№ РїРµСЂРёРѕРґ СѓР¶Рµ Р·Р°РєСЂС‹С‚!", mtError, TMsgDlgButtons() << mbOK, 0);
 		return;
       }
       
 	if(tmp>0){
-		if(MessageDlg("Закрыть отчет № "+IntToStr(tmp)+" ?\n" +
+		if(MessageDlg("Р—Р°РєСЂС‹С‚СЊ РѕС‚С‡РµС‚ в„– "+IntToStr(tmp)+" ?\n" +
       ((TDateTime)DM->FIBDataSetWeeks->FieldValues["DATE_START"]).FormatString("d mmmm yyyy") +" - "+ ((TDateTime)DM->FIBDataSetWeeks->FieldValues["DATE_STOP"]).FormatString("d mmmm yyyy"),
       mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
 
@@ -377,7 +377,7 @@ void __fastcall TFormMain::BitBtnProtectClick(TObject *Sender)
 			   	}
 			   catch(...){
 			   	FIBTransactionUpdate->Rollback();
-			   	MessageDlg("Невозможно удалить PREV_WEEKS!", mtError, TMsgDlgButtons() << mbOK, 0);
+			   	MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ СѓРґР°Р»РёС‚СЊ PREV_WEEKS!", mtError, TMsgDlgButtons() << mbOK, 0);
 			   	}
 */
 			   if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
@@ -389,7 +389,7 @@ void __fastcall TFormMain::BitBtnProtectClick(TObject *Sender)
 					}
 			   catch(...){
 			   	DM->FIBTransactionUpdate->Rollback();
-					MessageDlg("Невозможно закрыть WEEKS!", mtError, TMsgDlgButtons() << mbOK, 0);
+					MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РєСЂС‹С‚СЊ WEEKS!", mtError, TMsgDlgButtons() << mbOK, 0);
 			   	}
 			   DM->FIBDataSetWeeks->Open();
             }
@@ -397,7 +397,7 @@ void __fastcall TFormMain::BitBtnProtectClick(TObject *Sender)
 
 		}
 	else{
-		MessageDlg("Нет выбранных отчетов для UPDATE!", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РќРµС‚ РІС‹Р±СЂР°РЅРЅС‹С… РѕС‚С‡РµС‚РѕРІ РґР»СЏ UPDATE!", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 }
 //---------------------------------------------------------------------------
@@ -416,7 +416,7 @@ void __fastcall TFormMain::BitBtnDolgClick(TObject *Sender)
 		protect = DM->FIBDataSetWeeks->FieldValues["wks_state"];
 
   	if(protect!=0){
-      MessageDlg("Отчетный период уже закрыт!", mtError, TMsgDlgButtons() << mbOK, 0);
+      MessageDlg("РћС‚С‡РµС‚РЅС‹Р№ РїРµСЂРёРѕРґ СѓР¶Рµ Р·Р°РєСЂС‹С‚!", mtError, TMsgDlgButtons() << mbOK, 0);
 		return;
       }
 
@@ -426,14 +426,14 @@ void __fastcall TFormMain::BitBtnDolgClick(TObject *Sender)
 		try{
 			DM->FIBStoredProcReportThmInfo->ExecProc();               
 			DM->FIBTransactionUpdate->Commit();
-		 MessageDlg("Долги выписаны.", mtInformation, TMsgDlgButtons() << mbOK, 0);
+		 MessageDlg("Р”РѕР»РіРё РІС‹РїРёСЃР°РЅС‹.", mtInformation, TMsgDlgButtons() << mbOK, 0);
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Невозможно выписать долги!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ РІС‹РїРёСЃР°С‚СЊ РґРѕР»РіРё!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 	  }
-   else MessageDlg("Не верный код отчета.\nДолги не выписываюстя!", mtError, TMsgDlgButtons() << mbOK, 0);
+   else MessageDlg("РќРµ РІРµСЂРЅС‹Р№ РєРѕРґ РѕС‚С‡РµС‚Р°.\nР”РѕР»РіРё РЅРµ РІС‹РїРёСЃС‹РІР°СЋСЃС‚СЏ!", mtError, TMsgDlgButtons() << mbOK, 0);
 }
 //---------------------------------------------------------------------------
 
@@ -441,7 +441,7 @@ void __fastcall TFormMain::BitBtnDolgClick(TObject *Sender)
 
 void __fastcall TFormMain::ButtonCleanOrderTrashClick(TObject *Sender)
 {
-	if(MessageDlg("Удалить мусор из базы?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
+	if(MessageDlg("РЈРґР°Р»РёС‚СЊ РјСѓСЃРѕСЂ РёР· Р±Р°Р·С‹?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
 		if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 		DM->FIBQueryTools->SQL->Clear();
 		DM->FIBQueryTools->SQL->Add("delete from orders where key_smn_start < "+EditClean->Text+" and ord_state not in (0,1,3,4,6)");
@@ -453,9 +453,9 @@ void __fastcall TFormMain::ButtonCleanOrderTrashClick(TObject *Sender)
 
 void __fastcall TFormMain::ButtonOrdersClearClick(TObject *Sender)
 {
-	if(MessageDlg("Удалить заказы?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes)
-	if(MessageDlg("Действительно удалить заказы?", mtError, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes)
-	if(MessageDlg("Последний раз спрашиваю, удалять ? ? ?", mtError, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
+	if(MessageDlg("РЈРґР°Р»РёС‚СЊ Р·Р°РєР°Р·С‹?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes)
+	if(MessageDlg("Р”РµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ СѓРґР°Р»РёС‚СЊ Р·Р°РєР°Р·С‹?", mtError, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes)
+	if(MessageDlg("РџРѕСЃР»РµРґРЅРёР№ СЂР°Р· СЃРїСЂР°С€РёРІР°СЋ, СѓРґР°Р»СЏС‚СЊ ? ? ?", mtError, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){
 		if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 		DM->FIBQueryTools->SQL->Clear();
 		DM->FIBQueryTools->SQL->Add("delete from orders where key_smn_start < "+EditClean->Text+" and ord_state not in (0,4,6) and key_client =0 ");
@@ -467,7 +467,7 @@ void __fastcall TFormMain::ButtonOrdersClearClick(TObject *Sender)
 
 void __fastcall TFormMain::ButtonLocationsCearClick(TObject *Sender)
 {
-	if(MessageDlg("Очистить историю движения?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){	
+	if(MessageDlg("РћС‡РёСЃС‚РёС‚СЊ РёСЃС‚РѕСЂРёСЋ РґРІРёР¶РµРЅРёСЏ?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes){	
 		Screen->Cursor=crSQLWait;
 		//Refresh();
 		if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
@@ -506,7 +506,7 @@ void __fastcall TFormMain::TabSheetToolsHide(TObject *Sender)
 
 void __fastcall TFormMain::ButtonReCalcClick(TObject *Sender)
 {
-	MessageDlg("Пока не работает", mtInformation, TMsgDlgButtons() << mbOK, 0) ;
+	MessageDlg("РџРѕРєР° РЅРµ СЂР°Р±РѕС‚Р°РµС‚", mtInformation, TMsgDlgButtons() << mbOK, 0) ;
 }
 //---------------------------------------------------------------------------
 

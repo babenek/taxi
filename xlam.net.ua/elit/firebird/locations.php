@@ -1,5 +1,5 @@
 <?php
-// îáðàáàòûâàåì ïåðåìåííûå
+// Ð¾Ð±Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ
 	foreach($_REQUEST as $key => $val) {if(isset($$key)) unset($$key);}
 	if (get_magic_quotes_gpc()) {
 		$_GET = array_map('stripslashes', $_GET);
@@ -13,7 +13,7 @@
 	else {ini_set('error_reporting', E_ALL);}
 	// ??? for ($i=0; $i<count($_POST); $i++) {list($key,$val)=each($_POST);$$key=$val;};
 	// ??? for ($i=0; $i<count($_GET); $i++) {list($key,$val)=each($_GET);$$key=$val;};
-	//$_REQUEST, $_POST, $_GET, $_COOKIE, $_SERVER è ò.ä.
+	//$_REQUEST, $_POST, $_GET, $_COOKIE, $_SERVER Ð¸ Ñ‚.Ð´.
 	if(isset($_REQUEST['ad'])) $ad=(int)$_REQUEST['ad']; else $ad=0;	
 	if(isset($_REQUEST['parent'])) $parent=(int)$_REQUEST['parent'];else $parent=0;		
 	if(isset($_REQUEST['section'])) $section=(int)$_REQUEST['section']; else $section=0;		
@@ -39,13 +39,13 @@
 	if(isset($_COOKIE['sid'])){
 		$sid=(int)$_COOKIE['sid'];				
 		}			
-//ïîäêëþ÷åíèå ê ÁÄ						
-	require('../../dbconf.php');//òóò ó íàñ ïàðîëü÷èêè :)
-	$connect=mysql_connect(hostname,username,password) or die ('Íå ìîãó ñîçäàòü ñîåäèíåíèå '. mysql_error());
-	mysql_select_db(database,$connect) or die ('Íå ìîãó âûáðàòü áàçó äàííûõ '. mysql_error());
+//Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ðº Ð‘Ð”						
+	require('../../dbconf.php');//Ñ‚ÑƒÑ‚ Ñƒ Ð½Ð°Ñ Ð¿Ð°Ñ€Ð¾Ð»ÑŒÑ‡Ð¸ÐºÐ¸ :)
+	$connect=mysql_connect(hostname,username,password) or die ('ÐÐµ Ð¼Ð¾Ð³Ñƒ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÐ¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ðµ '. mysql_error());
+	mysql_select_db(database,$connect) or die ('ÐÐµ Ð¼Ð¾Ð³Ñƒ Ð²Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ Ð±Ð°Ð·Ñƒ Ð´Ð°Ð½Ð½Ñ‹Ñ… '. mysql_error());
 
 
-	if(isset($_POST['locations'])){//âèäèìî, ÷òî-òî õîòÿòü ïåðåäàòü		
+	if(isset($_POST['locations'])){//Ð²Ð¸Ð´Ð¸Ð¼Ð¾, Ñ‡Ñ‚Ð¾-Ñ‚Ð¾ Ñ…Ð¾Ñ‚ÑÑ‚ÑŒ Ð¿ÐµÑ€ÐµÐ´Ð°Ñ‚ÑŒ		
 		mysql_query('delete from elit;') or die('Query failed: ' . mysql_error());		
 		$locations = split(';',$_POST['locations']); 
 		foreach($locations as $each){

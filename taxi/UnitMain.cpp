@@ -51,7 +51,7 @@ void __fastcall TFormMain::FormCreate(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::FormShow(TObject *Sender)
 {
-// ясный-красный, если в начале программы, значит функция для креейта всякой лабуды с чем дальше буду работать
+// СЏСЃРЅС‹Р№-РєСЂР°СЃРЅС‹Р№, РµСЃР»Рё РІ РЅР°С‡Р°Р»Рµ РїСЂРѕРіСЂР°РјРјС‹, Р·РЅР°С‡РёС‚ С„СѓРЅРєС†РёСЏ РґР»СЏ РєСЂРµРµР№С‚Р° РІСЃСЏРєРѕР№ Р»Р°Р±СѓРґС‹ СЃ С‡РµРј РґР°Р»СЊС€Рµ Р±СѓРґСѓ СЂР°Р±РѕС‚Р°С‚СЊ
 //02.04.06 = 38809
 	PrimaryHost="127.0.0.1";
 	SecondaryHost="localhost";
@@ -84,7 +84,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 	gethostname(HostName.c_str(),64);
 
 
-//	if(MessageDlg("Подключится к основному серверу?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes) PrimaryHost=SecondaryHost;
+//	if(MessageDlg("РџРѕРґРєР»СЋС‡РёС‚СЃСЏ Рє РѕСЃРЅРѕРІРЅРѕРјСѓ СЃРµСЂРІРµСЂСѓ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes) PrimaryHost=SecondaryHost;
 
 	if ( HostName.UpperCase().Pos(PrimaryHost) || PrimaryHost.UpperCase().Pos("LOCALHOST") || PrimaryHost.Pos("127.0.0.1")){
 		MainHost=true;
@@ -114,7 +114,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 		CheckBoxFreq = new TCheckBox*[9];
 		}
 	catch (std::bad_alloc) {  // ENTER THIS BLOCK ONLY IF bad_alloc IS THROWN.
-		MessageDlg("Невозможно выделить память под операцию!\nCheckBoxFreq = new TCheckBox*[9];", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ РІС‹РґРµР»РёС‚СЊ РїР°РјСЏС‚СЊ РїРѕРґ РѕРїРµСЂР°С†РёСЋ!\nCheckBoxFreq = new TCheckBox*[9];", mtError, TMsgDlgButtons() << mbOK, 0);
 		exit(-1);
 		}
 
@@ -174,24 +174,24 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 		SmenaWeekend=DM->FIBDataSetSmena->FieldValues["SMN_WEEKEND"];
 		if (DM->FIBDataSetSmena->FieldValues["SMN_DAY_NIGHT"]==0)
 			Caption=tmpstr+" v."+FormMain->VersionInfo->FileVersion
-								+"   Смена № "+IntToStr(FormMain->CurrentSmena)
-								+" ДЕНЬ"+tmp.FormatString("  dddd dd mmmm yyyy   ")
+								+"   РЎРјРµРЅР° в„– "+IntToStr(FormMain->CurrentSmena)
+								+" Р”Р•РќР¬"+tmp.FormatString("  dddd dd mmmm yyyy   ")
 								+DM->FIBDataSetSmena->FieldValues["USR_LIST"]+"  >> "+HostName
 								+" Server:"+PrimaryHost;
 		else
 			Caption=tmpstr+" v."+FormMain->VersionInfo->FileVersion+
-								+"   Смена № "+IntToStr(FormMain->CurrentSmena)
-								+" НОЧЬ"+tmp.FormatString("  dddd dd mmmm yyyy   ")+
+								+"   РЎРјРµРЅР° в„– "+IntToStr(FormMain->CurrentSmena)
+								+" РќРћР§Р¬"+tmp.FormatString("  dddd dd mmmm yyyy   ")+
 								DM->FIBDataSetSmena->FieldValues["USR_LIST"]+"  >> "+HostName
 								+" Server:"+PrimaryHost;
 //		LoginOk=true;
 		//TimerCheck->Enabled=true;
 		}
 	else if (DM->FIBDataSetSmena->RecordCount==0){
-		MessageDlg("Нет активных смен!\nТребуется вход: \"Старший диспетчер\"", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РќРµС‚ Р°РєС‚РёРІРЅС‹С… СЃРјРµРЅ!\nРўСЂРµР±СѓРµС‚СЃСЏ РІС…РѕРґ: \"РЎС‚Р°СЂС€РёР№ РґРёСЃРїРµС‚С‡РµСЂ\"", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 	else{
-		MessageDlg("Ошибочное количество активных смен (>1)!\nТребуется вмешательство Старшего диспетчера\"", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РћС€РёР±РѕС‡РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р°РєС‚РёРІРЅС‹С… СЃРјРµРЅ (>1)!\nРўСЂРµР±СѓРµС‚СЃСЏ РІРјРµС€Р°С‚РµР»СЊСЃС‚РІРѕ РЎС‚Р°СЂС€РµРіРѕ РґРёСЃРїРµС‚С‡РµСЂР°\"", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 	DM->FIBDataSetSmena->Close();
 //	if(LoginOk){
@@ -228,7 +228,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 			DM->FIBDataSet_S_LOCATION->Next();
 			}
 		DM->FIBDataSet_S_LOCATION->Close();
-// ________________________________________________________________________________   забиваем клинетов в поп-ап
+// ________________________________________________________________________________   Р·Р°Р±РёРІР°РµРј РєР»РёРЅРµС‚РѕРІ РІ РїРѕРї-Р°Рї
 
 		if(!DM->FIBDataSetClients->Active) DM->FIBDataSetClients->Open();
 		DM->FIBDataSetClients->First();
@@ -247,17 +247,17 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 		DBLookupComboboxEhOrdType->KeyValue=1;
 		//NumOrdType=DM->FIBDataSetSOrdType->RecordCount;
 // ________________________________________________________________________________
-		// создаем объекты-Локации на карте
+		// СЃРѕР·РґР°РµРј РѕР±СЉРµРєС‚С‹-Р›РѕРєР°С†РёРё РЅР° РєР°СЂС‚Рµ
 		if(!DM->FIBDataSet_S_LOCATION->Active) DM->FIBDataSet_S_LOCATION->Open();
 		LocationCount = DM->FIBDataSet_S_LOCATION->RecordCount;
-		if (LocationCount){// если хотя бы одна локация есть начинаем креатить
+		if (LocationCount){// РµСЃР»Рё С…РѕС‚СЏ Р±С‹ РѕРґРЅР° Р»РѕРєР°С†РёСЏ РµСЃС‚СЊ РЅР°С‡РёРЅР°РµРј РєСЂРµР°С‚РёС‚СЊ
 			try{
 				GroupBoxLocation = new TGroupBox*[LocationCount];
 				ScrollBoxLocation = new TScrollBox*[LocationCount];
 				ImageLocation = new TImage*[LocationCount];
 				}
 			catch (std::bad_alloc) {  // ENTER THIS BLOCK ONLY IF bad_alloc IS THROWN.
-				MessageDlg("Невозможно выделить память под операцию!\nGroupBoxLocation = new TGroupBox*["+IntToStr(LocationCount)+"]", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ РІС‹РґРµР»РёС‚СЊ РїР°РјСЏС‚СЊ РїРѕРґ РѕРїРµСЂР°С†РёСЋ!\nGroupBoxLocation = new TGroupBox*["+IntToStr(LocationCount)+"]", mtError, TMsgDlgButtons() << mbOK, 0);
 				exit(-1);
 				}
 			DM->FIBDataSet_S_LOCATION->First();
@@ -323,17 +323,17 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 				}
 			}
 		else{
-			MessageDlg("Oшибка справочника S_LOCATION", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("OС€РёР±РєР° СЃРїСЂР°РІРѕС‡РЅРёРєР° S_LOCATION", mtError, TMsgDlgButtons() << mbOK, 0);
 			//exit(-1);
 			}
-		DM->FIBDataSet_S_LOCATION->Close();// создание объектов локаций закончили - приступаем к созданию самих машинок - тоесть Themelabel
+		DM->FIBDataSet_S_LOCATION->Close();// СЃРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ Р»РѕРєР°С†РёР№ Р·Р°РєРѕРЅС‡РёР»Рё - РїСЂРёСЃС‚СѓРїР°РµРј Рє СЃРѕР·РґР°РЅРёСЋ СЃР°РјРёС… РјР°С€РёРЅРѕРє - С‚РѕРµСЃС‚СЊ Themelabel
 		if(!DM->FIBDataSet_S_THEME->Active) DM->FIBDataSet_S_THEME->Open();
 		ThemeCount = DM->FIBDataSet_S_THEME->RecordCount;
-		if (ThemeCount){ // если машины есть в справочнике - начнем их делать
+		if (ThemeCount){ // РµСЃР»Рё РјР°С€РёРЅС‹ РµСЃС‚СЊ РІ СЃРїСЂР°РІРѕС‡РЅРёРєРµ - РЅР°С‡РЅРµРј РёС… РґРµР»Р°С‚СЊ
 
 			try{ ThemeLabel = new TThemeLabel*[ThemeCount]; }
 			catch (std::bad_alloc) {  // ENTER THIS BLOCK ONLY IF bad_alloc IS THROWN.
-					MessageDlg("Невозможно выделить память под операцию!\nThemeLabel = new TLabel*["+IntToStr(ThemeCount)+"]", mtError, TMsgDlgButtons() << mbOK, 0);
+					MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ РІС‹РґРµР»РёС‚СЊ РїР°РјСЏС‚СЊ РїРѕРґ РѕРїРµСЂР°С†РёСЋ!\nThemeLabel = new TLabel*["+IntToStr(ThemeCount)+"]", mtError, TMsgDlgButtons() << mbOK, 0);
 					exit(-1);
 					}
 
@@ -362,7 +362,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 						ThemeLabel[n]->Hint+="\n"+AnsiString(DM->FIBDataSet_S_THEME->FieldValues["THM_NUMBER"]);
 
 					if(DM->FIBDataSet_S_THEME->FieldValues["rep_dolg"].Type()==varDouble)
-						ThemeLabel[n]->Hint+="\nДолг: "+AnsiString(DM->FIBDataSet_S_THEME->FieldValues["rep_dolg"]);
+						ThemeLabel[n]->Hint+="\nР”РѕР»Рі: "+AnsiString(DM->FIBDataSet_S_THEME->FieldValues["rep_dolg"]);
 
 					ThemeLabel[n]->Hint+="\nTIME:";
 
@@ -396,7 +396,7 @@ void __fastcall TFormMain::FormShow(TObject *Sender)
 
 			}
 		else{
-			MessageDlg("Oшибка справочника S_THEME", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("OС€РёР±РєР° СЃРїСЂР°РІРѕС‡РЅРёРєР° S_THEME", mtError, TMsgDlgButtons() << mbOK, 0);
 			//exit(-1);
 			}
 		DM->FIBDataSet_S_THEME->Close();
@@ -423,7 +423,7 @@ void __fastcall TFormMain::FormActivate(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::TimerOrdRezervFlashTimer(TObject *Sender)
-{// блымалка для списка предварительных заказов
+{// Р±Р»С‹РјР°Р»РєР° РґР»СЏ СЃРїРёСЃРєР° РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹С… Р·Р°РєР°Р·РѕРІ
 	if(DBGridEh_ORD_RESERV->FixedColor==clBtnFace){
 		DBGridEh_ORD_RESERV->FixedColor=clRed;
 		Beep();
@@ -455,7 +455,7 @@ void __fastcall TFormMain::ThemeLabelMouseDown(TObject *Sender,TMouseButton Butt
 		ButtonStartOrder->Caption=IntToStr(CurrentThemeLabel->Theme);
 		EditTheme->Text=ButtonStartOrder->Caption;
 		ShapeLighting->Visible=true;
-//		ListBoxInfo->Items->Add(IntToStr(CurrentThemeLabel->Theme)+": Очередность #"+IntToStr(CurrentThemeLabel->Ressort)+" "+IntToStr(CurrentThemeLabel->Time_Start));
+//		ListBoxInfo->Items->Add(IntToStr(CurrentThemeLabel->Theme)+": РћС‡РµСЂРµРґРЅРѕСЃС‚СЊ #"+IntToStr(CurrentThemeLabel->Ressort)+" "+IntToStr(CurrentThemeLabel->Time_Start));
 		};
 }
 //---------------------------------------------------------------------------
@@ -485,15 +485,15 @@ void __fastcall TFormMain::ScrollBoxParkMouseUp(TObject *Sender,TMouseButton But
 void __fastcall TFormMain::ReLocation(TObject *Sender)
 {
 	if(CurrentThemeLabel!=NULL){
-		if (CurrentThemeLabel->Locations){ //если локация реальная - ее надо закрыть прежде, чем делать новую
+		if (CurrentThemeLabel->Locations){ //РµСЃР»Рё Р»РѕРєР°С†РёСЏ СЂРµР°Р»СЊРЅР°СЏ - РµРµ РЅР°РґРѕ Р·Р°РєСЂС‹С‚СЊ РїСЂРµР¶РґРµ, С‡РµРј РґРµР»Р°С‚СЊ РЅРѕРІСѓСЋ
 			short StopCount=0;
 			if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 			DM->FIBStoredProc_ORDER_STOP->ParamByName("VI_KEY_LOCATIONS")->AsInteger=CurrentThemeLabel->Locations;
 			DM->FIBStoredProc_ORDER_STOP->ParamByName("VI_SMN_STOP")->AsInteger=CurrentSmena;
 			DM->FIBStoredProc_ORDER_STOP->ParamByName("VI_TIME_STOP")->Clear();
-			try{// пытаемся закрыть заказ, если он вообще такой есть...
-				DM->FIBStoredProc_ORDER_STOP->ExecProc(); //выполнение процедуры, вдруг закроет
-				StopCount=DM->FIBStoredProc_ORDER_STOP->ParamByName("VO_STOP_COUNT")->AsShort; //проверка сколько записей закрыто
+			try{// РїС‹С‚Р°РµРјСЃСЏ Р·Р°РєСЂС‹С‚СЊ Р·Р°РєР°Р·, РµСЃР»Рё РѕРЅ РІРѕРѕР±С‰Рµ С‚Р°РєРѕР№ РµСЃС‚СЊ...
+				DM->FIBStoredProc_ORDER_STOP->ExecProc(); //РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕС†РµРґСѓСЂС‹, РІРґСЂСѓРі Р·Р°РєСЂРѕРµС‚
+				StopCount=DM->FIBStoredProc_ORDER_STOP->ParamByName("VO_STOP_COUNT")->AsShort; //РїСЂРѕРІРµСЂРєР° СЃРєРѕР»СЊРєРѕ Р·Р°РїРёСЃРµР№ Р·Р°РєСЂС‹С‚Рѕ
 				DM->FIBTransactionUpdate->Commit();
 				}
 			catch(...){
@@ -502,11 +502,11 @@ void __fastcall TFormMain::ReLocation(TObject *Sender)
 				ButtonStartOrder->Caption="";//LabelReadyOrder->Caption="0";
 				EditTheme->Text="";
 				ShapeLighting->Visible=false;
-				MessageDlg("Невозможно завершить заказ!\nПопробуйте еще раз", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РІРµСЂС€РёС‚СЊ Р·Р°РєР°Р·!\nРџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·", mtError, TMsgDlgButtons() << mbOK, 0);
 				return;
 				}
 			if (StopCount<0) {
-				MessageDlg("Невозможно завершить заказ!\nВведите все данные", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РІРµСЂС€РёС‚СЊ Р·Р°РєР°Р·!\nР’РІРµРґРёС‚Рµ РІСЃРµ РґР°РЅРЅС‹Рµ", mtError, TMsgDlgButtons() << mbOK, 0);
 				return;
 				}
 
@@ -514,8 +514,8 @@ void __fastcall TFormMain::ReLocation(TObject *Sender)
 			DM->FIBStoredProc_LOCATION_STOP->ParamByName("VI_UNIQL")->AsInteger=CurrentThemeLabel->Locations;
 			DM->FIBStoredProc_LOCATION_STOP->ParamByName("VI_SMN_STOP")->AsInteger=CurrentSmena;
 			try{
-				DM->FIBStoredProc_LOCATION_STOP->ExecProc(); //выполнение процедуры, вдруг закроет
-				StopCount=DM->FIBStoredProc_LOCATION_STOP->ParamByName("VO_STOP_COUNT")->AsShort; //проверка сколько записей закрыто
+				DM->FIBStoredProc_LOCATION_STOP->ExecProc(); //РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕС†РµРґСѓСЂС‹, РІРґСЂСѓРі Р·Р°РєСЂРѕРµС‚
+				StopCount=DM->FIBStoredProc_LOCATION_STOP->ParamByName("VO_STOP_COUNT")->AsShort; //РїСЂРѕРІРµСЂРєР° СЃРєРѕР»СЊРєРѕ Р·Р°РїРёСЃРµР№ Р·Р°РєСЂС‹С‚Рѕ
 				DM->FIBTransactionUpdate->Commit();
 				}
 			catch(...){
@@ -525,17 +525,17 @@ void __fastcall TFormMain::ReLocation(TObject *Sender)
 				ButtonStartOrder->Caption="";//LabelReadyOrder->Caption="0";
 				EditTheme->Text="";
 				ShapeLighting->Visible=false;
-				MessageDlg("Невозможно передислоцировать!\nПопробуйте еще раз", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ РїРµСЂРµРґРёСЃР»РѕС†РёСЂРѕРІР°С‚СЊ!\nРџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·", mtError, TMsgDlgButtons() << mbOK, 0);
 				return;
 				}
-			if(StopCount){//если локация закрыта - делаем новую
+			if(StopCount){//РµСЃР»Рё Р»РѕРєР°С†РёСЏ Р·Р°РєСЂС‹С‚Р° - РґРµР»Р°РµРј РЅРѕРІСѓСЋ
 				CurrentThemeLabel->PrevLocations=CurrentThemeLabel->Locations;
 				CurrentThemeLabel->PrevLocation=CurrentThemeLabel->Location;
 				CurrentThemeLabel->PrevLocType=CurrentThemeLabel->LocType;
 				if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THEME")->AsShort=CurrentThemeLabel->Theme;
 				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_PREV_LOCATIONS")->AsInteger=CurrentThemeLabel->Locations;
-				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOCATION")->AsShort=((TControl*)Sender)->Tag; // вот так определяем в какую локацию впиздячить текущую машину!
+				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOCATION")->AsShort=((TControl*)Sender)->Tag; // РІРѕС‚ С‚Р°Рє РѕРїСЂРµРґРµР»СЏРµРј РІ РєР°РєСѓСЋ Р»РѕРєР°С†РёСЋ РІРїРёР·РґСЏС‡РёС‚СЊ С‚РµРєСѓС‰СѓСЋ РјР°С€РёРЅСѓ!
 				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOC_TYPE")->AsShort=1;//CurrentThemeLabel->LocType;
 				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_SMN_START")->AsInteger=CurrentSmena;
 				switch(CurrentThemeLabel->Ressort){
@@ -550,24 +550,24 @@ void __fastcall TFormMain::ReLocation(TObject *Sender)
 					}
 				catch(...){
 					DM->FIBTransactionUpdate->Rollback();
-					MessageDlg("Передислокация не удачна!", mtError, TMsgDlgButtons() << mbOK, 0);
+					MessageDlg("РџРµСЂРµРґРёСЃР»РѕРєР°С†РёСЏ РЅРµ СѓРґР°С‡РЅР°!", mtError, TMsgDlgButtons() << mbOK, 0);
 					}
 				}
-			else {// видимо, ошибка - придется делать отмену и перечитывать состояния локаций.
-				MessageDlg("Шеф,все пропало! Машина уже уехала", mtError, TMsgDlgButtons() << mbOK, 0);
+			else {// РІРёРґРёРјРѕ, РѕС€РёР±РєР° - РїСЂРёРґРµС‚СЃСЏ РґРµР»Р°С‚СЊ РѕС‚РјРµРЅСѓ Рё РїРµСЂРµС‡РёС‚С‹РІР°С‚СЊ СЃРѕСЃС‚РѕСЏРЅРёСЏ Р»РѕРєР°С†РёР№.
+				MessageDlg("РЁРµС„,РІСЃРµ РїСЂРѕРїР°Р»Рѕ! РњР°С€РёРЅР° СѓР¶Рµ СѓРµС…Р°Р»Р°", mtError, TMsgDlgButtons() << mbOK, 0);
 				}
 			}
-		else{//если локация новая, видимо только из гаража выехал - делаем новую
+		else{//РµСЃР»Рё Р»РѕРєР°С†РёСЏ РЅРѕРІР°СЏ, РІРёРґРёРјРѕ С‚РѕР»СЊРєРѕ РёР· РіР°СЂР°Р¶Р° РІС‹РµС…Р°Р» - РґРµР»Р°РµРј РЅРѕРІСѓСЋ
 			if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 				CurrentThemeLabel->PrevLocations=CurrentThemeLabel->Locations;
 				CurrentThemeLabel->PrevLocation=CurrentThemeLabel->Location;
 				CurrentThemeLabel->PrevLocType=CurrentThemeLabel->LocType;
 				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THEME")->AsShort=CurrentThemeLabel->Theme;
-				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_PREV_LOCATIONS")->AsInteger=0;// в принципе, можно догадаться, что пердыдущих локаций нет ;)
-				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOCATION")->AsShort=((TControl*)Sender)->Tag; // вот так определяем в какую локацию впиздячить текущую машину!
-				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOC_TYPE")->AsShort=1;// это типа он передислоцировался и стоит в очереди готов к работе
+				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_PREV_LOCATIONS")->AsInteger=0;// РІ РїСЂРёРЅС†РёРїРµ, РјРѕР¶РЅРѕ РґРѕРіР°РґР°С‚СЊСЃСЏ, С‡С‚Рѕ РїРµСЂРґС‹РґСѓС‰РёС… Р»РѕРєР°С†РёР№ РЅРµС‚ ;)
+				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOCATION")->AsShort=((TControl*)Sender)->Tag; // РІРѕС‚ С‚Р°Рє РѕРїСЂРµРґРµР»СЏРµРј РІ РєР°РєСѓСЋ Р»РѕРєР°С†РёСЋ РІРїРёР·РґСЏС‡РёС‚СЊ С‚РµРєСѓС‰СѓСЋ РјР°С€РёРЅСѓ!
+				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOC_TYPE")->AsShort=1;// СЌС‚Рѕ С‚РёРїР° РѕРЅ РїРµСЂРµРґРёСЃР»РѕС†РёСЂРѕРІР°Р»СЃСЏ Рё СЃС‚РѕРёС‚ РІ РѕС‡РµСЂРµРґРё РіРѕС‚РѕРІ Рє СЂР°Р±РѕС‚Рµ
 				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_SMN_START")->AsInteger=CurrentSmena;
-				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THM_RESSORT")->AsShort=5;// если он из гаража выехал - по умолчанию обычная сортировка
+				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THM_RESSORT")->AsShort=5;// РµСЃР»Рё РѕРЅ РёР· РіР°СЂР°Р¶Р° РІС‹РµС…Р°Р» - РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РѕР±С‹С‡РЅР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°
 			try{
 				DM->FIBStoredProc_LOCATION_START->ExecProc();
 				DM->FIBTransactionUpdate->Commit();
@@ -575,7 +575,7 @@ void __fastcall TFormMain::ReLocation(TObject *Sender)
 				}
 			catch(...){
 				DM->FIBTransactionUpdate->Rollback();
-				MessageDlg("Передислокация не удачна!", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РџРµСЂРµРґРёСЃР»РѕРєР°С†РёСЏ РЅРµ СѓРґР°С‡РЅР°!", mtError, TMsgDlgButtons() << mbOK, 0);
 				}
 			}
 		}
@@ -591,7 +591,7 @@ void __fastcall TFormMain::ReLocType(TObject *Sender)
 	if(CurrentThemeLabel!=NULL){
 		short StopCount=0;
 		if ( StrToInt(Now().FormatString("hh"))<5 && ((TControl*)Sender)->Tag==0 && CurrentThemeLabel->Ressort==5 ){
-			if(MessageDlg("Позbiвной "+IntToStr(CurrentThemeLabel->Theme)+" на линии!\nОтправить в гараж?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) != mrYes){
+			if(MessageDlg("РџРѕР·biРІРЅРѕР№ "+IntToStr(CurrentThemeLabel->Theme)+" РЅР° Р»РёРЅРёРё!\nРћС‚РїСЂР°РІРёС‚СЊ РІ РіР°СЂР°Р¶?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) != mrYes){
 				CurrentThemeLabel=NULL;
 				ButtonStartOrder->Caption="";//LabelReadyOrder->Caption="0";
 				EditTheme->Text="";
@@ -599,14 +599,14 @@ void __fastcall TFormMain::ReLocType(TObject *Sender)
 				return;
 				}
 			}
-		if (CurrentThemeLabel->Locations){ //если локация реальная - ее надо закрыть прежде, чем делать новую
+		if (CurrentThemeLabel->Locations){ //РµСЃР»Рё Р»РѕРєР°С†РёСЏ СЂРµР°Р»СЊРЅР°СЏ - РµРµ РЅР°РґРѕ Р·Р°РєСЂС‹С‚СЊ РїСЂРµР¶РґРµ, С‡РµРј РґРµР»Р°С‚СЊ РЅРѕРІСѓСЋ
 			if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 			DM->FIBStoredProc_ORDER_STOP->ParamByName("VI_KEY_LOCATIONS")->AsInteger=CurrentThemeLabel->Locations;
 			DM->FIBStoredProc_ORDER_STOP->ParamByName("VI_SMN_STOP")->AsInteger=CurrentSmena;
 			DM->FIBStoredProc_ORDER_STOP->ParamByName("VI_TIME_STOP")->Clear();
-			try{// пытаемся закрыть заказ, если он вообще такой есть...
-				DM->FIBStoredProc_ORDER_STOP->ExecProc(); //выполнение процедуры, вдруг закроет
-				StopCount=DM->FIBStoredProc_ORDER_STOP->ParamByName("VO_STOP_COUNT")->AsShort; //проверка сколько записей закрыто
+			try{// РїС‹С‚Р°РµРјСЃСЏ Р·Р°РєСЂС‹С‚СЊ Р·Р°РєР°Р·, РµСЃР»Рё РѕРЅ РІРѕРѕР±С‰Рµ С‚Р°РєРѕР№ РµСЃС‚СЊ...
+				DM->FIBStoredProc_ORDER_STOP->ExecProc(); //РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕС†РµРґСѓСЂС‹, РІРґСЂСѓРі Р·Р°РєСЂРѕРµС‚
+				StopCount=DM->FIBStoredProc_ORDER_STOP->ParamByName("VO_STOP_COUNT")->AsShort; //РїСЂРѕРІРµСЂРєР° СЃРєРѕР»СЊРєРѕ Р·Р°РїРёСЃРµР№ Р·Р°РєСЂС‹С‚Рѕ
 				DM->FIBTransactionUpdate->Commit();
 				}
 			catch(...){			
@@ -615,11 +615,11 @@ void __fastcall TFormMain::ReLocType(TObject *Sender)
 				ButtonStartOrder->Caption="";//LabelReadyOrder->Caption="0";
 				EditTheme->Text="";
 				ShapeLighting->Visible=false;
-				MessageDlg("Невозможно завершить заказ!\nПопробуйте еще раз", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РІРµСЂС€РёС‚СЊ Р·Р°РєР°Р·!\nРџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·", mtError, TMsgDlgButtons() << mbOK, 0);
 				return;
 				}
 			if (StopCount<0) {
-				MessageDlg("Невозможно завершить заказ!\nВведите все данные", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РІРµСЂС€РёС‚СЊ Р·Р°РєР°Р·!\nР’РІРµРґРёС‚Рµ РІСЃРµ РґР°РЅРЅС‹Рµ", mtError, TMsgDlgButtons() << mbOK, 0);
 				return;
 				}
 
@@ -627,21 +627,21 @@ void __fastcall TFormMain::ReLocType(TObject *Sender)
 				(  ((TControl*)Sender)->Tag!= 5 && ((TControl*)Sender)->Tag!= 7 && ((TControl*)Sender)->Tag!= 9 && ((TControl*)Sender)->Tag!= 11 && ((TControl*)Sender)->Tag!= 13
 				&& CurrentThemeLabel->LocType!= 5 && CurrentThemeLabel->LocType!= 7 && CurrentThemeLabel->LocType!= 9 && CurrentThemeLabel->LocType!= 11 && CurrentThemeLabel->LocType!= 13)
 				|| CurrentThemeLabel->Ressort == 7 || CurrentThemeLabel->Ressort == 8 || CurrentThemeLabel->Ressort == 9
-				){                                                                                                         // проверим, если машина НЕ должна оставаться в очереди - будем ей закрывать/открывать локацию
+				){                                                                                                         // РїСЂРѕРІРµСЂРёРј, РµСЃР»Рё РјР°С€РёРЅР° РќР• РґРѕР»Р¶РЅР° РѕСЃС‚Р°РІР°С‚СЊСЃСЏ РІ РѕС‡РµСЂРµРґРё - Р±СѓРґРµРј РµР№ Р·Р°РєСЂС‹РІР°С‚СЊ/РѕС‚РєСЂС‹РІР°С‚СЊ Р»РѕРєР°С†РёСЋ
 				if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 				DM->FIBStoredProc_LOCATION_STOP->ParamByName("VI_UNIQL")->AsInteger=CurrentThemeLabel->Locations;
 				DM->FIBStoredProc_LOCATION_STOP->ParamByName("VI_SMN_STOP")->AsInteger=CurrentSmena;
 				try{
-					DM->FIBStoredProc_LOCATION_STOP->ExecProc(); //выполнение процедуры, вдруг закроет
+					DM->FIBStoredProc_LOCATION_STOP->ExecProc(); //РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕС†РµРґСѓСЂС‹, РІРґСЂСѓРі Р·Р°РєСЂРѕРµС‚
 					DM->FIBTransactionUpdate->Commit();
-					StopCount=DM->FIBStoredProc_LOCATION_STOP->ParamByName("VO_STOP_COUNT")->AsShort; //проверка сколько записей закрыто
+					StopCount=DM->FIBStoredProc_LOCATION_STOP->ParamByName("VO_STOP_COUNT")->AsShort; //РїСЂРѕРІРµСЂРєР° СЃРєРѕР»СЊРєРѕ Р·Р°РїРёСЃРµР№ Р·Р°РєСЂС‹С‚Рѕ
 					}
 				catch(...){
 					DM->FIBTransactionUpdate->Rollback();
 					StopCount=0;
-					MessageDlg("ReLocType: Невозможно закрыть локацию", mtError, TMsgDlgButtons() << mbOK, 0);
+					MessageDlg("ReLocType: РќРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РєСЂС‹С‚СЊ Р»РѕРєР°С†РёСЋ", mtError, TMsgDlgButtons() << mbOK, 0);
 					}
-				if(StopCount){//если локация закрыта - делаем новую
+				if(StopCount){//РµСЃР»Рё Р»РѕРєР°С†РёСЏ Р·Р°РєСЂС‹С‚Р° - РґРµР»Р°РµРј РЅРѕРІСѓСЋ
 					CurrentThemeLabel->PrevLocations=CurrentThemeLabel->Locations;
 					CurrentThemeLabel->PrevLocation=CurrentThemeLabel->Location;
 					CurrentThemeLabel->PrevLocType=CurrentThemeLabel->LocType;
@@ -650,7 +650,7 @@ void __fastcall TFormMain::ReLocType(TObject *Sender)
 					DM->FIBStoredProc_LOCATION_START->ParamByName("VI_PREV_LOCATIONS")->AsInteger=CurrentThemeLabel->Locations;
 					DM->FIBStoredProc_LOCATION_START->ParamByName("VI_SMN_START")->AsInteger=CurrentSmena;
 					DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOC_TYPE")->AsShort=((TControl*)Sender)->Tag;//CurrentThemeLabel->LocType;
-					if ( ((TControl*)Sender)->Tag&0x01 ){// если локация динамическая - оставляем все атрибуты состояния
+					if ( ((TControl*)Sender)->Tag&0x01 ){// РµСЃР»Рё Р»РѕРєР°С†РёСЏ РґРёРЅР°РјРёС‡РµСЃРєР°СЏ - РѕСЃС‚Р°РІР»СЏРµРј РІСЃРµ Р°С‚СЂРёР±СѓС‚С‹ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 						DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOCATION")->AsShort=CurrentThemeLabel->Location;
 						switch (CurrentThemeLabel->Ressort){
 							case 1: case 7: DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THM_RESSORT")->AsShort=4; break;
@@ -659,7 +659,7 @@ void __fastcall TFormMain::ReLocType(TObject *Sender)
 							default: DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THM_RESSORT")->AsShort=CurrentThemeLabel->Ressort; break;
 							};
 						}
-					else{// иначе - в гараже оно им не нужно
+					else{// РёРЅР°С‡Рµ - РІ РіР°СЂР°Р¶Рµ РѕРЅРѕ РёРј РЅРµ РЅСѓР¶РЅРѕ
 						DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOCATION")->AsShort=0;
 						DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THM_RESSORT")->AsShort=0;
 						}
@@ -670,13 +670,13 @@ void __fastcall TFormMain::ReLocType(TObject *Sender)
 						}
 					catch(...){
 						DM->FIBTransactionUpdate->Rollback();
-						MessageDlg("ReLocType не удачна!", mtError, TMsgDlgButtons() << mbOK, 0);
+						MessageDlg("ReLocType РЅРµ СѓРґР°С‡РЅР°!", mtError, TMsgDlgButtons() << mbOK, 0);
 						NewLocations=0;
 						}
 					}
-				else {ShowMessage("ReLocType: Шеф,все пропало! Машина уже уехала");}// видимо, ошибка - придется делать отмену и перечитывать состояния локаций.
+				else {ShowMessage("ReLocType: РЁРµС„,РІСЃРµ РїСЂРѕРїР°Р»Рѕ! РњР°С€РёРЅР° СѓР¶Рµ СѓРµС…Р°Р»Р°");}// РІРёРґРёРјРѕ, РѕС€РёР±РєР° - РїСЂРёРґРµС‚СЃСЏ РґРµР»Р°С‚СЊ РѕС‚РјРµРЅСѓ Рё РїРµСЂРµС‡РёС‚С‹РІР°С‚СЊ СЃРѕСЃС‚РѕСЏРЅРёСЏ Р»РѕРєР°С†РёР№.
 				}
-			else{// иначе, если машина остается в очереди - просто меняем ей тип локации
+			else{// РёРЅР°С‡Рµ, РµСЃР»Рё РјР°С€РёРЅР° РѕСЃС‚Р°РµС‚СЃСЏ РІ РѕС‡РµСЂРµРґРё - РїСЂРѕСЃС‚Рѕ РјРµРЅСЏРµРј РµР№ С‚РёРї Р»РѕРєР°С†РёРё
 				if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 				DM->FIBStoredProc_LOCATION_UPDATE->ParamByName("VI_UNIQL")->AsInteger=CurrentThemeLabel->Locations;
 				DM->FIBStoredProc_LOCATION_UPDATE->ParamByName("VI_LOC_TYPE")->AsShort=((TControl*)Sender)->Tag;//CurrentThemeLabel->LocType;
@@ -689,26 +689,26 @@ void __fastcall TFormMain::ReLocType(TObject *Sender)
 				catch(...){
 					DM->FIBTransactionUpdate->Rollback();
 					NewLocations=0;
-					MessageDlg("NewLocType не удачна!", mtError, TMsgDlgButtons() << mbOK, 0);
+					MessageDlg("NewLocType РЅРµ СѓРґР°С‡РЅР°!", mtError, TMsgDlgButtons() << mbOK, 0);
 					}
 				if (((TComponent *)Sender)->Tag==1 && CurrentThemeLabel->Ressort>6 && (CurrentThemeLabel->LocType==9 || CurrentThemeLabel->LocType==11)){
-				//если машина подравнивается и она среди опазданцев пусть станет в конец очереди
+				//РµСЃР»Рё РјР°С€РёРЅР° РїРѕРґСЂР°РІРЅРёРІР°РµС‚СЃСЏ Рё РѕРЅР° СЃСЂРµРґРё РѕРїР°Р·РґР°РЅС†РµРІ РїСѓСЃС‚СЊ СЃС‚Р°РЅРµС‚ РІ РєРѕРЅРµС† РѕС‡РµСЂРµРґРё
 					Tag=CurrentThemeLabel->Location;
 					ReLocation(this);
 					}
 				}
 			}
-		else{//если локация новая, видимо только из гаража на ремонт и тд. - делаем новую
+		else{//РµСЃР»Рё Р»РѕРєР°С†РёСЏ РЅРѕРІР°СЏ, РІРёРґРёРјРѕ С‚РѕР»СЊРєРѕ РёР· РіР°СЂР°Р¶Р° РЅР° СЂРµРјРѕРЅС‚ Рё С‚Рґ. - РґРµР»Р°РµРј РЅРѕРІСѓСЋ
 			if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 				CurrentThemeLabel->PrevLocations=CurrentThemeLabel->Locations;
 				CurrentThemeLabel->PrevLocation=CurrentThemeLabel->Location;
 				CurrentThemeLabel->PrevLocType=CurrentThemeLabel->LocType;
 				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THEME")->AsShort=CurrentThemeLabel->Theme;
-				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_PREV_LOCATIONS")->AsInteger=0;// по умолчанию
-				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOCATION")->AsShort=0;// ясен пень, что его этой функцией его могли перекинуть с гаража 
+				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_PREV_LOCATIONS")->AsInteger=0;// РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOCATION")->AsShort=0;// СЏСЃРµРЅ РїРµРЅСЊ, С‡С‚Рѕ РµРіРѕ СЌС‚РѕР№ С„СѓРЅРєС†РёРµР№ РµРіРѕ РјРѕРіР»Рё РїРµСЂРµРєРёРЅСѓС‚СЊ СЃ РіР°СЂР°Р¶Р° 
 				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_LOC_TYPE")->AsShort=((TControl*)Sender)->Tag;
 				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_SMN_START")->AsInteger=CurrentSmena;
-				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THM_RESSORT")->AsShort=5;// по умолчанию
+				DM->FIBStoredProc_LOCATION_START->ParamByName("VI_THM_RESSORT")->AsShort=5;// РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 			try{
 				DM->FIBStoredProc_LOCATION_START->ExecProc();
 				DM->FIBTransactionUpdate->Commit();
@@ -717,7 +717,7 @@ void __fastcall TFormMain::ReLocType(TObject *Sender)
 			catch(...){
 				DM->FIBTransactionUpdate->Rollback();
 				NewLocations=0;
-				MessageDlg("Передислокация не удачна!", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РџРµСЂРµРґРёСЃР»РѕРєР°С†РёСЏ РЅРµ СѓРґР°С‡РЅР°!", mtError, TMsgDlgButtons() << mbOK, 0);
 				}
 			}
 		}
@@ -732,43 +732,43 @@ void __fastcall TFormMain::Ressort(TObject *Sender)
 	if(CurrentThemeLabel!=NULL){
 		short tmpRessort=5;
 		switch(((TControl*)Sender)->Tag){
-			case 123://первоочередной
+			case 123://РїРµСЂРІРѕРѕС‡РµСЂРµРґРЅРѕР№
 				if ( CurrentThemeLabel->Ressort==4 || CurrentThemeLabel->Ressort==7 )tmpRessort=1;
 				else if ( CurrentThemeLabel->Ressort==5 || CurrentThemeLabel->Ressort==8 )tmpRessort=2;
 				else if ( CurrentThemeLabel->Ressort==6 || CurrentThemeLabel->Ressort==9 )tmpRessort=3;
 				else return;//DM->FIBStoredProc_LOCATION_UPDATE->ParamByName("VI_THM_RESSORT")->AsShort=5;												
 				break;
-			case 147://в ночь
+			case 147://РІ РЅРѕС‡СЊ
 				if ( CurrentThemeLabel->Ressort==2 || CurrentThemeLabel->Ressort==3 )tmpRessort=1;
 				else if ( CurrentThemeLabel->Ressort==5 || CurrentThemeLabel->Ressort==6 )tmpRessort=4;
 				else if ( CurrentThemeLabel->Ressort==8 || CurrentThemeLabel->Ressort==9 )tmpRessort=7;
 				else return;//DM->FIBStoredProc_LOCATION_UPDATE->ParamByName("VI_THM_RESSORT")->AsShort=5;	  			
 				break;
-			case 369://в резерв
+			case 369://РІ СЂРµР·РµСЂРІ
 				if ( CurrentThemeLabel->Ressort==1 || CurrentThemeLabel->Ressort==2 )tmpRessort=3;
 				else if ( CurrentThemeLabel->Ressort==4 || CurrentThemeLabel->Ressort==5 )tmpRessort=6;
 				else if ( CurrentThemeLabel->Ressort==7 || CurrentThemeLabel->Ressort==8 )tmpRessort=9;
 				else return;//DM->FIBStoredProc_LOCATION_UPDATE->ParamByName("VI_THM_RESSORT")->AsShort=5;
 				break;
-			case 258://снять с резерва
+			case 258://СЃРЅСЏС‚СЊ СЃ СЂРµР·РµСЂРІР°
 				if ( CurrentThemeLabel->Ressort==1 || CurrentThemeLabel->Ressort==3 )tmpRessort=2;
 				else if ( CurrentThemeLabel->Ressort==4 || CurrentThemeLabel->Ressort==6 )tmpRessort=5;
 				else if ( CurrentThemeLabel->Ressort==7 || CurrentThemeLabel->Ressort==9 )tmpRessort=8;
 				else return;//DM->FIBStoredProc_LOCATION_UPDATE->ParamByName("VI_THM_RESSORT")->AsShort=5;			
 				break;							
-			case 456://восстановить в очереди
+			case 456://РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ РІ РѕС‡РµСЂРµРґРё
 				if ( CurrentThemeLabel->Ressort==1 || CurrentThemeLabel->Ressort==7 )tmpRessort=4;
 				else if ( CurrentThemeLabel->Ressort==2 || CurrentThemeLabel->Ressort==8 )tmpRessort=5;
 				else if ( CurrentThemeLabel->Ressort==3 || CurrentThemeLabel->Ressort==9 )tmpRessort=6;
 				else return;//DM->FIBStoredProc_LOCATION_UPDATE->ParamByName("VI_THM_RESSORT")->AsShort=5;
 				break;
-			case 789://в конец очереди
+			case 789://РІ РєРѕРЅРµС† РѕС‡РµСЂРµРґРё
 				if ( CurrentThemeLabel->Ressort==1 || CurrentThemeLabel->Ressort==4 )tmpRessort=7;
 				else if ( CurrentThemeLabel->Ressort==2 || CurrentThemeLabel->Ressort==5 )tmpRessort=8;
 				else if ( CurrentThemeLabel->Ressort==3 || CurrentThemeLabel->Ressort==6 )tmpRessort=9;
 				else return;//DM->FIBStoredProc_LOCATION_UPDATE->ParamByName("VI_THM_RESSORT")->AsShort=5;
 				break;
-			default:// херня какая-то
+			default:// С…РµСЂРЅСЏ РєР°РєР°СЏ-С‚Рѕ
 				return;
 			};
 		if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
@@ -781,7 +781,7 @@ void __fastcall TFormMain::Ressort(TObject *Sender)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Операция с резервом НЕ удачна!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РћРїРµСЂР°С†РёСЏ СЃ СЂРµР·РµСЂРІРѕРј РќР• СѓРґР°С‡РЅР°!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 	CurrentThemeLabel=NULL;
@@ -796,7 +796,7 @@ void __fastcall TFormMain::ThemeLabelDblClick(TObject *Sender)
 		switch(CurrentThemeLabel->LocType){
 			case 1:
 //				miMarkClick(Sender);
-				PanelLocation->Tag=9;// ушел на боковую 15 мин.
+				PanelLocation->Tag=9;// СѓС€РµР» РЅР° Р±РѕРєРѕРІСѓСЋ 15 РјРёРЅ.
 				ReLocType(PanelLocation);
 				break;
 			case 3:
@@ -807,7 +807,7 @@ void __fastcall TFormMain::ThemeLabelDblClick(TObject *Sender)
 			case 9:
 			case 11:
 			case 13:
-				PanelLocation->Tag=1;// Подровняли
+				PanelLocation->Tag=1;// РџРѕРґСЂРѕРІРЅСЏР»Рё
 				ReLocType(PanelLocation);
 				break;
 			default: break;
@@ -826,11 +826,11 @@ void __fastcall TFormMain::BitBtnRessortNightClick(TObject *Sender)
 			DM->FIBStoredProcRessortNight->ExecProc();
 			int tmp=DM->FIBStoredProcRessortNight->ParamByName("VO_RESSORT")->AsInteger;
 			DM->FIBTransactionUpdate->Commit();
-			MessageDlg("В ночь работают: "+IntToStr(tmp), mtInformation, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("Р’ РЅРѕС‡СЊ СЂР°Р±РѕС‚Р°СЋС‚: "+IntToStr(tmp), mtInformation, TMsgDlgButtons() << mbOK, 0);
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Не удалось перевести машины в ночную смену!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РќРµ СѓРґР°Р»РѕСЃСЊ РїРµСЂРµРІРµСЃС‚Рё РјР°С€РёРЅС‹ РІ РЅРѕС‡РЅСѓСЋ СЃРјРµРЅСѓ!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 	EditDeparture->SetFocus();			
 }
@@ -842,11 +842,11 @@ void __fastcall TFormMain::BitBtnRessortDayClick(TObject *Sender)
 			DM->FIBStoredProcRessortDay->ExecProc();
 			int tmp=DM->FIBStoredProcRessortDay->ParamByName("VO_RESSORT")->AsInteger;
 			DM->FIBTransactionUpdate->Commit();
-			MessageDlg("Снято с резерва: "+IntToStr(tmp), mtInformation, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РЎРЅСЏС‚Рѕ СЃ СЂРµР·РµСЂРІР°: "+IntToStr(tmp), mtInformation, TMsgDlgButtons() << mbOK, 0);
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Снять всех с резерва не удалось!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РЎРЅСЏС‚СЊ РІСЃРµС… СЃ СЂРµР·РµСЂРІР° РЅРµ СѓРґР°Р»РѕСЃСЊ!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 	EditDeparture->SetFocus();			
 }
@@ -856,25 +856,25 @@ void __fastcall TFormMain::SendOrder(TObject *Sender)
 	AnsiString tempMessage;
 	switch (((TComponent*)Sender)->Tag){
 		case 11:
-			tempMessage="Записать позывному: "+IntToStr(CurrentThemeLabel->Theme)+"\nНЕ ОТЗЫВ ?";
+			tempMessage="Р—Р°РїРёСЃР°С‚СЊ РїРѕР·С‹РІРЅРѕРјСѓ: "+IntToStr(CurrentThemeLabel->Theme)+"\nРќР• РћРўР—Р«Р’ ?";
 			break;
 		case 12:
-			tempMessage="Записать позывному: "+IntToStr(CurrentThemeLabel->Theme)+"\nВСТРЕЧНЫЙ ?";
+			tempMessage="Р—Р°РїРёСЃР°С‚СЊ РїРѕР·С‹РІРЅРѕРјСѓ: "+IntToStr(CurrentThemeLabel->Theme)+"\nР’РЎРўР Р•Р§РќР«Р™ ?";
 			break;
 		case 10:
-			tempMessage="Записать позывному: "+IntToStr(CurrentThemeLabel->Theme)+"\nШТРАФ ?";
+			tempMessage="Р—Р°РїРёСЃР°С‚СЊ РїРѕР·С‹РІРЅРѕРјСѓ: "+IntToStr(CurrentThemeLabel->Theme)+"\nРЁРўР РђР¤ ?";
 			break;
 		case 13:
-			tempMessage="Записать ОТКАЗ (10грн.) позывному: "+IntToStr(CurrentThemeLabel->Theme);
+			tempMessage="Р—Р°РїРёСЃР°С‚СЊ РћРўРљРђР— (10РіСЂРЅ.) РїРѕР·С‹РІРЅРѕРјСѓ: "+IntToStr(CurrentThemeLabel->Theme);
 			break;
 		case 17:
-			tempMessage="Записать позывному: "+IntToStr(CurrentThemeLabel->Theme)+"\nРадиообмен ?";
+			tempMessage="Р—Р°РїРёСЃР°С‚СЊ РїРѕР·С‹РІРЅРѕРјСѓ: "+IntToStr(CurrentThemeLabel->Theme)+"\nР Р°РґРёРѕРѕР±РјРµРЅ ?";
 			break;
 		case 24:
-			tempMessage="Добавить штраф невыход в НОЧЬ позывному: "+IntToStr(CurrentThemeLabel->Theme)+" ?";
+			tempMessage="Р”РѕР±Р°РІРёС‚СЊ С€С‚СЂР°С„ РЅРµРІС‹С…РѕРґ РІ РќРћР§Р¬ РїРѕР·С‹РІРЅРѕРјСѓ: "+IntToStr(CurrentThemeLabel->Theme)+" ?";
 			break;
 		default:
-			tempMessage="Неизвестное исключение - лучше ответить НЕТ!";
+			tempMessage="РќРµРёР·РІРµСЃС‚РЅРѕРµ РёСЃРєР»СЋС‡РµРЅРёРµ - Р»СѓС‡С€Рµ РѕС‚РІРµС‚РёС‚СЊ РќР•Рў!";
 			break;
 		}
 
@@ -895,7 +895,7 @@ void __fastcall TFormMain::SendOrder(TObject *Sender)
 				}
 			catch(...){
 				DM->FIBTransactionUpdate->Rollback();
-				MessageDlg("Невозможно добавить штраф!", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµРІРѕР·РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ С€С‚СЂР°С„!", mtError, TMsgDlgButtons() << mbOK, 0);
 				}
 			}
 	CurrentThemeLabel=NULL;
@@ -905,16 +905,16 @@ void __fastcall TFormMain::SendOrder(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::StartOrder(TObject *Sender)
-{// ВОТ! ГЛАВНАЯ ФУНКЦИЯ ОТПРАВКИ МАШИНЫ ПО ЗАКАЗУ
+{// Р’РћРў! Р“Р›РђР’РќРђРЇ Р¤РЈРќРљР¦РРЇ РћРўРџР РђР’РљР РњРђРЁРРќР« РџРћ Р—РђРљРђР—РЈ
 	if (CurrentThemeLabel!=NULL && StrToInt(ButtonStartOrder->Caption)!=0){
 		NewLocations=0;                                     // DBLookupComboboxEhOrdType DBLookupComboboxEhOrdType->KeyValue
 		///
 		TThemeLabel *tmpCurrentThemeLabel=CurrentThemeLabel;
-		if (DBLookupComboboxEhOrdType->KeyValue == 5 && CurrentThemeLabel->LocType!=3){// Eсли заказ ЛИЧНЫЙ - водилу ставим "со своими, а заказ пишем как обычный
+		if (DBLookupComboboxEhOrdType->KeyValue == 5 && CurrentThemeLabel->LocType!=3){// EСЃР»Рё Р·Р°РєР°Р· Р›РР§РќР«Р™ - РІРѕРґРёР»Сѓ СЃС‚Р°РІРёРј "СЃРѕ СЃРІРѕРёРјРё, Р° Р·Р°РєР°Р· РїРёС€РµРј РєР°Рє РѕР±С‹С‡РЅС‹Р№
 			ReLocType(miWithSave);}
 		else{
 			ReLocType(Sender);}
-		if (NewLocations){//если получили не нулевую ссылку на локацию - можно выписывать ордер
+		if (NewLocations){//РµСЃР»Рё РїРѕР»СѓС‡РёР»Рё РЅРµ РЅСѓР»РµРІСѓСЋ СЃСЃС‹Р»РєСѓ РЅР° Р»РѕРєР°С†РёСЋ - РјРѕР¶РЅРѕ РІС‹РїРёСЃС‹РІР°С‚СЊ РѕСЂРґРµСЂ
 			if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 			DM->FIBStoredProc_ORDER_START->ParamByName("VI_THEME")->AsShort=tmpCurrentThemeLabel->Theme;
 			DM->FIBStoredProc_ORDER_START->ParamByName("VI_LOCATIONS")->AsInteger=NewLocations;
@@ -953,11 +953,11 @@ void __fastcall TFormMain::StartOrder(TObject *Sender)
 				}
 			catch(...){
 				DM->FIBTransactionUpdate->Rollback();
-				MessageDlg("Не добавляется заказ!", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ Р·Р°РєР°Р·!", mtError, TMsgDlgButtons() << mbOK, 0);
 				}
 			}
 		else{
-			MessageDlg("Дислокация не изменилась!\nЗаказ не добавлен!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("Р”РёСЃР»РѕРєР°С†РёСЏ РЅРµ РёР·РјРµРЅРёР»Р°СЃСЊ!\nР—Р°РєР°Р· РЅРµ РґРѕР±Р°РІР»РµРЅ!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 	CurrentThemeLabel=NULL;
@@ -1077,7 +1077,7 @@ void __fastcall TFormMain::ButtonDelayClick(TObject *Sender)
 			else DM->FIBStoredProc_ORDER_START->ParamByName("VI_PHONE")->AsString=EditPHONE->Text;
 			DM->FIBStoredProc_ORDER_START->ParamByName("VI_STATE")->AsShort=((TControl *)Sender)->Tag;
 			DM->FIBStoredProc_ORDER_START->ParamByName("VI_COST")->Clear();
-			if (((TControl *)Sender)->Tag==6){// состояние = предварительный заказ
+			if (((TControl *)Sender)->Tag==6){// СЃРѕСЃС‚РѕСЏРЅРёРµ = РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Р№ Р·Р°РєР°Р·
 				DateTimePicker->Time = TDateTime(StrToInt(MaskEditTime->Text.SubString(1,2)),StrToInt(MaskEditTime->Text.SubString(4,2)),00,00);
 				DM->FIBStoredProc_ORDER_START->ParamByName("VI_TIME_START")->AsDateTime=DateTimePicker->DateTime;
 				}
@@ -1097,7 +1097,7 @@ void __fastcall TFormMain::ButtonDelayClick(TObject *Sender)
 				}
 			catch(...){
 				DM->FIBTransactionUpdate->Rollback();
-				MessageDlg("Не добавляется в список заказов!", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РќРµ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ РІ СЃРїРёСЃРѕРє Р·Р°РєР°Р·РѕРІ!", mtError, TMsgDlgButtons() << mbOK, 0);
 				}
 			ButtonStartOrder->Caption="";
 			EditTheme->Text="";
@@ -1146,7 +1146,7 @@ void __fastcall TFormMain::PopupMenuLocTypeOnLinePopup(TObject *Sender)
 {
 	switch(CurrentThemeLabel->LocType){
 
-		case 1:// на линии
+		case 1:// РЅР° Р»РёРЅРёРё
 			//miOutAuto->Visible=true;
 			miPause->Visible=true;
 			miClients->Visible=true;
@@ -1160,7 +1160,7 @@ void __fastcall TFormMain::PopupMenuLocTypeOnLinePopup(TObject *Sender)
 			miOrderEdit->Visible= false;
 			break;
 
-		case 3: // по заказу
+		case 3: // РїРѕ Р·Р°РєР°Р·Сѓ
 			miOrderEdit->Visible=true;
 			miUnMark->Visible=true;
 
@@ -1178,8 +1178,8 @@ void __fastcall TFormMain::PopupMenuLocTypeOnLinePopup(TObject *Sender)
 //miRollback->Visible= true;
 			break;
 
-		case 5: //по заказу с сохранением
-		case 7: // со своими
+		case 5: //РїРѕ Р·Р°РєР°Р·Сѓ СЃ СЃРѕС…СЂР°РЅРµРЅРёРµРј
+		case 7: // СЃРѕ СЃРІРѕРёРјРё
 			miOrderEdit->Visible=true;
 			//miOutAuto->Visible=true;
 			miPause->Visible=true;
@@ -1188,13 +1188,13 @@ void __fastcall TFormMain::PopupMenuLocTypeOnLinePopup(TObject *Sender)
 			//miPrior->Visible=true;
 
 			miPromove->Visible=false;
-			miSort->Visible=false; // сортировка
+			miSort->Visible=false; // СЃРѕСЂС‚РёСЂРѕРІРєР°
 			miClients->Visible=false;
 			miWithSave->Visible=false;
 			break;
 
-		case 9: //перерыв
-		case 11: //обед
+		case 9: //РїРµСЂРµСЂС‹РІ
+		case 11: //РѕР±РµРґ
 			miClients->Visible=true;
 
 			miOrderEdit->Visible=false;
@@ -1202,26 +1202,26 @@ void __fastcall TFormMain::PopupMenuLocTypeOnLinePopup(TObject *Sender)
 			//miOutAuto->Visible=false;
 			miPause->Visible=false;
 			miPromove->Visible=false;
-			//miPrior->Visible=false; // первоочередной
-			miSort->Visible=false; // сортировка
+			//miPrior->Visible=false; // РїРµСЂРІРѕРѕС‡РµСЂРµРґРЅРѕР№
+			miSort->Visible=false; // СЃРѕСЂС‚РёСЂРѕРІРєР°
 			miUnMark->Visible=false;
 			miMark->Visible=false;
 			break;
 
-		case 13: //продвигается
+		case 13: //РїСЂРѕРґРІРёРіР°РµС‚СЃСЏ
 			miClients->Visible=true;
 			miWithSave->Visible=true;
 			//miOutAuto->Visible=true;
 			miPause->Visible=true;
 			miUnMark->Visible=true;
-			//miPrior->Visible=true; // первоочередной
+			//miPrior->Visible=true; // РїРµСЂРІРѕРѕС‡РµСЂРµРґРЅРѕР№
 
 			miPromove->Visible=false;
 			miMark->Visible=true;
-			miOrderEdit->Visible=false;  //уточнить заказ
+			miOrderEdit->Visible=false;  //СѓС‚РѕС‡РЅРёС‚СЊ Р·Р°РєР°Р·
 			break;
 
-		default: // непонятно - лучше все показать
+		default: // РЅРµРїРѕРЅСЏС‚РЅРѕ - Р»СѓС‡С€Рµ РІСЃРµ РїРѕРєР°Р·Р°С‚СЊ
 			miMark->Visible=true;
 			//miOutAuto->Visible=true;
 			miPause->Visible=true;
@@ -1276,15 +1276,15 @@ void __fastcall TFormMain::ThemeLabelClick(TObject *Sender)
 	EditTheme->Text=ButtonStartOrder->Caption;
 	ShapeLighting->Visible=true;
 	switch(CurrentThemeLabel->Ressort){ 
-		case 1: ButtonStartOrder->Hint="выбран первоочередной";break;
-		case 2: ButtonStartOrder->Hint="первоочередной";break;
-		case 3: ButtonStartOrder->Hint="резервный первоочередной";break;
-		case 4: ButtonStartOrder->Hint="выбран ";break;
-		case 5: ButtonStartOrder->Hint="обычный";break;
-		case 6: ButtonStartOrder->Hint="резервный ";break;
-		case 7: ButtonStartOrder->Hint="выбран последний";break;
-		case 8: ButtonStartOrder->Hint="последний";break;
-		case 9: ButtonStartOrder->Hint="резерв последний";break;				
+		case 1: ButtonStartOrder->Hint="РІС‹Р±СЂР°РЅ РїРµСЂРІРѕРѕС‡РµСЂРµРґРЅРѕР№";break;
+		case 2: ButtonStartOrder->Hint="РїРµСЂРІРѕРѕС‡РµСЂРµРґРЅРѕР№";break;
+		case 3: ButtonStartOrder->Hint="СЂРµР·РµСЂРІРЅС‹Р№ РїРµСЂРІРѕРѕС‡РµСЂРµРґРЅРѕР№";break;
+		case 4: ButtonStartOrder->Hint="РІС‹Р±СЂР°РЅ ";break;
+		case 5: ButtonStartOrder->Hint="РѕР±С‹С‡РЅС‹Р№";break;
+		case 6: ButtonStartOrder->Hint="СЂРµР·РµСЂРІРЅС‹Р№ ";break;
+		case 7: ButtonStartOrder->Hint="РІС‹Р±СЂР°РЅ РїРѕСЃР»РµРґРЅРёР№";break;
+		case 8: ButtonStartOrder->Hint="РїРѕСЃР»РµРґРЅРёР№";break;
+		case 9: ButtonStartOrder->Hint="СЂРµР·РµСЂРІ РїРѕСЃР»РµРґРЅРёР№";break;				
 		default: ButtonStartOrder->Hint="";break;
 		};
 //Memo1->Lines->Clear();
@@ -1305,7 +1305,7 @@ void __fastcall TFormMain::miRollbackClick(TObject *Sender)
 				}
 			catch(...){
 				DM->FIBTransactionUpdate->Rollback();
-				MessageDlg("Отмена не удалась!", mtError, TMsgDlgButtons() << mbOK, 0);
+				MessageDlg("РћС‚РјРµРЅР° РЅРµ СѓРґР°Р»Р°СЃСЊ!", mtError, TMsgDlgButtons() << mbOK, 0);
 				}
 			CurrentThemeLabel=NULL;
 			ButtonStartOrder->Caption="";//LabelReadyOrder->Caption="0";
@@ -1313,7 +1313,7 @@ void __fastcall TFormMain::miRollbackClick(TObject *Sender)
 			ShapeLighting->Visible=false;
 			}
 		else{
-			MessageDlg("Для данного случая отмена не доступна!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("Р”Р»СЏ РґР°РЅРЅРѕРіРѕ СЃР»СѓС‡Р°СЏ РѕС‚РјРµРЅР° РЅРµ РґРѕСЃС‚СѓРїРЅР°!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 }
@@ -1345,7 +1345,7 @@ void __fastcall TFormMain::miOrderEditClick(TObject *Sender)
 			FormOrder->ShowModal();
 			DM->FIBDataSet_ORD_ONLINE->Open();
 			}
-		else ShowMessage("Не найден позывной в заказах!");
+		else ShowMessage("РќРµ РЅР°Р№РґРµРЅ РїРѕР·С‹РІРЅРѕР№ РІ Р·Р°РєР°Р·Р°С…!");
 		}
 }
 //---------------------------------------------------------------------------
@@ -1362,23 +1362,23 @@ void __fastcall TFormMain::TimerCheckTimer(TObject *Sender)
 	TDateTime testDateTime;
 	if(MainHost){
 		if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
-		DM->FIBStoredProcLocationCheck->ParamByName("VI_TIMEOUT_7")->AsDateTime=TDateTime((double)Now()-0.041667);//это пусть будет  1час =
-		DM->FIBStoredProcLocationCheck->ParamByName("VI_TIMEOUT_9")->AsDateTime=TDateTime((double)Now()-0.013889);//это пусть будет 20 минут  0,013888888888888888888888888888889
-		DM->FIBStoredProcLocationCheck->ParamByName("VI_TIMEOUT_11")->AsDateTime=TDateTime((double)Now()-0.048611);//это пусть будет  70min = 0,048611111111111111111111111111111 0,027777777777777777777777777777778
+		DM->FIBStoredProcLocationCheck->ParamByName("VI_TIMEOUT_7")->AsDateTime=TDateTime((double)Now()-0.041667);//СЌС‚Рѕ РїСѓСЃС‚СЊ Р±СѓРґРµС‚  1С‡Р°СЃ =
+		DM->FIBStoredProcLocationCheck->ParamByName("VI_TIMEOUT_9")->AsDateTime=TDateTime((double)Now()-0.013889);//СЌС‚Рѕ РїСѓСЃС‚СЊ Р±СѓРґРµС‚ 20 РјРёРЅСѓС‚  0,013888888888888888888888888888889
+		DM->FIBStoredProcLocationCheck->ParamByName("VI_TIMEOUT_11")->AsDateTime=TDateTime((double)Now()-0.048611);//СЌС‚Рѕ РїСѓСЃС‚СЊ Р±СѓРґРµС‚  70min = 0,048611111111111111111111111111111 0,027777777777777777777777777777778
 		try{
 			DM->FIBStoredProcLocationCheck->ExecProc();
 			DM->FIBTransactionUpdate->Commit();
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Ошибка при проверке LOC_TYPE!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РћС€РёР±РєР° РїСЂРё РїСЂРѕРІРµСЂРєРµ LOC_TYPE!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 	DM->FIBDataSet_ORD_REZERV_CHECK->CloseOpen(true);
 	DM->FIBDataSet_ORD_REZERV_CHECK->First();
 	while (!DM->FIBDataSet_ORD_REZERV_CHECK->Eof){
 		testDateTime=DM->FIBDataSet_ORD_REZERV_CHECK->FieldByName("TIME_START")->AsDateTime;
-		if(TDateTime((double)testDateTime-0.007) < Now()){   // за 10 минут пусть блымает
+		if(TDateTime((double)testDateTime-0.007) < Now()){   // Р·Р° 10 РјРёРЅСѓС‚ РїСѓСЃС‚СЊ Р±Р»С‹РјР°РµС‚
 			TimerOrdRezervFlash->Enabled=true;
 			break;
 			}
@@ -1386,7 +1386,7 @@ void __fastcall TFormMain::TimerCheckTimer(TObject *Sender)
 		}
 	DM->FIBDataSet_ORD_REZERV_CHECK->Close();
 
-	// перечитываем состояние текущей смены на предмет появления праздника и прочей хуйни, когда кto-tо выключит неправильно комп
+	// РїРµСЂРµС‡РёС‚С‹РІР°РµРј СЃРѕСЃС‚РѕСЏРЅРёРµ С‚РµРєСѓС‰РµР№ СЃРјРµРЅС‹ РЅР° РїСЂРµРґРјРµС‚ РїРѕСЏРІР»РµРЅРёСЏ РїСЂР°Р·РґРЅРёРєР° Рё РїСЂРѕС‡РµР№ С…СѓР№РЅРё, РєРѕРіРґР° Рєto-tРѕ РІС‹РєР»СЋС‡РёС‚ РЅРµРїСЂР°РІРёР»СЊРЅРѕ РєРѕРјРї
 	DM->FIBStoredProcSmenaCheck->ParamByName("VI_UNIQS")->AsInteger=CurrentSmena;
 	DM->FIBStoredProcSmenaCheck->ExecProc();
 
@@ -1414,27 +1414,27 @@ void __fastcall TFormMain::TimerCheckTimer(TObject *Sender)
 				}
 			break;
 		case 1:
-			MessageDlg("Вашу смену закрыли!\nВыход из программы..", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("Р’Р°С€Сѓ СЃРјРµРЅСѓ Р·Р°РєСЂС‹Р»Рё!\nР’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹..", mtError, TMsgDlgButtons() << mbOK, 0);
 			Close();
 			break;
 		case 2:
-			MessageDlg("Аварийное завершение незакрытой смены!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РђРІР°СЂРёР№РЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ РЅРµР·Р°РєСЂС‹С‚РѕР№ СЃРјРµРЅС‹!", mtError, TMsgDlgButtons() << mbOK, 0);
 			break;
 		case 3:
-			MessageDlg("Аварийное подтверждение закрытой!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РђРІР°СЂРёР№РЅРѕРµ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ Р·Р°РєСЂС‹С‚РѕР№!", mtError, TMsgDlgButtons() << mbOK, 0);
 			break;
 		default:
-			MessageDlg("Неизвестное состояние смены.", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РќРµРёР·РІРµСЃС‚РЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ СЃРјРµРЅС‹.", mtError, TMsgDlgButtons() << mbOK, 0);
 			break;
 		};
 
    ListBoxSmenaRepNo->Items->Clear();
    DM->FIBStoredProcSmenaRepNo->ParamByName("VI_UNIQS")->AsInteger=CurrentSmena;
-	ListBoxSmenaRepNo->Items->Add("Cмена№ "+IntToStr(CurrentSmena));
+	ListBoxSmenaRepNo->Items->Add("CРјРµРЅР°в„– "+IntToStr(CurrentSmena));
    DM->FIBStoredProcSmenaRepNo->ExecProc();
-   ListBoxSmenaRepNo->Items->Add("Заказ "+IntToStr(DM->FIBStoredProcSmenaRepNo->ParamByName("VO_ORDERS")->AsInteger));
-   ListBoxSmenaRepNo->Items->Add("Почас "+IntToStr(DM->FIBStoredProcSmenaRepNo->ParamByName("VO_HOURS")->AsInteger));
-	ListBoxSmenaRepNo->Items->Add("Дэнги "+FloatToStr(DM->FIBStoredProcSmenaRepNo->ParamByName("VO_ORD_COST")->AsFloat));
+   ListBoxSmenaRepNo->Items->Add("Р—Р°РєР°Р· "+IntToStr(DM->FIBStoredProcSmenaRepNo->ParamByName("VO_ORDERS")->AsInteger));
+   ListBoxSmenaRepNo->Items->Add("РџРѕС‡Р°СЃ "+IntToStr(DM->FIBStoredProcSmenaRepNo->ParamByName("VO_HOURS")->AsInteger));
+	ListBoxSmenaRepNo->Items->Add("Р”СЌРЅРіРё "+FloatToStr(DM->FIBStoredProcSmenaRepNo->ParamByName("VO_ORD_COST")->AsFloat));
 
 	TimerCheck->Enabled=true;
 }
@@ -1484,7 +1484,7 @@ void __fastcall TFormMain::ButtonThemeClick(TObject *Sender)
 			}
 		}
 	if(KeyTheme!=0){
-		ShowMessage("Позывной не найден...");
+		ShowMessage("РџРѕР·С‹РІРЅРѕР№ РЅРµ РЅР°Р№РґРµРЅ...");
       EditTheme->Text="";
       }
 }
@@ -1602,20 +1602,20 @@ void __fastcall TFormMain::EditDiskontChange(TObject *Sender)
 			DM->FIBDataSetCliensOrders->SQLs->SelectSQL->Add("and ord_state = 1 ");
 			DM->FIBDataSetCliensOrders->Open();
 			l=DM->FIBDataSetCliensOrders->FieldValues["count_orders"];
-			ListBoxInfo->Items->Add("Заказов: "+IntToStr((int)m)+" / "+IntToStr((int)l));
+			ListBoxInfo->Items->Add("Р—Р°РєР°Р·РѕРІ: "+IntToStr((int)m)+" / "+IntToStr((int)l));
 			if (n>0){
 				if ((m/(n-1)-l+k)>0)
-					ListBoxInfo->Items->Add("Накоплено: "+IntToStr((int)(m/(n-1)-l+k)));
+					ListBoxInfo->Items->Add("РќР°РєРѕРїР»РµРЅРѕ: "+IntToStr((int)(m/(n-1)-l+k)));
 				else
-					ListBoxInfo->Items->Add("Накопленых нет");
+					ListBoxInfo->Items->Add("РќР°РєРѕРїР»РµРЅС‹С… РЅРµС‚");
 				}
 			else{
 				if ((k-l)>0)
-					ListBoxInfo->Items->Add("Халявных: "+IntToStr((int)(k-l)));
+					ListBoxInfo->Items->Add("РҐР°Р»СЏРІРЅС‹С…: "+IntToStr((int)(k-l)));
 				else
-					ListBoxInfo->Items->Add("Халявы нет");
+					ListBoxInfo->Items->Add("РҐР°Р»СЏРІС‹ РЅРµС‚");
 				}
-	// сейчас посмотрим, если клиент тип = 2, значит это безнальщик
+	// СЃРµР№С‡Р°СЃ РїРѕСЃРјРѕС‚СЂРёРј, РµСЃР»Рё РєР»РёРµРЅС‚ С‚РёРї = 2, Р·РЅР°С‡РёС‚ СЌС‚Рѕ Р±РµР·РЅР°Р»СЊС‰РёРє
 			if(DM->FIBDataSetClientDiscont->FieldValues["CLT_TYPE"].Type() == varInteger)
 				if(DM->FIBDataSetClientDiscont->FieldValues["CLT_TYPE"] == 3){
 					DBLookupComboboxEhOrdType->KeyValue = 2;
@@ -1660,7 +1660,7 @@ void __fastcall TFormMain::miFalseOrderClick(TObject *Sender)
 	DummyThemeLabel->PrevLocations=0;
 	CurrentThemeLabel=DummyThemeLabel;
 	ReLocation(Sender);
-	if (NewLocations){//если получили не нулевую ссылку на локацию
+	if (NewLocations){//РµСЃР»Рё РїРѕР»СѓС‡РёР»Рё РЅРµ РЅСѓР»РµРІСѓСЋ СЃСЃС‹Р»РєСѓ РЅР° Р»РѕРєР°С†РёСЋ
 		if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 		DM->FIBStoredProc_ORDER_START->ParamByName("VI_THEME")->AsShort=0;
 		DM->FIBStoredProc_ORDER_START->ParamByName("VI_LOCATIONS")->AsInteger=NewLocations;
@@ -1670,7 +1670,7 @@ void __fastcall TFormMain::miFalseOrderClick(TObject *Sender)
 		DM->FIBStoredProc_ORDER_START->ParamByName("VI_DESTINATION")->AsString=EditDestination->Text;
 		if (EditPHONE->Text.Length()>16) DM->FIBStoredProc_ORDER_START->ParamByName("VI_PHONE")->AsString=EditPHONE->Text.SubString(1,60);
 		else DM->FIBStoredProc_ORDER_START->ParamByName("VI_PHONE")->AsString=EditPHONE->Text;
-		DM->FIBStoredProc_ORDER_START->ParamByName("VI_STATE")->AsShort=2;// фиктивный заказ. будет применятся для исслелдований
+		DM->FIBStoredProc_ORDER_START->ParamByName("VI_STATE")->AsShort=2;// С„РёРєС‚РёРІРЅС‹Р№ Р·Р°РєР°Р·. Р±СѓРґРµС‚ РїСЂРёРјРµРЅСЏС‚СЃСЏ РґР»СЏ РёСЃСЃР»РµР»РґРѕРІР°РЅРёР№
 		DM->FIBStoredProc_ORDER_START->ParamByName("VI_COST")->Clear();
 		DM->FIBStoredProc_ORDER_START->ParamByName("VI_TIME_START")->Clear();
 		try{
@@ -1696,11 +1696,11 @@ void __fastcall TFormMain::miFalseOrderClick(TObject *Sender)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Не добавляется заказ!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РќРµ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ Р·Р°РєР°Р·!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 	else{
-		MessageDlg("Заказ не учтен!", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("Р—Р°РєР°Р· РЅРµ СѓС‡С‚РµРЅ!", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 	CurrentThemeLabel=NULL;
 	ButtonStartOrder->Caption="";//LabelReadyOrder->Caption="0";
@@ -1721,7 +1721,7 @@ void __fastcall TFormMain::LocRefresh(TObject *Sender)
 	AnsiString tmpstr;
 	bool ThemeVisible;
 	short Ressort;
-// а дальше - самое центровое - отображение машин (...в жопу машин - лабелей переделанных)
+// Р° РґР°Р»СЊС€Рµ - СЃР°РјРѕРµ С†РµРЅС‚СЂРѕРІРѕРµ - РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РјР°С€РёРЅ (...РІ Р¶РѕРїСѓ РјР°С€РёРЅ - Р»Р°Р±РµР»РµР№ РїРµСЂРµРґРµР»Р°РЅРЅС‹С…)
 	if(!DM->FIBDataSet_V_LOCATIONS->Active) DM->FIBDataSet_V_LOCATIONS->Open();
 	LocationsCount = DM->FIBDataSet_V_LOCATIONS->RecordCount;
 
@@ -1729,19 +1729,19 @@ void __fastcall TFormMain::LocRefresh(TObject *Sender)
 		GroupBoxLocation[n]->Tag=0;
 		ImageLocation[n]->Height=0;
 		ImageLocation[n]->Picture->Bitmap->Height=0;
-		}//обнуление количества машин на bcex локациRx
+		}//РѕР±РЅСѓР»РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° РјР°С€РёРЅ РЅР° bcex Р»РѕРєР°С†РёRx
 	GroupBoxPark->Tag=0;
 	GroupBoxDolg->Tag=0;
 	GroupBoxShtraf->Tag=0;
 	GroupBoxRemont->Tag=0;
 	GroupBoxArenda->Tag=0;
 	GroupBoxOtpusk->Tag=0;
-	GroupBoxZakazOnline->Tag=0;// также, едущих по заказу
+	GroupBoxZakazOnline->Tag=0;// С‚Р°РєР¶Рµ, РµРґСѓС‰РёС… РїРѕ Р·Р°РєР°Р·Сѓ
 
 
 
 
-	if (LocationsCount){// хотя бы одна локация есть
+	if (LocationsCount){// С…РѕС‚СЏ Р±С‹ РѕРґРЅР° Р»РѕРєР°С†РёСЏ РµСЃС‚СЊ
 		DM->FIBDataSet_V_LOCATIONS->First();
 		while (!DM->FIBDataSet_V_LOCATIONS->Eof){
 			KeyTheme=DM->FIBDataSet_V_LOCATIONS->FieldValues["KEY_THEME"];
@@ -1769,34 +1769,34 @@ void __fastcall TFormMain::LocRefresh(TObject *Sender)
 									ThemeLabel[m]->Ressort!=9)
 									)
 								);
-					//Берем из таблицы COLORS цвета для отображения и рисуим их
+					//Р‘РµСЂРµРј РёР· С‚Р°Р±Р»РёС†С‹ COLORS С†РІРµС‚Р° РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ Рё СЂРёСЃСѓРёРј РёС…
 					if(ThemeLabel[m]->Freq-1 >=0 && ThemeLabel[m]->Freq-1 < 9 && ThemeLabel[m]->LocType >=0 && ThemeLabel[m]->LocType < 16){
 						ThemeLabel[m]->Color=(TColor)LabelColors[ThemeLabel[m]->Freq-1][ThemeLabel[m]->LocType];
 						ThemeLabel[m]->Font->Color=(TColor)FontColors[ThemeLabel[m]->Freq-1][ThemeLabel[m]->LocType];
 						}
 
-					if (ThemeLabel[m]->LocType&0x01){// если локация "динамическая", то-есть на линии
-						if(!ThemeLabel[m]->Enabled) ThemeLabel[m]->Enabled=true;// выключается для штрафа
+					if (ThemeLabel[m]->LocType&0x01){// РµСЃР»Рё Р»РѕРєР°С†РёСЏ "РґРёРЅР°РјРёС‡РµСЃРєР°СЏ", С‚Рѕ-РµСЃС‚СЊ РЅР° Р»РёРЅРёРё
+						if(!ThemeLabel[m]->Enabled) ThemeLabel[m]->Enabled=true;// РІС‹РєР»СЋС‡Р°РµС‚СЃСЏ РґР»СЏ С€С‚СЂР°С„Р°
 						ThemeLabel[m]->Visible=ThemeLabel[m]->ThemeVisible;
 						ThemeLabel[m]->PopupMenu=PopupMenuLocTypeOnLine;
 
 						if (ThemeLabel[m]->Ressort==1 || ThemeLabel[m]->Ressort==4 || ThemeLabel[m]->Ressort==7)
-							ThemeLabel[m]->Font->Color=(TColor)(0x00FFFFFF ^ ThemeLabel[m]->Color);  //Остается в ночь!
+							ThemeLabel[m]->Font->Color=(TColor)(0x00FFFFFF ^ ThemeLabel[m]->Color);  //РћСЃС‚Р°РµС‚СЃСЏ РІ РЅРѕС‡СЊ!
 						else if (ThemeLabel[m]->Ressort==3 || ThemeLabel[m]->Ressort==6 || ThemeLabel[m]->Ressort==9)
-							ThemeLabel[m]->Font->Color=(TColor)(0x007F7F7F & ThemeLabel[m]->Color);		//стоит в резерве
+							ThemeLabel[m]->Font->Color=(TColor)(0x007F7F7F & ThemeLabel[m]->Color);		//СЃС‚РѕРёС‚ РІ СЂРµР·РµСЂРІРµ
 						}
-					else{ // "статические" состояния:
+					else{ // "СЃС‚Р°С‚РёС‡РµСЃРєРёРµ" СЃРѕСЃС‚РѕСЏРЅРёСЏ:
 						ThemeLabel[m]->Visible=true;
 						ThemeLabel[m]->PopupMenu=PopupMenuOffLine;
 						}
 
 					switch(ThemeLabel[m]->LocType){
-						case 1://на линии в очереди
-						case 5://по заказу с сохранением !!!
-						case 7://со своими
-						case 9://перекур
-						case 11://перерыв
-						case 13://продвигается
+						case 1://РЅР° Р»РёРЅРёРё РІ РѕС‡РµСЂРµРґРё
+						case 5://РїРѕ Р·Р°РєР°Р·Сѓ СЃ СЃРѕС…СЂР°РЅРµРЅРёРµРј !!!
+						case 7://СЃРѕ СЃРІРѕРёРјРё
+						case 9://РїРµСЂРµРєСѓСЂ
+						case 11://РїРµСЂРµСЂС‹РІ
+						case 13://РїСЂРѕРґРІРёРіР°РµС‚СЃСЏ
 							for (l=0;l<LocationCount && ThemeLabel[m]->ThemeVisible;l++){
 								if(ScrollBoxLocation[l]->Tag==ThemeLabel[m]->Location){
 									ThemeLabel[m]->Parent=ScrollBoxLocation[l];
@@ -1804,7 +1804,7 @@ void __fastcall TFormMain::LocRefresh(TObject *Sender)
 									ThemeLabel[m]->Left=5 + ((THMLABELWIDTH+3)*GroupBoxLocation[l]->Tag)%tmp - ScrollBoxLocation[l]->HorzScrollBar->Position;
 									ThemeLabel[m]->Top= (THMLABELHEIGHT+3)*((THMLABELWIDTH+3)*GroupBoxLocation[l]->Tag/tmp) - ScrollBoxLocation[l]->VertScrollBar->Position;
 									GroupBoxLocation[l]->Tag++;
-// что-то все равно иногда неправильно определяются координаты лабелей...
+// С‡С‚Рѕ-С‚Рѕ РІСЃРµ СЂР°РІРЅРѕ РёРЅРѕРіРґР° РЅРµРїСЂР°РІРёР»СЊРЅРѕ РѕРїСЂРµРґРµР»СЏСЋС‚СЃСЏ РєРѕРѕСЂРґРёРЅР°С‚С‹ Р»Р°Р±РµР»РµР№...
 //										ImageLocation[l]->Height=ScrollBoxLocation[l]->VertScrollBar->Range;
 //										ImageLocation[l]->Picture->Bitmap->Height=ScrollBoxLocation[l]->VertScrollBar->Range;
 									break;
@@ -1812,17 +1812,17 @@ void __fastcall TFormMain::LocRefresh(TObject *Sender)
 								}
 							break;
 
-						case 3://по заказу
+						case 3://РїРѕ Р·Р°РєР°Р·Сѓ
 							ThemeLabel[m]->Parent=ScrollBoxZakazOnLine;
 							GroupBoxZakazOnline->Tag++;
 							if (ThemeLabel[m]->Ressort==1 || ThemeLabel[m]->Ressort==4 || ThemeLabel[m]->Ressort==7)
-								ThemeLabel[m]->Font->Color=clFuchsia;  //Остается в ночь!
+								ThemeLabel[m]->Font->Color=clFuchsia;  //РћСЃС‚Р°РµС‚СЃСЏ РІ РЅРѕС‡СЊ!
 							else if (ThemeLabel[m]->Ressort==3 || ThemeLabel[m]->Ressort==6 || ThemeLabel[m]->Ressort==9)
-								ThemeLabel[m]->Font->Color=clGray;		//стоит в резерве
+								ThemeLabel[m]->Font->Color=clGray;		//СЃС‚РѕРёС‚ РІ СЂРµР·РµСЂРІРµ
 							break;
 
-						default: // по умолчанию !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-						case 0://в гараже
+						default: // РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+						case 0://РІ РіР°СЂР°Р¶Рµ
 							ThemeLabel[m]->Parent=ScrollBoxPark;
 							//ThemeLabel[m]->Left= (THMLABELWIDTH+3)*(KeyTheme/10)-ScrollBoxPark->HorzScrollBar->Position;
 							//ThemeLabel[m]->Top= (THMLABELHEIGHT+3)*(KeyTheme%10)-ScrollBoxPark->VertScrollBar->Position;
@@ -1830,34 +1830,34 @@ void __fastcall TFormMain::LocRefresh(TObject *Sender)
 							GroupBoxPark->Tag++;
 							if(!ThemeLabel[m]->Enabled)ThemeLabel[m]->Enabled=true;
 							break;
-						case 2://ремонт
+						case 2://СЂРµРјРѕРЅС‚
 							ThemeLabel[m]->Parent=ScrollBoxRemont;
 							GroupBoxRemont->Tag++;
 							if(!ThemeLabel[m]->Enabled)ThemeLabel[m]->Enabled=true;
 							break;
-						case 4://в долгу
+						case 4://РІ РґРѕР»РіСѓ
 							ThemeLabel[m]->Parent=ScrollBoxDolg;
 							GroupBoxDolg->Tag++;
 							if(ThemeLabel[m]->Enabled)ThemeLabel[m]->Enabled=true;
 							break;
-						case 6://штраф 38
+						case 6://С€С‚СЂР°С„ 38
 							ThemeLabel[m]->Parent=ScrollBoxShtraf;
 							GroupBoxShtraf->Tag++;
 							if(ThemeLabel[m]->Enabled)ThemeLabel[m]->Enabled=true;
 							break;
-						case 8://Аренда
+						case 8://РђСЂРµРЅРґР°
 							ThemeLabel[m]->Parent=ScrollBoxArenda;
 							GroupBoxArenda->Tag++;
 							if(ThemeLabel[m]->Enabled)ThemeLabel[m]->Enabled=true;
 							break;
-						case 10://Отпуск
+						case 10://РћС‚РїСѓСЃРє
 							ThemeLabel[m]->Parent=ScrollBoxOtpusk;
 							GroupBoxOtpusk->Tag++;
 							if(ThemeLabel[m]->Enabled)ThemeLabel[m]->Enabled=true;
 							break;
 						};
 
-					break;// нашли метку, сделали с ней что хотели и ушли
+					break;// РЅР°С€Р»Рё РјРµС‚РєСѓ, СЃРґРµР»Р°Р»Рё СЃ РЅРµР№ С‡С‚Рѕ С…РѕС‚РµР»Рё Рё СѓС€Р»Рё
 					}
 				else if (ThemeLabel[m]->Theme == KeyTheme && DM->FIBDataSet_V_LOCATIONS->FieldValues["LOC_STATE"]==4){ // draw chost
 
@@ -1899,7 +1899,7 @@ void __fastcall TFormMain::LocRefresh(TObject *Sender)
 		}
 	DM->FIBDataSet_V_LOCATIONS->Close();
 
-	// пересортировка машин
+	// РїРµСЂРµСЃРѕСЂС‚РёСЂРѕРІРєР° РјР°С€РёРЅ
 
 	tmpThemeLabelsIndex = new int[ThemeCount];
 	TGroupBox *tmpGroupBox[7];
@@ -1924,12 +1924,12 @@ void __fastcall TFormMain::LocRefresh(TObject *Sender)
 
 
 	for(m=0;m<7;m++){
-		for(n=0; n<ThemeCount; n++){ tmpThemeLabelsIndex[n]=0; } //понятно - обнуление
+		for(n=0; n<ThemeCount; n++){ tmpThemeLabelsIndex[n]=0; } //РїРѕРЅСЏС‚РЅРѕ - РѕР±РЅСѓР»РµРЅРёРµ
 		tmpCount=tmpGroupBox[m]->Tag;
 
         n=0;
 
-		for(l=0; n<ThemeCount && l<ThemeCount ;l++){ // набиваем только те индексы, чьи позывные что находятся в данной локации
+		for(l=0; n<ThemeCount && l<ThemeCount ;l++){ // РЅР°Р±РёРІР°РµРј С‚РѕР»СЊРєРѕ С‚Рµ РёРЅРґРµРєСЃС‹, С‡СЊРё РїРѕР·С‹РІРЅС‹Рµ С‡С‚Рѕ РЅР°С…РѕРґСЏС‚СЃСЏ РІ РґР°РЅРЅРѕР№ Р»РѕРєР°С†РёРё
 //ThemeLabel[l]->Caption=ThemeLabel[l]->LocType;
 			if (ThemeLabel[l]->LocType == tmpScrollBox[m]->Tag && ThemeLabel[l]->Locations>0){
 				tmpThemeLabelsIndex[n]=l;
@@ -1939,7 +1939,7 @@ void __fastcall TFormMain::LocRefresh(TObject *Sender)
 			}
 //tmpCount=n;
 
-		bool SortAgain;   // собственно сортровка методом перестановок
+		bool SortAgain;   // СЃРѕР±СЃС‚РІРµРЅРЅРѕ СЃРѕСЂС‚СЂРѕРІРєР° РјРµС‚РѕРґРѕРј РїРµСЂРµСЃС‚Р°РЅРѕРІРѕРє
 		do{
 			SortAgain=false;
 			for(n=0;n<tmpCount-1;n++)
@@ -2022,7 +2022,7 @@ void __fastcall TFormMain::MenuItemOnLineClick(TObject *Sender)
 			return;
 			}
 		}
-	ShowMessage("Позывной не найден...");
+	ShowMessage("РџРѕР·С‹РІРЅРѕР№ РЅРµ РЅР°Р№РґРµРЅ...");
 }
 //---------------------------------------------------------------------------
 
@@ -2044,7 +2044,7 @@ void __fastcall TFormMain::miMarkClick(TObject *Sender)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Хвост оставить не удалось :(", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РҐРІРѕСЃС‚ РѕСЃС‚Р°РІРёС‚СЊ РЅРµ СѓРґР°Р»РѕСЃСЊ :(", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 	LocRefresh(this);
@@ -2062,7 +2062,7 @@ void __fastcall TFormMain::miUnMarkClick(TObject *Sender)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Хвост обрубить не удалось :(", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РҐРІРѕСЃС‚ РѕР±СЂСѓР±РёС‚СЊ РЅРµ СѓРґР°Р»РѕСЃСЊ :(", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 	LocRefresh(this);
@@ -2083,7 +2083,7 @@ void __fastcall TFormMain::miMarkerClick(TObject *Sender)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Маркер не установлен", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РњР°СЂРєРµСЂ РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		LocRefresh(this);
 
@@ -2125,7 +2125,7 @@ void __fastcall TFormMain::ThemeLabelDragDrop(TObject *Sender, TObject *Source, 
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Карусель не получилась :(", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РљР°СЂСѓСЃРµР»СЊ РЅРµ РїРѕР»СѓС‡РёР»Р°СЃСЊ :(", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
 

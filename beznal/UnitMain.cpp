@@ -60,7 +60,7 @@ void __fastcall TFormOrders::FormShow(TObject *Sender)
 	gethostname(HostName.c_str(),64);
 
 
-	if(MessageDlg("Подключится к основному серверу?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
+	if(MessageDlg("РџРѕРґРєР»СЋС‡РёС‚СЃСЏ Рє РѕСЃРЅРѕРІРЅРѕРјСѓ СЃРµСЂРІРµСЂСѓ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
 		PrimaryHost=SecondaryHost;
 
 	if ( HostName.UpperCase().Pos(PrimaryHost) ){
@@ -81,7 +81,7 @@ void __fastcall TFormOrders::FormShow(TObject *Sender)
 //_______________________________________________________________________________________________________
 
 
-	Caption="БЕЗНАЛЬЩИКИ v."+VersionInfoOrders->FileVersion+" Server:"+PrimaryHost;;
+	Caption="Р‘Р•Р—РќРђР›Р¬Р©РРљР v."+VersionInfoOrders->FileVersion+" Server:"+PrimaryHost;;
 
 }
 //---------------------------------------------------------------------------

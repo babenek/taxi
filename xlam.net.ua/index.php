@@ -1,5 +1,5 @@
 <?php
-// Ó·‡·‡Ú˚‚‡ÂÏ ÔÂÂÏÂÌÌ˚Â
+// –æ–±—Ä–∞–±–∞—Ç—ã–≤–∞–µ–º –ø–µ—Ä–µ–º–µ–Ω–Ω—ã–µ
 	foreach($_REQUEST as $key => $val) {if(isset($$key)) unset($$key);}
 	if (get_magic_quotes_gpc()) {
 		$_GET = array_map('stripslashes', $_GET);
@@ -13,7 +13,7 @@
 	else {ini_set('error_reporting', E_ALL);}
 	// ??? for ($i=0; $i<count($_POST); $i++) {list($key,$val)=each($_POST);$$key=$val;};
 	// ??? for ($i=0; $i<count($_GET); $i++) {list($key,$val)=each($_GET);$$key=$val;};
-	//$_REQUEST, $_POST, $_GET, $_COOKIE, $_SERVER Ë Ú.‰.
+	//$_REQUEST, $_POST, $_GET, $_COOKIE, $_SERVER –∏ —Ç.–¥.
 	if(isset($_REQUEST['ad'])) $ad=(int)$_REQUEST['ad']; else $ad=0;	
 	if(isset($_REQUEST['parent'])) $parent=(int)$_REQUEST['parent'];else $parent=0;		
 	if(isset($_REQUEST['section'])) $section=(int)$_REQUEST['section']; else $section=0;		
@@ -39,13 +39,13 @@
 	if(isset($_COOKIE['sid'])){
 		$sid=(int)$_COOKIE['sid'];				
 		}			
-//ÔÓ‰ÍÎ˛˜ÂÌËÂ Í ¡ƒ						
-	require('dbconf.php');//ÚÛÚ Û Ì‡Ò Ô‡ÓÎ¸˜ËÍË :)
-	$connect=mysql_connect(hostname,username,password) or die ('ÕÂ ÏÓ„Û ÒÓÁ‰‡Ú¸ ÒÓÂ‰ËÌÂÌËÂ '. mysql_error());
-	mysql_select_db(database,$connect) or die ('ÕÂ ÏÓ„Û ‚˚·‡Ú¸ ·‡ÁÛ ‰‡ÌÌ˚ı '. mysql_error());
+//–ø–æ–¥–∫–ª—é—á–µ–Ω–∏–µ –∫ –ë–î						
+	require('dbconf.php');//—Ç—É—Ç —É –Ω–∞—Å –ø–∞—Ä–æ–ª—å—á–∏–∫–∏ :)
+	$connect=mysql_connect(hostname,username,password) or die ('–ù–µ –º–æ–≥—É —Å–æ–∑–¥–∞—Ç—å —Å–æ–µ–¥–∏–Ω–µ–Ω–∏–µ '. mysql_error());
+	mysql_select_db(database,$connect) or die ('–ù–µ –º–æ–≥—É –≤—ã–±—Ä–∞—Ç—å –±–∞–∑—É –¥–∞–Ω–Ω—ã—Ö '. mysql_error());
 
 
-	if(isset($_POST['action'])){//‚Ë‰ËÏÓ, ˜ÚÓ-ÚÓ ıÓÚˇÚ¸ ÔÂÂ‰‡Ú¸
+	if(isset($_POST['action'])){//–≤–∏–¥–∏–º–æ, —á—Ç–æ-—Ç–æ —Ö–æ—Ç—è—Ç—å –ø–µ—Ä–µ–¥–∞—Ç—å
 		switch($_POST['action']){
 			case 'login':
 				srand(time()+(double) microtime() * 1000000);
@@ -63,7 +63,7 @@
 
 		}
 
-	if(isset($_REQUEST['content']))	{// Û˜‡ÒÚÓÍ, ‚˚‰‡˛˘ËÈ „‡ÙËÍÛ Ë ÔÓ˜Û˛ ıÂÌ¸	
+	if(isset($_REQUEST['content']))	{// —É—á–∞—Å—Ç–æ–∫, –≤—ã–¥–∞—é—â–∏–π –≥—Ä–∞—Ñ–∏–∫—É –∏ –ø—Ä–æ—á—É—é —Ö—Ä–µ–Ω—å	
 		$query = 'select data from `contents` WHERE id = '.(int)$_REQUEST['content'];
 		$result = mysql_query($query) or die('Query failed: ' . mysql_error());		
 		if(mysql_num_rows($result)>0){
@@ -80,9 +80,9 @@
 ?>
 <html>
 <head>
-	<title>’Î‡Ï.</title>
-	<meta name="description" content="ıÎ‡Ï">
-	<meta name="keywords" content="ıÎ‡Ï">
+	<title>–•–ª–∞–º.</title>
+	<meta name="description" content="—Ö–ª–∞–º">
+	<meta name="keywords" content="—Ö–ª–∞–º">
 	<meta name="robots" content="all">
 	<meta content="no-cache" http-equiv="pragma">
 	<meta content="text/html; charset=windows-1251" http-equiv="content-type">

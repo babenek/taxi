@@ -1,5 +1,5 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
-	<td align="center">Тестовая версия</td>
+	<td align="center">РўРµСЃС‚РѕРІР°СЏ РІРµСЂСЃРёСЏ</td>
 </tr>
 </table>

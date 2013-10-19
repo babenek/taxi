@@ -60,7 +60,7 @@ void __fastcall TFormOrders::FormShow(TObject *Sender)
 	gethostname(HostName.c_str(),64);
 
 
-	if(MessageDlg("Подключится к основному серверу?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
+	if(MessageDlg("РџРѕРґРєР»СЋС‡РёС‚СЃСЏ Рє РѕСЃРЅРѕРІРЅРѕРјСѓ СЃРµСЂРІРµСЂСѓ?", mtCustom, TMsgDlgButtons()<<mbYes<<mbNo, 0) != mrYes)
 		PrimaryHost=SecondaryHost;
 
 	if ( HostName.UpperCase().Pos(PrimaryHost) ){
@@ -109,7 +109,7 @@ void __fastcall TFormOrders::FormShow(TObject *Sender)
 	ComboBoxOrdType->ItemIndex=1;
 	pFIBDataSetSOrdType->Close();
 
-	Caption="ЖУРНАЛЫ v."+VersionInfoOrders->FileVersion+" Server:"+PrimaryHost;;
+	Caption="Р–РЈР РќРђР›Р« v."+VersionInfoOrders->FileVersion+" Server:"+PrimaryHost;;
 	Calendar->Date=Now();
 	Calendar->MultiSelect=true;
 
@@ -136,8 +136,8 @@ void __fastcall TFormOrders::BitBtnRefreshClick(TObject *Sender)
 	int n;
 	CurrentSmena=FIBDataSetSmena->Fields->FieldByName("UNIQS")->Value;
 	if ( CurrentSmena > 0){
-		GroupBoxZakazEdit->Caption="Текущая смена № "+IntToStr(CurrentSmena);
-		GroupBoxOrders->Caption = "Журнал смены № "+IntToStr(CurrentSmena) + " "+ FIBDataSetSmena->Fields->FieldByName("SMN_TIME_START")->Value +"  "+ FIBDataSetSmena->Fields->FieldByName("USR_LIST")->Value;
+		GroupBoxZakazEdit->Caption="РўРµРєСѓС‰Р°СЏ СЃРјРµРЅР° в„– "+IntToStr(CurrentSmena);
+		GroupBoxOrders->Caption = "Р–СѓСЂРЅР°Р» СЃРјРµРЅС‹ в„– "+IntToStr(CurrentSmena) + " "+ FIBDataSetSmena->Fields->FieldByName("SMN_TIME_START")->Value +"  "+ FIBDataSetSmena->Fields->FieldByName("USR_LIST")->Value;
 
 		FIBDataSetOrders->SQLs->SelectSQL->Clear();
 		FIBDataSetOrders->SQLs->SelectSQL->Add("SELECT key_client, UNIQO, ord_state, KEY_THEME, KEY_ORD_TYPE,ORD_COST,ORD_HOURS,ORD_ITOG,KEY_SMN_START,KEY_SMN_STOP,TIME_START,TIME_STOP,ORD_DESTINATION,ORD_DEPARTURE,ORD_PHONE");
@@ -179,7 +179,7 @@ void __fastcall TFormOrders::BitBtnRefreshClick(TObject *Sender)
 		FIBDataSetOrders->Last();
 		}
 	else{
-		ShowMessage("Нет выбранных смен!");
+		ShowMessage("РќРµС‚ РІС‹Р±СЂР°РЅРЅС‹С… СЃРјРµРЅ!");
 		}
 }
 //---------------------------------------------------------------------------
@@ -214,8 +214,8 @@ void __fastcall TFormOrders::FIBDataSetSmenaSMN_DAY_NIGHTGetText(
 		TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="день";
-		else if(Sender->Value == 1) Text="ночь";
+		if(Sender->Value == 0) Text="РґРµРЅСЊ";
+		else if(Sender->Value == 1) Text="РЅРѕС‡СЊ";
 		else Text="";
 		}
 }
@@ -225,8 +225,8 @@ void __fastcall TFormOrders::FIBDataSetSmenaSMN_WEEKENDGetText(
 		TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="будни";
-		else if(Sender->Value == 1) Text="праздник";
+		if(Sender->Value == 0) Text="Р±СѓРґРЅРё";
+		else if(Sender->Value == 1) Text="РїСЂР°Р·РґРЅРёРє";
 		else Text="";
 		}
 }
@@ -236,8 +236,8 @@ void __fastcall TFormOrders::FIBDataSetSmenaSMN_STATEGetText(
 		TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="активна";
-		else if(Sender->Value == 1) Text="закрыта";
+		if(Sender->Value == 0) Text="Р°РєС‚РёРІРЅР°";
+		else if(Sender->Value == 1) Text="Р·Р°РєСЂС‹С‚Р°";
 		else Text="???";
 		}
 }
@@ -291,7 +291,7 @@ void __fastcall TFormOrders::ButtonOnceOrderClick(TObject *Sender)
 		BitBtnRefreshClick(this);
 		}
 	else{
-		ShowMessage("Выберите смену!");
+		ShowMessage("Р’С‹Р±РµСЂРёС‚Рµ СЃРјРµРЅСѓ!");
 		}
 }
 //---------------------------------------------------------------------------
@@ -320,7 +320,7 @@ void __fastcall TFormOrders::BitBtnDeleteOrderClick(TObject *Sender)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Ошибка при удалении!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("РћС€РёР±РєР° РїСЂРё СѓРґР°Р»РµРЅРёРё!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}
 		EditDestination->Text="";
 		EditDeparture->Text="";
@@ -334,7 +334,7 @@ void __fastcall TFormOrders::BitBtnDeleteOrderClick(TObject *Sender)
 		BitBtnRefreshClick(this);
 		}
 	else{
-		ShowMessage("Выберите смену!");
+		ShowMessage("Р’С‹Р±РµСЂРёС‚Рµ СЃРјРµРЅСѓ!");
 		}
 }
 //---------------------------------------------------------------------------

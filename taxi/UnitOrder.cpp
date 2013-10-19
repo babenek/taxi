@@ -135,7 +135,7 @@ void __fastcall TFormOrder::ButtonOrderChangeClick(TObject *Sender)
 	if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 	FIBStoredProc_ORDER_UPDATE->ParamByName("VI_UNIQO")->AsInteger=UniqO;
 
-	if ( ((TControl *)Sender)->Tag == 0) // если на кнопках теги нули - тип заказа берется от типа кнопки
+	if ( ((TControl *)Sender)->Tag == 0) // РµСЃР»Рё РЅР° РєРЅРѕРїРєР°С… С‚РµРіРё РЅСѓР»Рё - С‚РёРї Р·Р°РєР°Р·Р° Р±РµСЂРµС‚СЃСЏ РѕС‚ С‚РёРїР° РєРЅРѕРїРєРё
 		FIBStoredProc_ORDER_UPDATE->ParamByName("VI_ORD_TYPE")->AsShort=*(CodOrdType+ComboBoxOrdType->ItemIndex);
 	else
 		FIBStoredProc_ORDER_UPDATE->ParamByName("VI_ORD_TYPE")->AsShort=((TControl *)Sender)->Tag;
@@ -160,10 +160,10 @@ void __fastcall TFormOrder::ButtonOrderChangeClick(TObject *Sender)
 		}
 	catch(...){
 		DM->FIBTransactionUpdate->Rollback();
-		MessageDlg("Ошибка при замене!", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РћС€РёР±РєР° РїСЂРё Р·Р°РјРµРЅРµ!", mtError, TMsgDlgButtons() << mbOK, 0);
 		return;
 		}
-//	if(CheckBoxOrdDelay->Checked) OrdDelay();// если хотят - кинем копию заказа в список
+//	if(CheckBoxOrdDelay->Checked) OrdDelay();// РµСЃР»Рё С…РѕС‚СЏС‚ - РєРёРЅРµРј РєРѕРїРёСЋ Р·Р°РєР°Р·Р° РІ СЃРїРёСЃРѕРє
 	Close();
 }
 //---------------------------------------------------------------------------
@@ -184,7 +184,7 @@ void __fastcall TFormOrder::ButtonOrderEndClick(TObject *Sender)
 {
 	if (!DM->FIBTransactionUpdate->InTransaction) DM->FIBTransactionUpdate->StartTransaction();
 	FIBStoredProc_ORDER_UPDATE->ParamByName("VI_UNIQO")->AsInteger=UniqO;
-	if ( ((TControl *)Sender)->Tag == 0 ) // если на кнопках теги нули - тип заказа берется от типа кнопки
+	if ( ((TControl *)Sender)->Tag == 0 ) // РµСЃР»Рё РЅР° РєРЅРѕРїРєР°С… С‚РµРіРё РЅСѓР»Рё - С‚РёРї Р·Р°РєР°Р·Р° Р±РµСЂРµС‚СЃСЏ РѕС‚ С‚РёРїР° РєРЅРѕРїРєРё
 		FIBStoredProc_ORDER_UPDATE->ParamByName("VI_ORD_TYPE")->AsShort=*(CodOrdType+ComboBoxOrdType->ItemIndex);
 	else
 		FIBStoredProc_ORDER_UPDATE->ParamByName("VI_ORD_TYPE")->AsShort=((TControl *)Sender)->Tag;
@@ -209,11 +209,11 @@ void __fastcall TFormOrder::ButtonOrderEndClick(TObject *Sender)
 		}
 	catch(...){
 		DM->FIBTransactionUpdate->Rollback();
-		MessageDlg("Ошибка при завершении!", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("РћС€РёР±РєР° РїСЂРё Р·Р°РІРµСЂС€РµРЅРёРё!", mtError, TMsgDlgButtons() << mbOK, 0);
 		return;
 		}
 
-//	int LocTypeAra[]={1,0}; // для типов локаций
+//	int LocTypeAra[]={1,0}; // РґР»СЏ С‚РёРїРѕРІ Р»РѕРєР°С†РёР№
 	if (RadioGroupLocType->ItemIndex==1){
 		ComboBoxLocation->Tag=1;
 		FormMain->ReLocType(ComboBoxLocation);
@@ -233,7 +233,7 @@ void __fastcall TFormOrder::ButtonExitClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFormOrder::ButtonRotateClick(TObject *Sender)
 {
-	if( MessageDlg("Отменить заказ, и вернуть его в список?", mtConfirmation, TMsgDlgButtons()<<mbYes<<mbNo, 0) == mrYes ){
+	if( MessageDlg("РћС‚РјРµРЅРёС‚СЊ Р·Р°РєР°Р·, Рё РІРµСЂРЅСѓС‚СЊ РµРіРѕ РІ СЃРїРёСЃРѕРє?", mtConfirmation, TMsgDlgButtons()<<mbYes<<mbNo, 0) == mrYes ){
 		OrdDelay();		
 		ComboBoxOrdType->ItemIndex=0;
 //ShowMessage(((TControl *)Sender)->Tag);
@@ -261,7 +261,7 @@ void __fastcall TFormOrder::OrdDelay(void)
 			}
 		catch(...){
 			DM->FIBTransactionUpdate->Rollback();
-			MessageDlg("Заказ не копируется в список!", mtError, TMsgDlgButtons() << mbOK, 0);
+			MessageDlg("Р—Р°РєР°Р· РЅРµ РєРѕРїРёСЂСѓРµС‚СЃСЏ РІ СЃРїРёСЃРѕРє!", mtError, TMsgDlgButtons() << mbOK, 0);
 			}                           }
 
 void __fastcall TFormOrder::ButtonClientsClick(TObject *Sender)

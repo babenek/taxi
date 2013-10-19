@@ -2,21 +2,21 @@
 -- version 2.11.4
 -- http://www.phpmyadmin.net
 --
--- Хост: localhost
--- Время создания: Дек 07 2008 г., 15:45
--- Версия сервера: 5.0.22
--- Версия PHP: 4.4.8
+-- РҐРѕСЃС‚: localhost
+-- Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ: Р”РµРє 07 2008 Рі., 15:45
+-- Р’РµСЂСЃРёСЏ СЃРµСЂРІРµСЂР°: 5.0.22
+-- Р’РµСЂСЃРёСЏ PHP: 4.4.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- База данных: `xlam_db`
+-- Р‘Р°Р·Р° РґР°РЅРЅС‹С…: `xlam_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `fortuna`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `fortuna`
 --
 
 CREATE TABLE `fortuna` (
@@ -29,7 +29,7 @@ CREATE TABLE `fortuna` (
 ) ENGINE=MEMORY DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1806 ;
 
 --
--- Дамп данных таблицы `fortuna`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `fortuna`
 --
 
 INSERT INTO `fortuna` VALUES(1792, '59', 8, 'FFFF33', '990000');
@@ -50,7 +50,7 @@ INSERT INTO `fortuna` VALUES(1805, '15:29:20', 99, '808080', 'FFFFFF');
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `locations`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `locations`
 --
 
 CREATE TABLE `locations` (
@@ -63,14 +63,14 @@ CREATE TABLE `locations` (
 ) ENGINE=MEMORY DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `locations`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `locations`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `samara`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `samara`
 --
 
 CREATE TABLE `samara` (
@@ -83,7 +83,7 @@ CREATE TABLE `samara` (
 ) ENGINE=MEMORY DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1875 ;
 
 --
--- Дамп данных таблицы `samara`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `samara`
 --
 
 INSERT INTO `samara` VALUES(1859, '59', 8, 'FFFF33', '990000');

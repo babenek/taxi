@@ -39,7 +39,7 @@ void __fastcall TFormArnAction::SpeedButton4Click(TObject *Sender)
 		}
 	catch(...){
 		DM->FIBTransactionUpdate->Rollback();
-		MessageDlg("Что-то не добавляется...", mtError, TMsgDlgButtons() << mbOK, 0);
+		MessageDlg("Р§С‚Рѕ-С‚Рѕ РЅРµ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ...", mtError, TMsgDlgButtons() << mbOK, 0);
 		}
 		DM->FIBDataSetArenda->CloseOpen(true);
 		DM->FIBDataSetVehicles->RecordModified(true);

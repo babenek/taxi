@@ -1,4 +1,4 @@
-﻿//$$---- Form CPP ----
+п»ї//$$---- Form CPP ----
 //---------------------------------------------------------------------------
 
 #include <vcl.h>
@@ -28,8 +28,8 @@ __fastcall TDM::TDM(TComponent* Owner)
 void __fastcall TDM::FIBDataSetSMN_WEEKENDGetText(TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="будни";
-		else if(Sender->Value == 1) Text="праздник";
+		if(Sender->Value == 0) Text="Р±СѓРґРЅРё";
+		else if(Sender->Value == 1) Text="РїСЂР°Р·РґРЅРёРє";
 		else Text="";
 		}
 }
@@ -37,8 +37,8 @@ void __fastcall TDM::FIBDataSetSMN_WEEKENDGetText(TField *Sender, AnsiString &Te
 void __fastcall TDM::FIBDataSetSMN_STATEGetText(TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="активна";
-		else if(Sender->Value == 1) Text="закрыта";
+		if(Sender->Value == 0) Text="Р°РєС‚РёРІРЅР°";
+		else if(Sender->Value == 1) Text="Р·Р°РєСЂС‹С‚Р°";
 		else Text="???";
 		}
 }
@@ -46,8 +46,8 @@ void __fastcall TDM::FIBDataSetSMN_STATEGetText(TField *Sender, AnsiString &Text
 void __fastcall TDM::FIBDataSetSMN_DAY_NIGHTGetText(TField *Sender, AnsiString &Text, bool DisplayText)
 {
 	if(Sender->DataType == ftSmallint){
-		if(Sender->Value == 0) Text="день";
-		else if(Sender->Value == 1) Text="ночь";
+		if(Sender->Value == 0) Text="РґРµРЅСЊ";
+		else if(Sender->Value == 1) Text="РЅРѕС‡СЊ";
 		else Text="";
 		}
 }

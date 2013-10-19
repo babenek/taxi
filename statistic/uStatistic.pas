@@ -99,18 +99,18 @@ type
 var
   fStatistic: TfStatistic;
 
-  //настройки бд
+  //РЅР°СЃС‚СЂРѕР№РєРё Р±Рґ
   Connected: boolean;
   DB_File_Name: string;
   default_user_name: string;
   default_password: string;
 
-  //цвет графиков
+  //С†РІРµС‚ РіСЂР°С„РёРєРѕРІ
   Color_D1, Color_D2 : TColor;
 
   ORD_D1, ORD_D2 : integer;
-  MM : array [0..11] of string; //месяца
-  Days: array[1..7] of string;   //дни недели
+  MM : array [0..11] of string; //РјРµСЃСЏС†Р°
+  Days: array[1..7] of string;   //РґРЅРё РЅРµРґРµР»Рё
 
 implementation
 {$R *.dfm}
@@ -156,8 +156,8 @@ begin
    if Length(EditTheme.Text)>0 then IBQuery2.SQL.Append('and orders.key_theme in ('+EditTheme.Text+')');
    IBQuery2.SQL.Append('group by  SMENA.UNIQS, SMENA.SMN_DATE, SMENA.USR_LIST, SMENA.SMN_DAY_NIGHT');
  if (D2<D1)  then begin
-   ShowMessage ('Не верно задан интервал дат!');
-// end else if (D2>=Dp)  then begin  ShowMessage ('Срок использования окончен!');
+   ShowMessage ('РќРµ РІРµСЂРЅРѕ Р·Р°РґР°РЅ РёРЅС‚РµСЂРІР°Р» РґР°С‚!');
+// end else if (D2>=Dp)  then begin  ShowMessage ('РЎСЂРѕРє РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РѕРєРѕРЅС‡РµРЅ!');
    end
  else begin
   IBQuery.ParamByName('D1').AsDateTime := D1;
@@ -170,7 +170,7 @@ begin
   IBQueryAVG.ParamByName('D2').AsDateTime := D2;
   if chbD1.Checked=true then begin
     if (cbD1.ItemIndex=(-1)) then begin
-      ShowMessage ('Выберите параметр Дополнительного графика 1');
+      ShowMessage ('Р’С‹Р±РµСЂРёС‚Рµ РїР°СЂР°РјРµС‚СЂ Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РіСЂР°С„РёРєР° 1');
     end else begin
       IBQuery1.ParamByName('ORD').AsInteger := cbD1.ItemIndex;
       IBQuery1.Active := true;
@@ -178,7 +178,7 @@ begin
   end;
   if chbD2.Checked=true then begin
     if (cbD2.ItemIndex=(-1)) then begin
-      ShowMessage ('Выберите параметр Дополнительного графика 2');
+      ShowMessage ('Р’С‹Р±РµСЂРёС‚Рµ РїР°СЂР°РјРµС‚СЂ Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РіСЂР°С„РёРєР° 2');
     end else begin
       IBQuery2.ParamByName('ORD').AsInteger := cbD2.ItemIndex;
       IBQuery2.Active := true;
@@ -220,8 +220,8 @@ begin
       IBQueryS2.SQL.Append('and orders.key_theme in ('+EditTheme.Text+')');
       end;
  if (D2<D1)  then begin
-   ShowMessage ('Не верно задан интервал дат!');
-// end else if (D2>=Dp)  then begin  ShowMessage ('Срок использования окончен!');
+   ShowMessage ('РќРµ РІРµСЂРЅРѕ Р·Р°РґР°РЅ РёРЅС‚РµСЂРІР°Р» РґР°С‚!');
+// end else if (D2>=Dp)  then begin  ShowMessage ('РЎСЂРѕРє РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РѕРєРѕРЅС‡РµРЅ!');
    end
  else begin
      IBQueryS.ParamByName('D1').AsDateTime := D1;
@@ -232,7 +232,7 @@ begin
      IBQueryS2.ParamByName('D2').AsDateTime := D2;
      if chbD1.Checked=true then begin
        if (cbD1.ItemIndex=(-1)) then begin
-         ShowMessage ('Выберите параметр Дополнительного графика 1');
+         ShowMessage ('Р’С‹Р±РµСЂРёС‚Рµ РїР°СЂР°РјРµС‚СЂ Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РіСЂР°С„РёРєР° 1');
        end else begin
          IBQueryS1.ParamByName('ORD').AsInteger := cbD1.ItemIndex;
          IBQueryS1.Active := true;
@@ -240,7 +240,7 @@ begin
      end;
      if chbD2.Checked=true then begin
        if (cbD2.ItemIndex=(-1)) then begin
-         ShowMessage ('Выберите параметр Дополнительного графика 2');
+         ShowMessage ('Р’С‹Р±РµСЂРёС‚Рµ РїР°СЂР°РјРµС‚СЂ Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РіСЂР°С„РёРєР° 2');
        end else begin
          IBQueryS2.ParamByName('ORD').AsInteger := cbD2.ItemIndex;
          IBQueryS2.Active := true;
@@ -269,25 +269,25 @@ Var
   ORD: String;
   Count, i: integer;
 begin
-   Days[2] := 'понедельник';
-   Days[3] := 'вторник';
-   Days[4] := 'среда';
-   Days[5] := 'четверг';
-   Days[6] := 'пятница';
-   Days[7] := 'суббота';
-   Days[1] := 'воскресенье';
-   MM[0]:= 'января';
-   MM[1]:= 'февраля';
-   MM[2]:= 'марта';
-   MM[3]:= 'апреля';
-   MM[4]:= 'мая';
-   MM[5]:= 'июня';
-   MM[6]:= 'июля';
-   MM[7]:= 'августа';
-   MM[8]:= 'сентября';
-   MM[9]:= 'октября';
-   MM[10]:= 'ноября';
-   MM[11]:= 'декабря';
+   Days[2] := 'РїРѕРЅРµРґРµР»СЊРЅРёРє';
+   Days[3] := 'РІС‚РѕСЂРЅРёРє';
+   Days[4] := 'СЃСЂРµРґР°';
+   Days[5] := 'С‡РµС‚РІРµСЂРі';
+   Days[6] := 'РїСЏС‚РЅРёС†Р°';
+   Days[7] := 'СЃСѓР±Р±РѕС‚Р°';
+   Days[1] := 'РІРѕСЃРєСЂРµСЃРµРЅСЊРµ';
+   MM[0]:= 'СЏРЅРІР°СЂСЏ';
+   MM[1]:= 'С„РµРІСЂР°Р»СЏ';
+   MM[2]:= 'РјР°СЂС‚Р°';
+   MM[3]:= 'Р°РїСЂРµР»СЏ';
+   MM[4]:= 'РјР°СЏ';
+   MM[5]:= 'РёСЋРЅСЏ';
+   MM[6]:= 'РёСЋР»СЏ';
+   MM[7]:= 'Р°РІРіСѓСЃС‚Р°';
+   MM[8]:= 'СЃРµРЅС‚СЏР±СЂСЏ';
+   MM[9]:= 'РѕРєС‚СЏР±СЂСЏ';
+   MM[10]:= 'РЅРѕСЏР±СЂСЏ';
+   MM[11]:= 'РґРµРєР°Р±СЂСЏ';
   ini := TIniFile.Create(ExtractFilePath(Application.ExeName)+'DBConnect.ini');
   Connected         := ini.ReadBool ( 'DataBase', 'Connected', false );
   DB_File_Name      := ini.ReadString ( 'DataBase', 'DataBaseName', '' );
@@ -345,7 +345,7 @@ begin
     IBTransaction.Active := true;
     result := true;
   except
-    Application.MessageBox('Ошибка подлючения к базе данных.', 'Ошибка', MB_ICONERROR or MB_OK	);
+    Application.MessageBox('РћС€РёР±РєР° РїРѕРґР»СЋС‡РµРЅРёСЏ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С….', 'РћС€РёР±РєР°', MB_ICONERROR or MB_OK	);
   end;
 end;
 
@@ -354,15 +354,15 @@ var month : string;
     i : integer;
 begin
  IBQuery.RecNo := ValueIndex+1;
- lUser.Caption :=  'Диспетчера:     '+IBQuery.FieldByName('USR_LIST').AsString;
+ lUser.Caption :=  'Р”РёСЃРїРµС‚С‡РµСЂР°:     '+IBQuery.FieldByName('USR_LIST').AsString;
  if (IBQuery.FieldByName('SMN_DAY_NIGHT').AsInteger=1)  then
-     lDN.Caption := 'ночь'
-   else lDN.Caption := 'день' ;
- lCount.Caption := 'Количество заказов:      '+IBQuery.FieldByName('Cnt').AsString;
+     lDN.Caption := 'РЅРѕС‡СЊ'
+   else lDN.Caption := 'РґРµРЅСЊ' ;
+ lCount.Caption := 'РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ:      '+IBQuery.FieldByName('Cnt').AsString;
  month := IBQuery.FieldByName('SMN_DATE').AsString;
  i := StrToInt (month[4]+month[5]);
  month := month[1]+month[2]+'  '+MM[i-1]+'  '+month[7]+month[8]+month[9]+month[10];
- lDate.Caption := 'Дата:       '+ month+ '  ' + Days[DayOfWeek(IBQuery.FieldByName('SMN_DATE').AsDateTime)];
+ lDate.Caption := 'Р”Р°С‚Р°:       '+ month+ '  ' + Days[DayOfWeek(IBQuery.FieldByName('SMN_DATE').AsDateTime)];
 end;
 
 procedure TfStatistic.Series4Click(Sender: TChartSeries;  ValueIndex: Integer; Button: TMouseButton; Shift: TShiftState; X,  Y: Integer);
@@ -370,15 +370,15 @@ var month : string;
     i : integer;
 begin
  IBQuery1.RecNo := ValueIndex+1;
- lUser.Caption :=  'Диспетчера:     '+IBQuery1.FieldByName('USR_LIST').AsString;
+ lUser.Caption :=  'Р”РёСЃРїРµС‚С‡РµСЂР°:     '+IBQuery1.FieldByName('USR_LIST').AsString;
  if (IBQuery1.FieldByName('SMN_DAY_NIGHT').AsInteger=1)  then
-     lDN.Caption := 'ночь'
-   else lDN.Caption := 'день' ;
- lCount.Caption := 'Количество заказов:      '+IBQuery1.FieldByName('Cnt').AsString;
+     lDN.Caption := 'РЅРѕС‡СЊ'
+   else lDN.Caption := 'РґРµРЅСЊ' ;
+ lCount.Caption := 'РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ:      '+IBQuery1.FieldByName('Cnt').AsString;
  month := IBQuery1.FieldByName('SMN_DATE').AsString;
  i := StrToInt (month[4]+month[5]);
  month := month[1]+month[2]+'  '+MM[i-1]+'  '+month[7]+month[8]+month[9]+month[10];
- lDate.Caption := 'Дата:       '+ month + '  '+ Days[DayOfWeek(IBQuery1.FieldByName('SMN_DATE').AsDateTime)];
+ lDate.Caption := 'Р”Р°С‚Р°:       '+ month + '  '+ Days[DayOfWeek(IBQuery1.FieldByName('SMN_DATE').AsDateTime)];
 end;
 
 procedure TfStatistic.Series6Click(Sender: TChartSeries;  ValueIndex: Integer; Button: TMouseButton; Shift: TShiftState; X,  Y: Integer);
@@ -386,15 +386,15 @@ var month : string;
     i : integer;
 begin
  IBQuery2.RecNo := ValueIndex+1;
- lUser.Caption :=  'Диспетчера:     '+IBQuery2.FieldByName('USR_LIST').AsString;
+ lUser.Caption :=  'Р”РёСЃРїРµС‚С‡РµСЂР°:     '+IBQuery2.FieldByName('USR_LIST').AsString;
  if (IBQuery2.FieldByName('SMN_DAY_NIGHT').AsInteger=1)  then
-     lDN.Caption := 'ночь'
-   else lDN.Caption := 'день' ;
- lCount.Caption := 'Количество заказов:      '+IBQuery2.FieldByName('Cnt').AsString;
+     lDN.Caption := 'РЅРѕС‡СЊ'
+   else lDN.Caption := 'РґРµРЅСЊ' ;
+ lCount.Caption := 'РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ:      '+IBQuery2.FieldByName('Cnt').AsString;
  month := IBQuery2.FieldByName('SMN_DATE').AsString;
  i := StrToInt (month[4]+month[5]);
  month := month[1]+month[2]+'  '+MM[i-1]+'  '+month[7]+month[8]+month[9]+month[10];
- lDate.Caption := 'Дата:       '+ month + '  '+Days[DayOfWeek(IBQuery2.FieldByName('SMN_DATE').AsDateTime)];
+ lDate.Caption := 'Р”Р°С‚Р°:       '+ month + '  '+Days[DayOfWeek(IBQuery2.FieldByName('SMN_DATE').AsDateTime)];
  end;
 
 end.

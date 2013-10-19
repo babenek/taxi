@@ -11,10 +11,10 @@ document.write("<a href='http://banner.kiev.ua/cgi-bin/bg.cgi?" +
 user + "&amp;"+ pid + "&amp;" + page + "' target=_top>");
 document.write("<img border=0 src='http://banner.kiev.ua/" +
 "cgi-bin/bi.cgi?i" + user + "&amp;" + pid + "&amp;" + page +
-"' width=468 height=60 alt='Автобаннерная Сеть'></a>");
+"' width=468 height=60 alt='РђРІС‚РѕР±Р°РЅРЅРµСЂРЅР°СЏ РЎРµС‚СЊ'></a>");
 document.write("</iframe>");
 //-->
 </script><br>
-<small><a href=http://banner.vodila.net/ target=_top>Автобаннерная Сеть</a></small>
+<small><a href=http://banner.vodila.net/ target=_top>РђРІС‚РѕР±Р°РЅРЅРµСЂРЅР°СЏ РЎРµС‚СЊ</a></small>
 </center>
 <!-- Auto Banner Network 468x60 END -->
