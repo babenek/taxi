@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2006.08.09 21:09:17.430.bdsproj,C:\DOCUMENTS\Borland Studio Projects\Project2.bdsproj=C:\babene\_programs\_SAMARA\samara\samara.bdsproj</Transaction>
+    <Transaction>2006.08.22 01:37:20.792.cpp,C:\babene\_programs\_taxi\samara\Unit1.cpp=C:\babene\_programs\_taxi\samara\UnitData.cpp</Transaction>
+    <Transaction>2006.08.22 01:37:20.792.h,C:\babene\_programs\_taxi\samara\Unit1.h=C:\babene\_programs\_taxi\samara\UnitData.h</Transaction>
+    <Transaction>2006.08.22 01:37:20.792.dfm,C:\babene\_programs\_taxi\samara\Unit1.dfm=C:\babene\_programs\_taxi\samara\UnitData.dfm</Transaction>
+    <Transaction>2007.12.03 08:03:51.437.cpp,C:\samara\smena\UnitClients.cpp=</Transaction>
+    <Transaction>2007.12.03 08:03:51.437.dfm,C:\samara\smena\UnitClients.dfm=</Transaction>
+    <Transaction>2007.12.03 08:03:55.484.cpp,C:\samara\smena\UnitOrder.cpp=</Transaction>
+    <Transaction>2007.12.03 08:03:55.484.dfm,C:\samara\smena\UnitOrder.dfm=</Transaction>
+    <Transaction>2007.12.03 08:09:38.625.cpp,C:\samara\smena\UnitMain.cpp=</Transaction>
+    <Transaction>2007.12.03 08:09:38.625.dfm,C:\samara\smena\UnitMain.dfm=</Transaction>
+    <Transaction>2007.12.03 08:10:06.218.cpp,C:\samara\smena\UnitPasswrd.cpp=C:\samara\smena\UnitMain.cpp</Transaction>
+    <Transaction>2007.12.03 08:10:06.218.h,C:\samara\smena\UnitPasswrd.h=C:\samara\smena\UnitMain.h</Transaction>
+    <Transaction>2007.12.03 08:10:06.218.dfm,C:\samara\smena\UnitPasswrd.dfm=C:\samara\smena\UnitMain.dfm</Transaction>
+    <Transaction>2007.12.03 08:11:29.625.bdsproj,C:\samara\smena\samara.bdsproj=C:\samara\smena\smena.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>
