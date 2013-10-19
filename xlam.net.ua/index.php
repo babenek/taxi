@@ -86,7 +86,7 @@
 	<meta name="robots" content="all">
 	<meta content="no-cache" http-equiv="pragma">
 	<meta content="text/html; charset=windows-1251" http-equiv="content-type">
-	<meta HTTP-EQUIV="REFRESH" content="15; URL=http://www.xlam.net.ua/">
+	<meta HTTP-EQUIV="REFRESH" content="60; URL=http://www.xlam.net.ua/">
 	<link rel="SHORTCUT ICON" href="favicon.ico">
 	<LINK rel="stylesheet" type="text/css" href="main.css">		
 	</head>
