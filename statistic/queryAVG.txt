@@ -1,0 +1,16 @@
+select
+    S1.SMN_DATE,
+    s1.SMN_DAY_NIGHT,
+    cast((select avg(s2.ord_count)
+    from smena s2
+    where  
+	s2.smn_date = s1.smn_date
+    group by s2.smn_date
+        )as integer) cnt
+
+from 
+    SMENA s1
+
+where
+        S1.SMN_DATE >= :D1
+    and S1.SMN_DATE <= :D2
